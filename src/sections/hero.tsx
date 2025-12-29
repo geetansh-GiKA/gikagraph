@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from "react";
 import Navbar from "@/components/navbar";
 import SlideEffect from "@/components/slide-effect";
 import TextBlurEffect from "@/components/text-blur-effect";

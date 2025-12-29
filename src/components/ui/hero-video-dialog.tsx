@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Play, XIcon } from "lucide-react"
+import { Play } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
 import Image from "next/image"
 

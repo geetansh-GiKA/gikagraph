@@ -1,6 +1,5 @@
 'use client'
 
-import FollowCursor from '@/components/followCursor'
 import { ReactLenis, useLenis } from 'lenis/react'
 import { LazyMotion, domAnimation } from "motion/react"
 import { usePathname } from 'next/navigation'
