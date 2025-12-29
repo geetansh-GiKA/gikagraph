@@ -23,17 +23,17 @@ export const blogPosts: BlogPost[] = [
     {
         id: 1,
         slug: 'ai-that-truly-understands-your-business',
-        title: 'Redefining How Business Thinks',
+        title: 'Redefining How Business Thinks With GiKA',
         excerpt: 'Explore why neural networks alone are not enough for intelligent decision-making, and how GiKA\'s reasoning-first AI goes beyond workflow automation to augment analyst thinking.',
         category: 'AI & Technology',
         categorySlug: 'ai-technology',
         author: {
-            name: 'Manoj Agarwal',
-            avatar: '/GikaAI.png',
+            name: 'Gika AI Team',
+            avatar: '/logo.png',
             role: 'Co-Founder, GiKA AI',
             bio: 'Manoj Agarwal is a co-founder at GiKA AI, leading the vision for reasoning-first AI systems that transform how businesses make decisions. Along with Prabhath Chellingi, Sayantan Kanjilal, and Aadey Shah, he is building the next generation of cognitive AI for enterprise.'
         },
-        publishedAt: '2025-12-04',
+        publishedAt: '2025-07-07',
         readTime: 12,
         coverImage: '/blog/blog.png',
         featured: false,
@@ -180,11 +180,11 @@ It's not about doing things faster. It's about ensuring the right decisions are 
         categorySlug: 'ai-technology',
         author: {
             name: 'GiKA AI Team',
-            avatar: '/GikaAI.png',
+            avatar: '/logo.png',
             role: 'GiKA AI',
             bio: 'The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.'
         },
-        publishedAt: '2025-12-04',
+        publishedAt: '2025-09-02',
         readTime: 6,
         coverImage: '/blog/blog.png',
         featured: false,
@@ -263,7 +263,7 @@ All grounded in how businesses think.
         categorySlug: 'platform-insights',
         author: {
             name: 'GiKA AI Team',
-            avatar: '/GikaAI.png',
+            avatar: '/logo.png',
             role: 'GiKA AI',
             bio: 'The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.'
         },
