@@ -11,7 +11,7 @@ import AnimatedHeroDashboard from "@/components/animated-hero-dashboard";
 import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
 
 const settings = {
-  headline: 'AI That Truly Understands Your Data',
+  headline: 'AI That Truly Understands Your Business',
   subheadline: 'World’s most intelligent decision agent — redefining the decision-making process for — investments, portfolio management, market & competition',
   mainCTA: {
     content: 'Explore Platform',
