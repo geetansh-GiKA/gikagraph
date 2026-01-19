@@ -12,7 +12,7 @@ import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
 
 const settings = {
   headline: 'AI That Truly Understands Your Data',
-  subheadline: 'An intelligent decision-making agent designed to support data-driven insights across multiple domains.',
+  subheadline: 'An intelligent decision-making agent designed to support data-driven insights.',
   mainCTA: {
     content: 'Explore Platform',
     href: 'https://playground.gikagraph.ai'
