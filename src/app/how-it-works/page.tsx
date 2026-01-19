@@ -82,7 +82,7 @@ export default function HowItWorksPage() {
                 isPending && "opacity-70"
               )}
             >
-              Competitive Analysis
+              Financial Data Analysis
             </button>
             
             {/* CUSTOMER SUPPORT */}
@@ -110,7 +110,7 @@ export default function HowItWorksPage() {
                 isPending && "opacity-70"
               )}
             >
-              Financial Data Analysis
+              Competitive Analysis
             </button>
           </div>
           {/* Selected Graph */}
