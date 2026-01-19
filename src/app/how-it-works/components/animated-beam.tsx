@@ -4,7 +4,7 @@ import React, { forwardRef, useRef } from "react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { AnimatedBeam } from "@/components/ui/animated-beam"
-
+import { IconBrandDatabricks } from "@tabler/icons-react"
 const Circle = forwardRef<
   HTMLDivElement,
   { className?: string; children?: React.ReactNode }
@@ -61,7 +61,7 @@ export function AnimatedBeamDemo() {
         </div>
         <div className="flex flex-row items-center justify-between">
           <Circle ref={div3Ref}>
-            <Icons.salesforce />
+            <IconBrandDatabricks />
           </Circle>
           <Circle ref={div7Ref}>
             <Icons.database />

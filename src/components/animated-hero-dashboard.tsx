@@ -166,7 +166,7 @@ const AnimatedHeroDashboard: React.FC = () => {
   const chatButtonRef = useRef<HTMLButtonElement>(null);
 
   const fullQuestion = "Show impact trend analysis.";
-  const fullResponse = "Impact grows from ~0.8M to 14.5M, tracking above the 12.5M projection. Reinvest 25-30% surplus into highest-yield tracks.";
+  const fullResponse = "Impact grows from ~0.8M to 14.5M, tracking above the 12.5M projection. Allocate additional resources to the highest-impact initiatives.";
 
 
   useEffect(() => {

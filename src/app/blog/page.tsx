@@ -39,7 +39,7 @@ export default function BlogPage() {
                     </SlideEffect>
 
                     <SlideEffect className="text-sm lg:text-base px-6 sm:px-10 md:px-0 md:max-w-3/4 mx-auto">
-                        Discover the latest insights on AI, entity intelligence, and how businesses are transforming data into actionable decisions.
+                        Discover the latest insights on AI, entity intelligence, and how data is transforming data into actionable decisions.
                     </SlideEffect>
 
                     {/* Search Bar */}

@@ -411,7 +411,7 @@ const stageFeatures: Record<number, { icon: typeof Database; text: string }[]> =
     { icon: TrendingUp, text: "Real-time Updates" },
   ],
   3: [
-    { icon: Eye, text: "LP View: Portfolio & Performance" },
+    { icon: Eye, text: "Executive View: KPIs & Outcomes" },
     { icon: Users, text: "Analyst View: Full Operational Data" },
     { icon: Lock, text: "Prevents Data Leakage" },
     { icon: Shield, text: "SOC2 Compliant" },

@@ -1,6 +1,6 @@
 export const settings = {
   title: 'Pricing',
-  description: 'World’s most intelligent decision agent for investments, portfolio management, market & competition, and customer risk. Engineered for enterprise-scale performance with purpose-driven AI tailored for your business.',
+  description: 'World’s most intelligent decision agent for complex data driven decisions across operations, strategy, market & competition, and customer insights. Engineered for enterprise-scale performance with purpose-driven AI tailored for your organization.',
   plan_1: {
     planName: 'Free Trial',
     price: 0,

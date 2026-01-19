@@ -11,8 +11,8 @@ import AnimatedHeroDashboard from "@/components/animated-hero-dashboard";
 import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
 
 const settings = {
-  headline: 'AI That Truly Understands Your Business',
-  subheadline: 'World’s most intelligent decision agent — redefining the decision-making process for — investments, portfolio management, market & competition',
+  headline: 'AI That Truly Understands Your Data',
+  subheadline: 'An intelligent decision-making agent designed to support data-driven insights across multiple domains.',
   mainCTA: {
     content: 'Explore Platform',
     href: 'https://playground.gikagraph.ai'

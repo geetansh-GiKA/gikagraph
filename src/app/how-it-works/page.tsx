@@ -37,7 +37,7 @@ export default function HowItWorksPage() {
         <div className="space-y-5 mx-auto text-center">
           <SlideEffect>
             <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-2">
-              For private equity, wealth &amp; asset managers
+              For data‑driven teams across industries
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/60 -mt-4">
               How GiKA plugs into your existing stack
@@ -45,7 +45,7 @@ export default function HowItWorksPage() {
           </SlideEffect>
 
           <SlideEffect className="max-w-2xl mx-auto text-sm md:text-base text-muted-foreground">
-            We connect to your fund data, normalize it into a knowledge graph,
+            We connect to your business data, normalize it into a knowledge graph,
             tune an LLM to your workflows, and expose everything through a
             single query interface your team can actually use.
           </SlideEffect>
@@ -61,17 +61,17 @@ export default function HowItWorksPage() {
       <div className="mt-2 space-y-6">
         <SlideEffect className="text-center space-y-2">
           <h3 className="text-base md:text-lg font-medium">
-            See how it looks in practice
+            See how it looks in different use cases
           </h3>
           <p className="text-xs md:text-sm text-muted-foreground">
-            Switch between private equity, asset and wealth management views.
+            Switch between different decision-intelligence scenarios.
           </p>
         </SlideEffect>
 
         <div className="space-y-4">
           {/* Toggle Buttons */}
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-4">
-            {/* PRIVATE EQUITY */}
+            {/* STRATEGIC PLANNING */}
             <button
               onClick={() => handleTabChange("private_equity")}
               className={cn(
@@ -82,10 +82,10 @@ export default function HowItWorksPage() {
                 isPending && "opacity-70"
               )}
             >
-              Private Equity
+              Strategic Planning
             </button>
             
-            {/* WEALTH MANAGEMENT */}
+            {/* CUSTOMER OPERATIONS */}
             <button
               onClick={() => handleTabChange("wealth")}
               className={cn(
@@ -96,10 +96,10 @@ export default function HowItWorksPage() {
                 isPending && "opacity-70"
               )}
             >
-              Wealth Management
+              Customer Operations
             </button>
             
-            {/* ASSET MANAGEMENT */}
+            {/* RISK & PERFORMANCE */}
             <button
               onClick={() => handleTabChange("asset")}
               className={cn(
@@ -110,7 +110,7 @@ export default function HowItWorksPage() {
                 isPending && "opacity-70"
               )}
             >
-              Asset Management
+              Risk & Performance
             </button>
           </div>
           {/* Selected Graph */}
@@ -123,8 +123,8 @@ export default function HowItWorksPage() {
                 <div className="animate-in fade-in duration-200">
                   <PrivateEquityDemo />
                   <p className="mt-3 text-xs md:text-sm text-muted-foreground text-center">
-                    Example: deal teams and IC exploring exposures, performance and scenarios across
-                    funds.
+                    Example: leaders exploring exposures, performance and scenarios across
+                    key initiatives.
                   </p>
                 </div>
               )}
@@ -133,8 +133,7 @@ export default function HowItWorksPage() {
                 <div className="animate-in fade-in duration-200">
                   <WealthManagement />
                   <p className="mt-3 text-xs md:text-sm text-muted-foreground text-center">
-                    Example: advisors answering allocation and exposure questions across client
-                    portfolios in real time.
+                    Example: teams answering complex questions about customers, journeys, and outcomes in real time.
                   </p>
                 </div>
               )}
@@ -143,7 +142,7 @@ export default function HowItWorksPage() {
                 <div className="animate-in fade-in duration-200">
                   <AssetManagementDemo />
                   <p className="mt-3 text-xs md:text-sm text-muted-foreground text-center">
-                    Example: PMs exploring positions, risk, and scenarios across funds and mandates.
+                    Example: operators exploring performance, risk, and scenarios across products, regions, or business units.
                   </p>
                 </div>
               )}
