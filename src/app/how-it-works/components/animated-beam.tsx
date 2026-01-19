@@ -56,12 +56,12 @@ export function AnimatedBeamDemo() {
             <Icons.Gika />
           </Circle>
           <Circle ref={div6Ref}>
-            <Icons.documents />
+            <IconBrandDatabricks />
           </Circle>
         </div>
         <div className="flex flex-row items-center justify-between">
           <Circle ref={div3Ref}>
-            <IconBrandDatabricks />
+            <Icons.salesforce />
           </Circle>
           <Circle ref={div7Ref}>
             <Icons.database />
