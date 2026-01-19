@@ -13,7 +13,7 @@ const settings = {
   faqs: [
     {
       question: 'What is GiKA AI?',
-      answer: 'GiKA AI is an intelligent decision agent that understands your business data, unifies it into a living knowledge graph, and turns it into trustworthy decisions and insights across operations, strategy, risk, and customer experience.',
+      answer: 'GiKA AI is an intelligent decision agent designed for faster decisions, better traceability, market analysis, and competitive intelligence risk, powered by specialized AI models tailored for enterprise-scale performance.',
     },
     {
       question: 'How can GiKA AI benefit my business?',

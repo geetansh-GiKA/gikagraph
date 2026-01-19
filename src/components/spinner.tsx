@@ -2,7 +2,6 @@
 
 import React from 'react'
 import * as motion from "motion/react-m"
-import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import FadeEffect from './fade-effect'
 
@@ -15,7 +14,7 @@ interface SpinnerProps {
 const AvatarsCircle = ({ avatars }: { avatars: string[] }) => {
   const radius = 180 * 1.6; // Adjust this value to change circle size
   const center = radius;
-  const MotionImage = motion.create(Image);
+  const MotionAvatar = motion.div;
 
   return (
     <motion.div
@@ -33,7 +32,7 @@ const AvatarsCircle = ({ avatars }: { avatars: string[] }) => {
       {/* Circle container */}
       <div className="absolute w-full h-full rounded-full border-2 border-border"></div>
 
-      {/* Dynamic boxes */}
+      {/* Dynamic avatar bubbles (now text-based, not images) */}
       {avatars.map((avatar, index) => {
         const angle = (index * 360) / avatars.length;
         const radians = (angle * Math.PI) / 180;
@@ -43,7 +42,8 @@ const AvatarsCircle = ({ avatars }: { avatars: string[] }) => {
         const y = radius * Math.sin(radians);
 
         return (
-          <MotionImage
+          <MotionAvatar
+            key={index}
             initial={{
               transform: 'translate(-50%, -50%) rotate(0deg)',
             }}
@@ -55,19 +55,17 @@ const AvatarsCircle = ({ avatars }: { avatars: string[] }) => {
                 ease: 'linear',
               }
             }}
-            alt='Avatar'
-            src={avatar}
-            width={200}
-            height={200}
-            key={index}
-            className="absolute w-16 h-16 flex items-center justify-center text-white shadow-sm rounded-full"
+            className="absolute min-w-24 px-3 py-2 flex items-center justify-center text-xs text-white bg-primary/80 shadow-sm rounded-md"
             style={{
               left: `${center + x}px`,
               top: `${center + y}px`,
               transform: 'translate(-50%, -50%)',
+              whiteSpace: 'nowrap',
             }}
-          />
-        );
+          >
+            {avatar}
+          </MotionAvatar>
+        )
       })}
     </motion.div>
   );

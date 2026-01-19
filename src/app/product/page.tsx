@@ -83,25 +83,6 @@ export default function DataFlowPage() {
         </div>
       </SlideEffect>
 
-      {/* Outcome / CTA section */}
-      <section className="pt-4 sm:pt-8">
-        <SlideEffect className="rounded-2xl border bg-gradient-to-br from-background via-background to-muted/40 p-5 md:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="space-y-2 max-w-xl">
-            <h3 className="text-base md:text-lg font-medium">
-              What this architecture enables
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Your team stops hunting across tools and starts asking questions like:
-            </p>
-            <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
-              <li>• &quot;Which LPs are most exposed to this sector?&quot;</li>
-              <li>• &quot;Where did we discuss this company in the last quarter?&quot;</li>
-              <li>• &quot;What changed since the last IC memo?&quot;</li>
-            </ul>
-          </div>
-        </SlideEffect>
-      </section>
-
       <div className="pt-8 sm:pt-10">
         <Footer />
       </div>

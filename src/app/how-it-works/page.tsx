@@ -71,7 +71,7 @@ export default function HowItWorksPage() {
         <div className="space-y-4">
           {/* Toggle Buttons */}
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-4">
-            {/* STRATEGIC PLANNING */}
+            {/* COMPETITIVE ANALYSIS */}
             <button
               onClick={() => handleTabChange("private_equity")}
               className={cn(
@@ -82,10 +82,10 @@ export default function HowItWorksPage() {
                 isPending && "opacity-70"
               )}
             >
-              Strategic Planning
+              Competitive Analysis
             </button>
             
-            {/* CUSTOMER OPERATIONS */}
+            {/* CUSTOMER SUPPORT */}
             <button
               onClick={() => handleTabChange("wealth")}
               className={cn(
@@ -96,10 +96,10 @@ export default function HowItWorksPage() {
                 isPending && "opacity-70"
               )}
             >
-              Customer Operations
+              Customer Support
             </button>
             
-            {/* RISK & PERFORMANCE */}
+            {/* FINANCIAL DATA ANALYSIS */}
             <button
               onClick={() => handleTabChange("asset")}
               className={cn(
@@ -110,7 +110,7 @@ export default function HowItWorksPage() {
                 isPending && "opacity-70"
               )}
             >
-              Risk & Performance
+              Financial Data Analysis
             </button>
           </div>
           {/* Selected Graph */}
@@ -243,25 +243,6 @@ export default function HowItWorksPage() {
         </SlideEffect>
       </section>
 
-      {/* Outcome / CTA section */}
-      <section className="pt-4 sm:pt-8">
-        <SlideEffect className="rounded-2xl border bg-gradient-to-br from-background via-background to-muted/40 p-5 md:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="space-y-2 max-w-xl">
-            <h3 className="text-base md:text-lg font-medium">
-              What this unlocks
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Your team stops hunting across tools and starts asking questions
-              like:
-            </p>
-            <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
-              <li>• “Which LPs are most exposed to this sector?”</li>
-              <li>• “Where did we discuss this company in the last quarter?”</li>
-              <li>• “What changed since the last IC memo?”</li>
-            </ul>
-          </div>
-        </SlideEffect>
-      </section>
 
       <div className="pt-8 sm:pt-10">
         <Footer />

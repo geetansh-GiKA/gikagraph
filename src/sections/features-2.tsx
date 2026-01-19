@@ -30,13 +30,11 @@ const settings = {
       'Insight Generation'
     ],
     avatars: [
-      'https://avatar.iran.liara.run/public/38',
-      'https://avatar.iran.liara.run/public/40',
-      'https://avatar.iran.liara.run/public/22',
-      'https://avatar.iran.liara.run/public/6',
-      'https://avatar.iran.liara.run/public/12',
-      'https://avatar.iran.liara.run/public/37',
-      'https://avatar.iran.liara.run/public/35'
+      'Entity Relationship',
+      'Knowledge Graph',
+      'Relationship Mapping',
+      'Output Layer',
+      'Insight Generation'
     ]
   },
   card_2: {
