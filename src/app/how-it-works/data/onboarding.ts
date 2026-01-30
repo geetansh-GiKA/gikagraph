@@ -42,7 +42,7 @@ export const onboardingSteps = [
       { text: "Click 'Add Document Repo'", done: true },
       { text: "Enter Name and Description", done: true },
       { text: "Repository created", done: true },
-      { text: "Open repo", done: false },
+      { text: "Open repos", done: false },
       { text: "View all uploaded documents", done: false },
     ]
   },
