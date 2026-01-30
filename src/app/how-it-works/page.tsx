@@ -10,9 +10,9 @@ import { AnimatedBeamDemo } from "./components/animated-beam"
 import { layers } from "./data/layers"
 import dynamic from "next/dynamic"
 
-const PrivateEquityDemo = dynamic( () => import("./components/private-equity"), { ssr: false })
-const AssetManagementDemo = dynamic( () => import("./components/asset-management"), { ssr: false })
-const WealthManagement = dynamic( () => import("./components/wealth-management"), { ssr: false })
+const PrivateEquityDemo = dynamic(() => import("./components/private-equity"), { ssr: false })
+const AssetManagementDemo = dynamic(() => import("./components/asset-management"), { ssr: false })
+const WealthManagement = dynamic(() => import("./components/wealth-management"), { ssr: false })
 
 export default function HowItWorksPage() {
   const [activeTab, setActiveTab] = useState<"private_equity" | "asset" | "wealth">(
@@ -84,7 +84,7 @@ export default function HowItWorksPage() {
             >
               Financial Data Analysis
             </button>
-            
+
             {/* CUSTOMER SUPPORT */}
             <button
               onClick={() => handleTabChange("wealth")}
@@ -98,7 +98,7 @@ export default function HowItWorksPage() {
             >
               Customer Support
             </button>
-            
+
             {/* FINANCIAL DATA ANALYSIS */}
             <button
               onClick={() => handleTabChange("asset")}
@@ -115,7 +115,7 @@ export default function HowItWorksPage() {
           </div>
           {/* Selected Graph */}
           <div className="mt-4">
-            <div 
+            <div
               className="transition-all duration-200 ease-in-out"
               style={{ minHeight: '420px' }}
             >
