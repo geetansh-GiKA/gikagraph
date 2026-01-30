@@ -231,7 +231,7 @@ export default function HowItWorksPage() {
               <div className="space-y-2 p-4 rounded-xl bg-background/50 border">
                 <div className="text-2xl">2️⃣</div>
                 <h5 className="font-medium text-sm">Setup Data</h5>
-                <p className="text-xs text-muted-foreground">Create Knowledge Bases → Create workgroups → Assign users & repos</p>
+                <p className="text-xs text-muted-foreground">Connect Knowledge Bases → Create workgroups → Assign users & repos</p>
               </div>
               <div className="space-y-2 p-4 rounded-xl bg-background/50 border">
                 <div className="text-2xl">3️⃣</div>
