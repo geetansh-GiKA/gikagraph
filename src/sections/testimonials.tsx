@@ -20,13 +20,6 @@ const settings = {
       designation: "CEO, Drezily Inc.",
       src: "/customers/Divya.png",
     },
-    {
-      quote:
-        "GikaGraph's entity matching capabilities have significantly improved our customer support. By linking customer queries to accurate product information, we've reduced response times and enhanced customer satisfaction.",
-      name: "Shanti Mohan",
-      designation: "Founder, LetsVenture",
-      src: "/customers/Shanti.png",
-    }
   ]
 }
 
