@@ -7,11 +7,12 @@ import Spinner from "@/components/spinner"
 import TextRevealEffect from "@/components/text-reveal-effect"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { CheckCircle2, Zap, BarChart3, ShieldCheck, Globe2, Cpu } from "lucide-react"
 
 const settings = {
   badge: {
     number: 2,
-    text: 'Engineering Intelligence',
+    text: 'Data Intelligence',
   },
   title: 'Where Advanced Engineering Meets Human Insight',
   description: 'GiKA combines specialized small language models with dynamic entity graphs to create a powerful data layer.',
@@ -81,16 +82,42 @@ export default function Features4() {
         {/* card 2 */}
         <SlideEffect direction="right" className="col-span-1 h-full" isSpring={false}>
           <Card>
+            <div className="w-10 h-10 rounded-xl bg-sky-500/15 flex items-center justify-center shrink-0">
+              <BarChart3 className="w-5 h-5 text-sky-400" />
+            </div>
             <h3 className="text-xl md:text-title text-foreground font-medium">{settings.card_2.title}</h3>
-            <p>{settings.card_2.content}</p>
+            <p className="text-muted-foreground">{settings.card_2.content}</p>
+            <div className="w-full mt-auto pt-4 grid grid-cols-2 gap-2">
+              {[
+                { icon: CheckCircle2, label: 'Entity deduplication', color: 'text-sky-400' },
+                { icon: Zap, label: 'Real-time enrichment', color: 'text-sky-400' },
+                { icon: ShieldCheck, label: 'Data validation', color: 'text-sky-400' },
+                { icon: Globe2, label: 'Cross-source linking', color: 'text-sky-400' },
+              ].map(({ icon: Icon, label, color }) => (
+                <div key={label} className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <Icon className={`w-3.5 h-3.5 shrink-0 ${color}`} />
+                  <span>{label}</span>
+                </div>
+              ))}
+            </div>
           </Card>
         </SlideEffect>
 
         {/* card 3 */}
         <SlideEffect direction="left" delay={0.2} className="col-span-1 h-full" isSpring={false}>
           <Card>
+            <div className="w-10 h-10 rounded-xl bg-violet-500/15 flex items-center justify-center shrink-0">
+              <Cpu className="w-5 h-5 text-violet-400" />
+            </div>
             <h3 className="text-xl md:text-title text-foreground font-medium">{settings.card_3.title}</h3>
-            <p>{settings.card_3.content}</p>
+            <p className="text-muted-foreground">{settings.card_3.content}</p>
+            <div className="w-full mt-auto pt-4 flex flex-wrap gap-2">
+              {['Domain Fine-Tuned', 'Low Latency', 'Grounded Outputs', 'Context-Aware', 'Business Logic'].map((tag) => (
+                <span key={tag} className="text-xs px-2.5 py-1 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20">
+                  {tag}
+                </span>
+              ))}
+            </div>
           </Card>
         </SlideEffect>
 

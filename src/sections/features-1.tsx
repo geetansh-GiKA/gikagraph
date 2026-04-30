@@ -4,6 +4,7 @@ import Badge from "@/components/badge"
 import FlipCard from "@/components/flip-card"
 import Carousel from "@/components/carousel"
 import SlideEffect from "@/components/slide-effect"
+import { Brain, Database, Layers, Target } from "lucide-react"
 
 const settings = {
   badge: {
@@ -53,17 +54,14 @@ const settings = {
   },
   card_4: {
     title: 'Built for Business Impact',
-    content: 'Generic AI solutions fail to deliver ROI. They lack domain expertise, require extensive customization, and produce insights that don\'t align with business objectives.',
+    content: 'Generic AI solutions are too lightweight for enterprise complexity — the volume of documents, depth of cross-referencing, and RFP-grade precision they demand. They lack domain expertise and produce insights misaligned with business objectives.',
     solutionTitle: 'Measurable Outcomes',
     solutionPoints: [
       '15-50x ROI',
-      'Automated workflows',
-      'Intelligent alerts',
-      'AI recommendations',
+      'Built for purpose on RFPs & complex workflows',
+      'Handles enterprise-scale document volumes',
+      'Intelligent alerts & AI recommendations',
     ],
-    carousel_images: [
-      
-    ]
   },
 }
 
@@ -93,6 +91,10 @@ export default function Features1() {
             solutionTitle={settings.card_1.solutionTitle}
             solutionPoints={settings.card_1.solutionPoints}
             carousel={<Carousel images={settings.card_1.carousel_images} />}
+            icon={<Brain className="w-5 h-5" />}
+            accentColor="bg-violet-500"
+            accentTextColor="text-violet-400"
+            accentBorderColor="border-violet-500/30"
           />
         </SlideEffect>
 
@@ -103,6 +105,10 @@ export default function Features1() {
             frontContent={settings.card_2.content}
             solutionTitle={settings.card_2.solutionTitle}
             solutionPoints={settings.card_2.solutionPoints}
+            icon={<Database className="w-5 h-5" />}
+            accentColor="bg-sky-500"
+            accentTextColor="text-sky-400"
+            accentBorderColor="border-sky-500/30"
           />
         </SlideEffect>
 
@@ -113,6 +119,10 @@ export default function Features1() {
             frontContent={settings.card_3.content}
             solutionTitle={settings.card_3.solutionTitle}
             solutionPoints={settings.card_3.solutionPoints}
+            icon={<Layers className="w-5 h-5" />}
+            accentColor="bg-amber-500"
+            accentTextColor="text-amber-400"
+            accentBorderColor="border-amber-500/30"
           />
         </SlideEffect>
 
@@ -123,7 +133,10 @@ export default function Features1() {
             frontContent={settings.card_4.content}
             solutionTitle={settings.card_4.solutionTitle}
             solutionPoints={settings.card_4.solutionPoints}
-            // carousel={<Carousel images={settings.card_4.carousel_images} />}
+            icon={<Target className="w-5 h-5" />}
+            accentColor="bg-emerald-500"
+            accentTextColor="text-emerald-400"
+            accentBorderColor="border-emerald-500/30"
           />
         </SlideEffect>
       </div>

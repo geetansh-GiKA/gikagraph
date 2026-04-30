@@ -47,10 +47,11 @@ export function Navbar() {
   }
 
   return (
-    <nav className="w-full h-fit py-4 flex items-center justify-between">
+    <nav className="w-full h-fit py-3 px-2 flex items-center justify-between sticky top-3 z-50  backdrop-blur-md shadow-sm shadow-black/5">
       {/* Logo */}
       <Link href='/' title="Home" id="Logo" className="flex items-center gap-2">
-        <Image src="/logo.png" alt="GikaGraph Logo" width={103} height={24} priority />
+        <Image src="/logo.png" alt="GikaGraph Logo" width={62} height={14} priority />
+        <span className="font-semibold text-base text-foreground hidden sm:inline">GiKA AI</span>
       </Link>
 
       {/* desktop menu */}
