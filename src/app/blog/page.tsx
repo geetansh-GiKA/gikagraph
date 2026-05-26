@@ -7,14 +7,13 @@ import SlideEffect from '@/components/slide-effect'
 import { Button } from '@/components/ui/button'
 import Navbar from '@/components/navbar'
 import Footer from '@/sections/footer'
-import { Search } from 'lucide-react'
-import { ChevronDown } from 'lucide-react'
+import { Search, ArrowRight, Clock, BookOpen } from 'lucide-react'
 import { blogPosts, categories } from '@/app/blog/data/blogData'
 
 export default function BlogPage() {
     const [selectedCategory, setSelectedCategory] = useState('all')
     const [searchQuery, setSearchQuery] = useState('')
-    
+
     const regularPosts = blogPosts.filter(post => !post.featured)
 
     const filteredPosts = regularPosts.filter(post => {
@@ -26,142 +25,135 @@ export default function BlogPage() {
 
     return (
         <>
-            <div className="px-4 xl:px-0 max-w-5xl mx-auto space-y-12 sm:space-y-16 md:space-y-20">
+            <div className="px-4 xl:px-0 max-w-5xl mx-auto space-y-12 sm:space-y-16">
                 <Navbar />
 
                 {/* Hero Section */}
-                <section className="space-y-6 md:space-y-8 text-center -mt-16">
+                <section className="relative space-y-6 text-center -mt-10">
+                    <div className="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 w-[500px] h-[250px] rounded-full bg-primary/8 blur-[90px] -z-10" />
 
                     <SlideEffect>
-                        <h1 className="text-2xl md:text-4xl lg:text-header capitalize text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/60 font-medium leading-normal">
-                            BLOGS
-                        </h1>
-                    </SlideEffect>
-
-                    <SlideEffect className="text-sm lg:text-base px-6 sm:px-10 md:px-0 md:max-w-3/4 mx-auto">
-                        Discover the latest insights on AI, entity intelligence, and how data is transforming data into actionable decisions.
-                    </SlideEffect>
-
-                    {/* Search Bar */}
-                    <SlideEffect className="max-w-5xl mx-auto">
-                        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
-
-                            {/* Search Bar - LEFT */}
-                            <div className="relative w-full md:w-1/2">
-                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground/40" size={20} />
-
-                                <input
-                                    type="text"
-                                    placeholder="Search articles..."
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="w-full px-5 py-2 pl-12 rounded-full bg-muted border border-border text-sm 
-        font-medium text-foreground placeholder:text-foreground/40 
-        hover:bg-muted/80 transition-all focus:outline-none focus:ring-2 focus:ring-primary/20"
-                                />
-                            </div>
-
-                            {/* Category Filter DROPDOWN - RIGHT */}
-                            <div className="relative md:w-1/2 flex justify-end w-full">
-                                <div className="group relative">
-
-                                    {/* Trigger Button (Same style as search bar + filters) */}
-                                    <button className="px-5 py-2 rounded-full bg-muted border border-border text-sm font-medium 
-          hover:bg-muted/80 transition-all flex items-center gap-2">
-                                        Filters
-                                        <ChevronDown className="h-4 w-4" />
-                                    </button>
-
-                                    {/* Dropdown */}
-                                    <div className="absolute right-0 mt-2 w-44 bg-background border border-border rounded-xl shadow-lg 
-            opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-            transition-all duration-200 py-2 z-20">
-
-                                        {categories.map(category => (
-                                            <button
-                                                key={category.slug}
-                                                onClick={() => setSelectedCategory(category.slug)}
-                                                className={`w-full text-left px-4 py-2 text-sm hover:bg-muted transition-all ${selectedCategory === category.slug
-                                                        ? "bg-primary/20 text-primary font-semibold"
-                                                        : "text-foreground"
-                                                    }`}
-                                            >
-                                                {category.name}
-                                            </button>
-                                        ))}
-
-                                    </div>
-
-                                </div>
-                            </div>
-
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-[11px] uppercase tracking-[0.18em] text-primary font-medium">
+                            <BookOpen className="w-3 h-3" />
+                            Insights & Articles
                         </div>
                     </SlideEffect>
 
+                    <SlideEffect>
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/60 leading-tight">
+                            The GiKA Blog
+                        </h1>
+                    </SlideEffect>
+
+                    <SlideEffect className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto leading-relaxed">
+                        Discover the latest insights on AI, entity intelligence, and how data transforms into actionable decisions.
+                    </SlideEffect>
+
+                    {/* Search + Category pills */}
+                    <SlideEffect className="space-y-4">
+                        {/* Search */}
+                        <div className="relative max-w-md mx-auto">
+                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                            <input
+                                type="text"
+                                placeholder="Search articles..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="w-full pl-11 pr-5 py-2.5 rounded-full bg-muted border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40 transition-all"
+                            />
+                        </div>
+
+                        {/* Category pills */}
+                        <div className="flex items-center justify-center flex-wrap gap-2">
+                            {categories.map(category => (
+                                <button
+                                    key={category.slug}
+                                    onClick={() => setSelectedCategory(category.slug)}
+                                    className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all border ${
+                                        selectedCategory === category.slug
+                                            ? 'bg-primary text-primary-foreground border-transparent shadow-md shadow-primary/20'
+                                            : 'bg-muted/50 text-muted-foreground border-border hover:bg-muted hover:text-foreground'
+                                    }`}
+                                >
+                                    {category.name}
+                                </button>
+                            ))}
+                        </div>
+                    </SlideEffect>
                 </section>
-
-                {/* Category Filters */}
-
 
                 {/* Blog Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredPosts.map((post, index) => (
                         <SlideEffect
                             key={post.id}
-                            direction={index % 2 === 0 ? 'right' : 'left'}
-                            duration={0.8 + index * 0.1}
+                            direction={index % 3 === 0 ? 'right' : index % 3 === 2 ? 'left' : 'top'}
+                            duration={0.7 + index * 0.1}
                             isSpring={false}
                         >
-                            <Link
-                                href={`/blog/${post.slug}`}
-                            >
-                                <div className="h-full rounded-2xl overflow-hidden bg-secondary group cursor-pointer hover:shadow-lg transition-shadow">
-                                    {/* Image */}
-                                    <div className="relative h-48 overflow-hidden">
+                            <div className="h-full rounded-2xl overflow-hidden border border-border/60 bg-card group hover:shadow-xl hover:shadow-black/10 hover:border-border transition-all duration-300 flex flex-col">
+                                {/* Image */}
+                                <Link href={`/blog/${post.slug}`} className="block shrink-0">
+                                    <div className="relative h-52 overflow-hidden">
                                         <Image
                                             src={post.coverImage}
                                             alt={post.title}
                                             fill
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 300px"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 340px"
                                             className="object-cover transition-transform duration-500 group-hover:scale-105"
                                         />
-                                        <div className="absolute top-4 left-4">
-                                            <span className="px-3 py-1 rounded-full bg-primary text-black text-xs font-medium">
+                                        {/* Gradient overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                                        <div className="absolute top-3 left-3">
+                                            <span className="px-2.5 py-1 rounded-full bg-primary/90 backdrop-blur-sm text-primary-foreground text-[10px] font-semibold tracking-wide">
                                                 {post.category}
                                             </span>
                                         </div>
-                                    </div>
-
-                                    {/* Content */}
-                                    <div className="p-6 flex flex-col gap-3">
-                                        <h3 className="text-lg font-medium text-foreground line-clamp-2 group-hover:text-primary transition-colors">
-                                            {post.title}
-                                        </h3>
-                                        <p className="text-sm text-foreground/70 line-clamp-3 flex-1">
-                                            {post.excerpt}
-                                        </p>
-
-                                        {/* Author & Meta */}
-                                        <div className="flex items-center gap-3 mt-2 pt-4 border-t border-border">
-                                            <Image
-                                                src={post.author.avatar}
-                                                alt={post.author.name}
-                                                width={32}
-                                                height={32}
-                                                className="rounded-full"
-                                            />
-                                            <div className="flex-1 min-w-0">
-                                                <p className="text-xs font-medium text-foreground truncate">{post.author.name}</p>
-                                                <div className="flex items-center gap-2 text-xs text-foreground/60">
-                                                    <span>{new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
-                                                    <span>•</span>
-                                                    <span>{post.readTime} min</span>
-                                                </div>
-                                            </div>
+                                        <div className="absolute bottom-3 right-3 flex items-center gap-1 text-[10px] text-white/80 bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded-full">
+                                            <Clock className="w-2.5 h-2.5" />
+                                            {post.readTime} min read
                                         </div>
                                     </div>
+                                </Link>
+
+                                {/* Content */}
+                                <div className="p-5 flex flex-col gap-3 flex-1">
+                                    <Link href={`/blog/${post.slug}`} className="block group/title">
+                                        <h3 className="text-base font-semibold text-foreground line-clamp-2 group-hover/title:text-primary transition-colors leading-snug">
+                                            {post.title}
+                                        </h3>
+                                    </Link>
+
+                                    <p className="text-xs text-muted-foreground line-clamp-3 flex-1 leading-relaxed">
+                                        {post.excerpt}
+                                    </p>
+
+                                    {/* Date + Read link */}
+                                    <div className="flex items-center justify-between pt-3 border-t border-border/60">
+                                        <p className="text-xs text-muted-foreground">
+                                            {new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                                        </p>
+                                        <Link
+                                            href={`/blog/${post.slug}`}
+                                            className="text-[10px] text-primary font-medium flex items-center gap-0.5 hover:gap-1.5 transition-all"
+                                        >
+                                            Read <ArrowRight className="w-3 h-3" />
+                                        </Link>
+                                    </div>
+
+                                    {/* CTA */}
+                                    {post.cta && (
+                                        <Link
+                                            href={post.cta.href}
+                                            onClick={(e) => e.stopPropagation()}
+                                            className="mt-0.5 inline-flex items-center justify-center gap-2 w-full px-4 py-2 rounded-xl bg-primary/10 hover:bg-primary/20 border border-primary/20 text-primary text-xs font-semibold transition-all"
+                                        >
+                                            {post.cta.label}
+                                            <ArrowRight className="w-3.5 h-3.5" />
+                                        </Link>
+                                    )}
                                 </div>
-                            </Link>
+                            </div>
                         </SlideEffect>
                     ))}
                 </div>
@@ -169,10 +161,13 @@ export default function BlogPage() {
                 {/* Empty State */}
                 {filteredPosts.length === 0 && (
                     <SlideEffect>
-                        <div className="text-center py-16">
-                            <p className="text-foreground/60 text-lg">No articles found matching your criteria.</p>
+                        <div className="text-center py-20 space-y-4">
+                            <div className="w-14 h-14 rounded-2xl bg-muted flex items-center justify-center mx-auto">
+                                <Search className="w-6 h-6 text-muted-foreground" />
+                            </div>
+                            <p className="text-muted-foreground text-base">No articles found matching your criteria.</p>
                             <Button
-                                className="mt-4"
+                                variant="outline"
                                 onClick={() => {
                                     setSelectedCategory('all')
                                     setSearchQuery('')
@@ -186,7 +181,7 @@ export default function BlogPage() {
             </div>
 
             {/* Footer */}
-            <div className="mt-32 px-4 xl:px-0 max-w-5xl mx-auto">
+            <div className="mt-48 px-4 xl:px-0 max-w-5xl mx-auto">
                 <Footer />
             </div>
         </>

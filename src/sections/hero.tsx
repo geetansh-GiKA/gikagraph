@@ -79,7 +79,6 @@ export default function Hero() {
         {/* Right Side - Enhanced Dashboard */}
         <SlideEffect className="w-full lg:w-1/2 xl:w-auto xl:flex-shrink-0 xl:max-w-2xl" isSpring={false} duration={1.3}>
           <div className="mb-3 text-center">
-
             <h2 className="text-base font-semibold text-foreground">The Numbers Tell the Story</h2>
             <p className="text-xs text-muted-foreground mt-0.5">Real impact metrics from enterprise deployments — not estimates.</p>
           </div>

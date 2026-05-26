@@ -55,7 +55,7 @@ export function DataFlowArchitecture() {
 
   return (
     <div
-      className="relative flex h-[320px] md:h-[350px] w-full items-center justify-center overflow-visible p-4"
+      className="relative flex h-[380px] md:h-[420px] w-full items-center justify-center overflow-hidden px-8 py-10"
       ref={containerRef}
     >
       <div className="flex size-full max-w-4xl flex-row items-center justify-between gap-4 md:gap-8">
@@ -113,7 +113,7 @@ export function DataFlowArchitecture() {
         containerRef={containerRef}
         fromRef={dbRef}
         toRef={gikaRef}
-        curvature={-50}
+        curvature={-35}
         gradientStartColor="#3b82f6"
         gradientStopColor="#8b5cf6"
       />
@@ -137,7 +137,7 @@ export function DataFlowArchitecture() {
         containerRef={containerRef}
         fromRef={erpRef}
         toRef={gikaRef}
-        curvature={50}
+        curvature={35}
         gradientStartColor="#a855f7"
         gradientStopColor="#8b5cf6"
       />
@@ -147,7 +147,7 @@ export function DataFlowArchitecture() {
         containerRef={containerRef}
         fromRef={gikaRef}
         toRef={dashRef}
-        curvature={-60}
+        curvature={-35}
         gradientStartColor="#8b5cf6"
         gradientStopColor="#f43f5e"
       />
@@ -163,8 +163,9 @@ export function DataFlowArchitecture() {
         containerRef={containerRef}
         fromRef={gikaRef}
         toRef={reportRef}
+        curvature={5}
         gradientStartColor="#8b5cf6"
-        gradientStopColor="#8b5cf6"
+        gradientStopColor="#a78bfa"
       />
       <AnimatedBeam
         containerRef={containerRef}
@@ -178,7 +179,7 @@ export function DataFlowArchitecture() {
         containerRef={containerRef}
         fromRef={gikaRef}
         toRef={agentRef}
-        curvature={60}
+        curvature={35}
         gradientStartColor="#8b5cf6"
         gradientStopColor="#06b6d4"
       />

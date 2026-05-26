@@ -15,6 +15,7 @@ export interface BlogPost {
     publishedAt: string
     readTime: number
     coverImage: string
+    cta?: { label: string; href: string }
     featured: boolean
     content: string
 }
@@ -35,7 +36,8 @@ export const blogPosts: BlogPost[] = [
         },
         publishedAt: '2025-07-07',
         readTime: 12,
-        coverImage: '/blog/blog.png',
+        coverImage: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80',
+        cta: { label: 'Start a Conversation', href: 'https://cal.com/gikagraph/30-mins' },
         featured: false,
         content: `
 ## Introduction
@@ -134,7 +136,8 @@ It's not about doing things faster. It's about ensuring the right decisions are 
         },
         publishedAt: '2025-09-02',
         readTime: 6,
-        coverImage: '/blog/blog.png',
+        coverImage: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80',
+        cta: { label: 'Book a Call', href: 'https://cal.com/gikagraph/30-mins' },
         featured: false,
         content: `
 ## The Rise of AI-Assisted Coding
@@ -217,7 +220,8 @@ All grounded in how businesses think.
         },
         publishedAt: '2025-12-04',
         readTime: 5,
-        coverImage: '/blog/blog.png',
+        coverImage: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80',
+        cta: { label: 'See a Demo', href: 'https://playground.gikagraph.ai' },
         featured: false,
         content: `
 ## What is GiKaGraph?

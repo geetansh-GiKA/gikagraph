@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils"
 import { AnimatedBeam } from "@/components/ui/animated-beam"
 import {
   Database, Network, Shield, Zap, BarChart3,
-  ChevronRight, Check, Play, Pause, ArrowRight,
+  ChevronRight, Play, Pause, ArrowRight,
   FileText, Globe, Building2, Users, Lock, Eye,
-  CreditCard, TrendingUp, Sparkles, Server,
+  TrendingUp, Sparkles, Server,
   GitBranch, Layers, Brain, LineChart
 } from "lucide-react"
 
@@ -71,12 +71,12 @@ const dataFlowStages = [
   {
     id: 4,
     title: "Data Enrichment",
-    subtitle: "FinTech Integration",
+    subtitle: "Internal Graph-Native",
     icon: Zap,
     color: "from-orange-500 to-amber-500",
     bgColor: "border-orange-500/30",
-    description: "Seamlessly connect with leading fintech platforms for real-time enrichment, compliance checks, and automated workflows.",
-    duration: "100+ APIs",
+    description: "Our graph-native enrichment engine deeply parses and contextualizes your proprietary documents, dynamically extracting the precise entities and relationships required to auto-construct unassailable, compliant, and winning RFP responses in complex enterprise environments.",
+    duration: "Internal Graph-Native",
     visual: "enrichment",
   },
   {
@@ -86,8 +86,8 @@ const dataFlowStages = [
     icon: BarChart3,
     color: "from-pink-500 to-rose-500",
     bgColor: "border-pink-500/30",
-    description: "A unified interface that transforms complex data into clear, actionable insights with AI-powered recommendations.",
-    duration: "GPT-4 Powered",
+    description: "A unified interface that transforms complex data into clear, actionable insights with AI-powered recommendations for RFP preparation — ideal for executives to review the most critical elements.",
+    duration: "GiKA Engine",
     visual: "intelligence",
   },
 ]
@@ -259,9 +259,10 @@ function EnrichmentVisual() {
   const containerRef = useRef<HTMLDivElement>(null)
   const dataRef = useRef<HTMLDivElement>(null)
   const centerRef = useRef<HTMLDivElement>(null)
-  const plaidRef = useRef<HTMLDivElement>(null)
-  const clearbitRef = useRef<HTMLDivElement>(null)
-  const complianceRef = useRef<HTMLDivElement>(null)
+  const gnedRef = useRef<HTMLDivElement>(null)
+  const kgRef = useRef<HTMLDivElement>(null)
+  const propRef = useRef<HTMLDivElement>(null)
+  const crossRef = useRef<HTMLDivElement>(null)
 
   return (
     <div ref={containerRef} className="relative w-full h-full min-h-[200px] flex items-center justify-center p-4">
@@ -273,34 +274,35 @@ function EnrichmentVisual() {
           </GraphNode>
         </div>
 
-        {/* Center - Enrichment Hub */}
+        {/* Center - Enrichment Engine */}
         <div className="flex justify-center">
           <GraphNode ref={centerRef} color="border-orange-500/50 bg-orange-500/10" label="Enrichment" className="size-14 md:size-16">
             <Zap className="w-7 h-7 text-orange-500" />
           </GraphNode>
         </div>
 
-        {/* External APIs */}
-        <div className="flex flex-col gap-3 items-center">
-          <GraphNode ref={plaidRef} color="border-amber-500/50 bg-amber-500/10" label="Plaid">
-            <CreditCard className="w-4 h-4 text-amber-500" />
+        {/* RFP-native outputs */}
+        <div className="flex flex-col gap-2 items-center">
+          <GraphNode ref={gnedRef} color="border-amber-500/50 bg-amber-500/10" label="GNED">
+            <Network className="w-4 h-4 text-amber-500" />
           </GraphNode>
-          <GraphNode ref={clearbitRef} color="border-yellow-500/50 bg-yellow-500/10" label="Clearbit">
-            <Building2 className="w-4 h-4 text-yellow-500" />
+          <GraphNode ref={kgRef} color="border-orange-400/50 bg-orange-400/10" label="KG Map">
+            <GitBranch className="w-4 h-4 text-orange-400" />
           </GraphNode>
-          <GraphNode ref={complianceRef} color="border-red-500/50 bg-red-500/10" label="AML/KYC">
-            <Shield className="w-4 h-4 text-red-500" />
+          <GraphNode ref={propRef} color="border-yellow-500/50 bg-yellow-500/10" label="Properties">
+            <Sparkles className="w-4 h-4 text-yellow-500" />
+          </GraphNode>
+          <GraphNode ref={crossRef} color="border-amber-600/50 bg-amber-600/10" label="Alignment">
+            <Layers className="w-4 h-4 text-amber-600" />
           </GraphNode>
         </div>
       </div>
 
       <AnimatedBeam containerRef={containerRef} fromRef={dataRef} toRef={centerRef} gradientStartColor="#f97316" gradientStopColor="#f59e0b" />
-      <AnimatedBeam containerRef={containerRef} fromRef={centerRef} toRef={plaidRef} curvature={-40} gradientStartColor="#f59e0b" gradientStopColor="#eab308" />
-      <AnimatedBeam containerRef={containerRef} fromRef={centerRef} toRef={clearbitRef} gradientStartColor="#f97316" gradientStopColor="#eab308" />
-      <AnimatedBeam containerRef={containerRef} fromRef={centerRef} toRef={complianceRef} curvature={40} gradientStartColor="#f59e0b" gradientStopColor="#ef4444" />
-      <AnimatedBeam containerRef={containerRef} fromRef={plaidRef} toRef={centerRef} curvature={-40} reverse gradientStartColor="#eab308" gradientStopColor="#f59e0b" />
-      <AnimatedBeam containerRef={containerRef} fromRef={clearbitRef} toRef={centerRef} reverse gradientStartColor="#eab308" gradientStopColor="#f97316" />
-      <AnimatedBeam containerRef={containerRef} fromRef={complianceRef} toRef={centerRef} curvature={40} reverse gradientStartColor="#ef4444" gradientStopColor="#f59e0b" />
+      <AnimatedBeam containerRef={containerRef} fromRef={centerRef} toRef={gnedRef} curvature={-35} gradientStartColor="#f59e0b" gradientStopColor="#f59e0b" />
+      <AnimatedBeam containerRef={containerRef} fromRef={centerRef} toRef={kgRef} curvature={-12} gradientStartColor="#f97316" gradientStopColor="#fb923c" />
+      <AnimatedBeam containerRef={containerRef} fromRef={centerRef} toRef={propRef} curvature={12} gradientStartColor="#f59e0b" gradientStopColor="#eab308" />
+      <AnimatedBeam containerRef={containerRef} fromRef={centerRef} toRef={crossRef} curvature={35} gradientStartColor="#f97316" gradientStopColor="#d97706" />
     </div>
   )
 }
@@ -385,14 +387,14 @@ const stageStats: Record<number, { value: string; label: string }[]> = {
     { value: "SOC2", label: "Certified" },
   ],
   4: [
-    { value: "100+", label: "Integrations" },
-    { value: "Real-time", label: "Sync" },
-    { value: "RESTful", label: "APIs" },
+    { value: "100%", label: "Doc Coverage" },
+    { value: "Deep", label: "Parsing" },
+    { value: "Verified", label: "QA Checks" },
   ],
   5: [
     { value: "Custom", label: "Views" },
     { value: "Any", label: "Export" },
-    { value: "GiKA", label: "GiKA Engine" },
+    { value: "RFP", label: "Ready" },
   ],
 }
 
@@ -417,16 +419,17 @@ const stageFeatures: Record<number, { icon: typeof Database; text: string }[]> =
     { icon: Shield, text: "SOC2 Compliant" },
   ],
   4: [
-    { icon: CreditCard, text: "Plaid — Banking & Payments" },
-    { icon: Building2, text: "Clearbit — Company Intelligence" },
-    { icon: Shield, text: "ComplyAdvantage — AML/KYC" },
-    { icon: TrendingUp, text: "PitchBook — Market Data" },
+    { icon: Network, text: "Graph-Native Entity Discovery (GNED)" },
+    { icon: GitBranch, text: "Knowledge Graph Relationship Discovery" },
+    { icon: Sparkles, text: "Deep Entity Property & Attribute Extraction" },
+    { icon: Layers, text: "Cross-Source Entity Canonicalization" },
   ],
   5: [
     { icon: Network, text: "Interactive Graph Explorer" },
     { icon: Sparkles, text: "AI-Powered Insights" },
     { icon: TrendingUp, text: "Smart Alerts & Heatmaps" },
     { icon: FileText, text: "Automated Reports" },
+    { icon: Shield, text: "RFP Response Automation — precise, compliant, winning" },
   ],
 }
 
@@ -450,45 +453,33 @@ export function DataFlowSections() {
 
   return (
     <div className="space-y-8">
-      {/* Step icons navigation */}
-      <div className="flex items-center justify-between px-2 md:px-4">
+      {/* Arrow-connected pill nav at the top */}
+      <div className="flex items-center justify-center flex-wrap gap-0">
         {dataFlowStages.map((stage, index) => {
-          const StepIcon = stage.icon
           const isActive = index === activeStep
           const isPast = index < activeStep
-
           return (
-            <button
-              key={stage.id}
-              onClick={() => setActiveStep(index)}
-              className="flex flex-col items-center gap-2 group"
-            >
-              <div
+            <div key={stage.id} className="flex items-center">
+              <button
+                onClick={() => setActiveStep(index)}
                 className={cn(
-                  "w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center transition-all border-2",
+                  "px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 border",
                   isActive
-                    ? `bg-gradient-to-br ${stage.color} border-transparent shadow-lg scale-110`
+                    ? "bg-gradient-to-r from-violet-600 to-blue-500 text-white border-transparent shadow-lg shadow-violet-500/25 scale-105"
                     : isPast
-                    ? "bg-primary/10 border-primary/30"
-                    : "bg-muted/50 border-border hover:border-primary/30 hover:scale-105"
+                    ? "bg-primary/10 text-primary border-primary/30 hover:bg-primary/20"
+                    : "bg-muted/60 text-muted-foreground border-border hover:bg-muted hover:text-foreground"
                 )}
               >
-                {isPast ? (
-                  <Check className="w-5 h-5 text-primary" />
-                ) : (
-                  <StepIcon className={cn(
-                    "w-5 h-5 md:w-6 md:h-6",
-                    isActive ? "text-white" : "text-muted-foreground group-hover:text-foreground"
-                  )} />
-                )}
-              </div>
-              <span className={cn(
-                "text-[10px] md:text-xs font-medium transition-colors hidden sm:block",
-                isActive ? "text-foreground" : "text-muted-foreground"
-              )}>
                 {stage.title}
-              </span>
-            </button>
+              </button>
+              {index < dataFlowStages.length - 1 && (
+                <ArrowRight className={cn(
+                  "w-4 h-4 mx-1.5 shrink-0",
+                  index < activeStep ? "text-primary" : "text-muted-foreground/40"
+                )} />
+              )}
+            </div>
           )
         })}
       </div>
@@ -524,6 +515,60 @@ export function DataFlowSections() {
               </div>
             ))}
           </div>
+
+          {/* RFP context callout — shown on Knowledge Graph stage */}
+          {currentStage.id === 2 && (
+            <div className="mt-3 space-y-2">
+              <div className="flex items-start gap-2.5 border border-purple-500/25 rounded-xl px-3 py-2.5 bg-purple-500/5">
+                <div className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-1.5 shrink-0" />
+                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                  For RFPs, this is{" "}
+                  <span className="text-foreground font-medium">central to the architecture</span>
+                  {" "}— indexing and pointing to where information lives without duplicating it.
+                </p>
+              </div>
+              <div className="flex items-start gap-2.5 border border-purple-500/25 rounded-xl px-3 py-2.5 bg-purple-500/5">
+                <div className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-1.5 shrink-0" />
+                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                  <span className="text-foreground font-medium">Unlimited files</span>
+                  {" "}can be uploaded — no cap on document volume.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* Access Control callouts — Stage 3 */}
+          {currentStage.id === 3 && (
+            <div className="mt-3 space-y-2">
+              <div className="flex items-start gap-2.5 border border-emerald-500/25 rounded-xl px-3 py-2.5 bg-emerald-500/5">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0" />
+                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                  <span className="text-foreground font-medium">Security and data integrity</span>
+                  {" "}— avoiding data leakage is critical for RFP stakeholders and decision makers.
+                </p>
+              </div>
+              <div className="flex items-start gap-2.5 border border-emerald-500/25 rounded-xl px-3 py-2.5 bg-emerald-500/5">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0" />
+                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                  Built for{" "}
+                  <span className="text-foreground font-medium">business users and executives</span>
+                  {" "}— not just the technical layer. Each role sees exactly what they need.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* RFP context callout — shown on Intelligence Layer stage */}
+          {currentStage.id === 5 && (
+            <div className="mt-3 flex items-start gap-2.5 border border-violet-500/25 rounded-xl px-3 py-2.5 bg-violet-500/5">
+              <div className="w-1.5 h-1.5 rounded-full bg-violet-400 mt-1.5 shrink-0" />
+              <p className="text-[11px] text-muted-foreground leading-relaxed">
+                GiKA powers{" "}
+                <span className="text-foreground font-medium">hyper-precise RFP responses</span>
+                {" "}— turning your unified knowledge graph into winning, enterprise-grade proposals.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Right: Step details */}
@@ -625,32 +670,6 @@ export function DataFlowSections() {
         </div>
       </motion.div>
 
-      {/* Flow arrows - showing the journey */}
-      <div className="hidden md:flex items-center justify-center gap-1 py-4 flex-wrap">
-        {dataFlowStages.map((stage, index) => (
-          <div key={stage.id} className="flex items-center">
-            <button
-              onClick={() => setActiveStep(index)}
-              className={cn(
-                "px-3 py-1.5 rounded-full text-xs font-medium transition-all",
-                index === activeStep
-                  ? `bg-gradient-to-r ${stage.color} text-white scale-105`
-                  : index < activeStep
-                  ? "bg-primary/10 text-primary hover:bg-primary/20"
-                  : "bg-muted text-muted-foreground hover:bg-muted/80"
-              )}
-            >
-              {stage.title}
-            </button>
-            {index < dataFlowStages.length - 1 && (
-              <ArrowRight className={cn(
-                "w-4 h-4 mx-1",
-                index < activeStep ? "text-primary" : "text-muted-foreground/30"
-              )} />
-            )}
-          </div>
-        ))}
-      </div>
     </div>
   )
 }
