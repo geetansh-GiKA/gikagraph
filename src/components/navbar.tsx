@@ -1,67 +1,73 @@
-'use client'
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "./ui/button"
-import { AlignJustify, X } from "lucide-react"
-import { AnimatePresence } from 'motion/react'
-import * as motion from "motion/react-m"
-import { useState } from "react"
-import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { AlignJustify, X } from "lucide-react";
+import { AnimatePresence } from "motion/react";
+import * as motion from "motion/react-m";
+import { useState } from "react";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 const settings = {
   navLinks: [
-    { name: 'home', href: '/' },
-    { name: 'Product', href: '/product' },
-    { name: 'How It Works', href: '/how-it-works' },
-    { name: 'Docs', href: '/docs' }, // base docs page
-    // { name: 'Pricing', href: '/pricing' },
+    { name: "home", href: "/" },
+    { name: "Product", href: "/product" },
+    { name: "How It Works", href: "/how-it-works" },
+    { name: "Docs", href: "/docs" },
   ] as const,
   cta: {
-    content: 'Quick Call',
-    href: 'https://cal.com/gikagraph/30-mins',
+    content: "Quick Call",
+    href: "https://cal.com/gikagraph/30-mins",
     external: true,
-  }
-}
+  },
+};
 
 // All your documentation links for the dropdown
 const docsLinks = [
   {
     title: "Blogs",
     href: "/blog",
-    description: "Read our latest articles and insights."
+    description: "Read our latest articles and insights.",
   },
   {
     title: "FAQ",
     href: "/#faq",
-    description: "Find answers to common questions."
+    description: "Find answers to common questions.",
   },
-]
+];
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [isDocsOpen, setIsDocsOpen] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isDocsOpen, setIsDocsOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   return (
     <nav className="w-full h-fit py-3 px-2 flex items-center justify-between sticky top-3 z-50  backdrop-blur-md shadow-sm shadow-black/5">
       {/* Logo */}
-      <Link href='/' title="Home" id="Logo" className="flex items-center gap-2">
-        <Image src="/logo.png" alt="GikaGraph Logo" width={62} height={14} priority />
-        <span className="font-semibold text-base text-foreground hidden sm:inline">GiKA AI</span>
+      <Link href="/" title="Home" id="Logo" className="flex items-center gap-2">
+        <Image
+          src="/logo.png"
+          alt="GikaGraph Logo"
+          width={62}
+          height={14}
+          priority
+        />
+        <span className="font-semibold text-base text-foreground hidden sm:inline">
+          GiKA AI
+        </span>
       </Link>
 
       {/* desktop menu */}
       <div className="items-center justify-center gap-5 hidden md:flex">
-
         {/* Nav Links */}
         <ul className="flex items-center justify-center gap-5 text-foreground font-medium select-none text-link">
-          {settings.navLinks.map(link => {
+          {settings.navLinks.map((link) => {
             // Special handling for Docs dropdown (desktop)
-            if (link.name === 'Docs') {
+            if (link.name === "Docs") {
               return (
                 <li
                   key={link.name}
@@ -110,7 +116,7 @@ export function Navbar() {
                     )}
                   </AnimatePresence>
                 </li>
-              )
+              );
             }
 
             // Default simple link
@@ -121,14 +127,16 @@ export function Navbar() {
                   title={link.name}
                   className="hover:opacity-80 transition-all capitalize"
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  target={(link as any).external ? '_blank' : undefined}
+                  target={(link as any).external ? "_blank" : undefined}
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  rel={(link as any).external ? 'noopener noreferrer' : undefined}
+                  rel={
+                    (link as any).external ? "noopener noreferrer" : undefined
+                  }
                 >
                   {link.name}
                 </Link>
               </li>
-            )
+            );
           })}
 
           <AnimatedThemeToggler />
@@ -144,7 +152,6 @@ export function Navbar() {
         >
           <Button className="w-full capitalize">{settings.cta.content}</Button>
         </Link>
-
       </div>
 
       {/* mobile only - burger menu icon */}
@@ -164,14 +171,14 @@ export function Navbar() {
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 1, y: -20 }}
-            animate={{ height: '100vh', opacity: 1, y: 0 }}
+            animate={{ height: "100vh", opacity: 1, y: 0 }}
             exit={{ height: 0, opacity: 1, y: -20 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="fixed flex flex-col md:hidden top-16 left-0 w-full bg-background border-b border-border z-50 overflow-hidden"
           >
             <div className="flex flex-col p-6 space-y-6">
               <ul className="flex flex-col space-y-2 text-foreground font-medium select-none text-base">
-                {settings.navLinks.map(link => (
+                {settings.navLinks.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
@@ -179,9 +186,13 @@ export function Navbar() {
                       onClick={toggleMenu}
                       className="block py-2 capitalize"
                       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                      target={(link as any).external ? '_blank' : undefined}
+                      target={(link as any).external ? "_blank" : undefined}
                       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                      rel={(link as any).external ? 'noopener noreferrer' : undefined}
+                      rel={
+                        (link as any).external
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
                     >
                       {link.name}
                     </Link>
@@ -189,15 +200,21 @@ export function Navbar() {
                 ))}
               </ul>
 
-              <Link href={settings.cta.href} title={settings.cta.content} onClick={toggleMenu}>
-                <Button className="w-full capitalize">{settings.cta.content}</Button>
+              <Link
+                href={settings.cta.href}
+                title={settings.cta.content}
+                onClick={toggleMenu}
+              >
+                <Button className="w-full capitalize">
+                  {settings.cta.content}
+                </Button>
               </Link>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </nav>
-  )
+  );
 }
 
 export default Navbar;
