@@ -10,7 +10,7 @@
 
   --color-background: #fff;
   --color-foreground: #1a1a1a;
-  --color-primary: #6ECE9D;
+  --color-primary: #9868a8;
   --color-secondary: #F8F5ED;
   --color-accent: #FFDA6E;
   --color-muted: #F0F0F0;
@@ -80,6 +80,17 @@ h1, h2, h3, h4, h5, h6 {
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+}
+
+/* Infinite moving gradient */
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient {
+  background-size: 400% 100%;
+  animation: gradient-move 8s ease infinite;
 }
 
 /* Infinite logo marquee */

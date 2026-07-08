@@ -3,7 +3,7 @@ import "./globals.css";
 import LenisProvider from "@/providers/lenis";
 
 export const metadata: Metadata = {
-  title: "GikaGraph - Entity Intelligence Platform",
+  title: "GIKA.AI - Entity Intelligence Platform",
   description:
     "Transform fragmented data into grounded, actionable insights with specialized small language models.",
   icons: {

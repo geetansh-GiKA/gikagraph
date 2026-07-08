@@ -23,7 +23,7 @@ const settings = {
   ] as const,
   loginCTA: {
     content: "Login",
-    href: "https://playground.gikagraph.ai",
+    href: "https://playground.GIKA.AI.ai",
   },
   mainCTA: {
     content: "Book a Call",
@@ -97,9 +97,9 @@ export function Navbar() {
         >
           <Image
             src="/logo.png"
-            alt="GikaGraph Logo"
-            width={36}
-            height={11}
+            alt="GIKA.AI Logo"
+            width={42}
+            height={16}
             priority
           />
           <span className="font-semibold text-base text-foreground hidden sm:inline">

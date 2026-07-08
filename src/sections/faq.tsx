@@ -23,34 +23,33 @@ const settings = {
   },
   secondaryCTA: {
     content: "Get started",
-    href: "https://playground.gikagraph.ai",
+    href: "https://playground.GIKA.AI.ai",
   },
   questions: [
     {
-      question: "What is GikaGraph and how does it work?",
+      question: "What is GIKA.AI and how does it work?",
       answer:
-        "GikaGraph is a domain-specific AI platform that unifies your fragmented business data into a single knowledge graph. It fine-tunes small language models on your own context, so agents can reason over your data with grounded, accurate answers instead of generic AI guesses.",
+        "GIKA.AI is a domain-specific AI platform that unifies your fragmented business data into a single knowledge graph. It fine-tunes small language models on your own context, so agents can reason over your data with grounded, accurate answers instead of generic AI guesses.",
     },
     {
-      question: "What makes GikaGraph different from other AI platforms?",
+      question: "What makes GIKA.AI different from other AI platforms?",
       answer:
-        "Unlike off-the-shelf AI tools, GikaGraph is purpose-built for enterprise-scale accuracy. It combines entity resolution, a unified knowledge graph, and domain-tuned models to deliver 99.2% accuracy with minimal hallucination, at a fraction of the cost of generic LLM deployments.",
+        "Unlike off-the-shelf AI tools, GIKA.AI is purpose-built for enterprise-scale accuracy. It combines entity resolution, a unified knowledge graph, and domain-tuned models to deliver 99.2% accuracy with minimal hallucination, at a fraction of the cost of generic LLM deployments.",
     },
     {
-      question: "How much does GikaGraph cost and what's included?",
+      question: "How much does GIKA.AI cost and what's included?",
       answer:
         "Pricing depends on data volume, number of integrations, and deployment needs. Talk to our sales team for a tailored quote, or get started on the platform to explore core features firsthand.",
     },
     {
-      question: "Can GikaGraph integrate with the tools my team already uses?",
+      question: "Can GIKA.AI integrate with the tools my team already uses?",
       answer:
-        "Yes. GikaGraph connects to sources like Slack, Notion, Google Drive, Salesforce, GitHub, Zendesk, Microsoft Teams, and more, unifying them into one connected knowledge graph without disrupting your existing workflows.",
+        "Yes. GIKA.AI connects to sources like Slack, Notion, Google Drive, Salesforce, GitHub, Zendesk, Microsoft Teams, and more, unifying them into one connected knowledge graph without disrupting your existing workflows.",
     },
     {
-      question:
-        "Is GikaGraph suitable for enterprise and regulated industries?",
+      question: "Is GIKA.AI suitable for enterprise and regulated industries?",
       answer:
-        "GikaGraph is built for enterprise-scale document volume and RFP-grade precision, making it a strong fit for teams in sales, support, operations, and other data-intensive, high-stakes environments.",
+        "GIKA.AI is built for enterprise-scale document volume and RFP-grade precision, making it a strong fit for teams in sales, support, operations, and other data-intensive, high-stakes environments.",
     },
   ],
 };

@@ -1,45 +1,50 @@
 // Shared blog data used by both listing and detail pages
 export interface BlogPost {
-    id: number
-    slug: string
-    title: string
-    excerpt: string
-    category: string
-    categorySlug: string
-    author: {
-        name: string
-        avatar: string
-        role: string
-        bio: string
-    }
-    publishedAt: string
-    readTime: number
-    coverImage: string
-    cta?: { label: string; href: string }
-    featured: boolean
-    content: string
+  id: number;
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  categorySlug: string;
+  author: {
+    name: string;
+    avatar: string;
+    role: string;
+    bio: string;
+  };
+  publishedAt: string;
+  readTime: number;
+  coverImage: string;
+  cta?: { label: string; href: string };
+  featured: boolean;
+  content: string;
 }
 
 export const blogPosts: BlogPost[] = [
-    {
-        id: 1,
-        slug: 'ai-that-truly-understands-your-business',
-        title: 'Redefining How Business Thinks With GiKA',
-        excerpt: 'Explore why neural networks alone are not enough for intelligent decision-making, and how GiKA\'s reasoning-first AI goes beyond workflow automation to augment analyst thinking.',
-        category: 'AI & Technology',
-        categorySlug: 'ai-technology',
-        author: {
-            name: 'Gika AI Team',
-            avatar: '/logo.png',
-            role: 'Co-Founder, GiKA AI',
-            bio: 'Manoj Agarwal is a co-founder at GiKA AI, leading the vision for reasoning-first AI systems that transform how businesses make decisions. Along with Prabhath Chellingi, Sayantan Kanjilal, and Aadey Shah, he is building the next generation of cognitive AI for enterprise.'
-        },
-        publishedAt: '2025-07-07',
-        readTime: 12,
-        coverImage: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80',
-        cta: { label: 'Start a Conversation', href: 'https://cal.com/gikagraph/30-mins' },
-        featured: false,
-        content: `
+  {
+    id: 1,
+    slug: "ai-that-truly-understands-your-business",
+    title: "Redefining How Business Thinks With GiKA",
+    excerpt:
+      "Explore why neural networks alone are not enough for intelligent decision-making, and how GiKA's reasoning-first AI goes beyond workflow automation to augment analyst thinking.",
+    category: "AI & Technology",
+    categorySlug: "ai-technology",
+    author: {
+      name: "Gika AI Team",
+      avatar: "/logo.png",
+      role: "Co-Founder, GiKA AI",
+      bio: "Manoj Agarwal is a co-founder at GiKA AI, leading the vision for reasoning-first AI systems that transform how businesses make decisions. Along with Prabhath Chellingi, Sayantan Kanjilal, and Aadey Shah, he is building the next generation of cognitive AI for enterprise.",
+    },
+    publishedAt: "2025-07-07",
+    readTime: 12,
+    coverImage:
+      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80",
+    cta: {
+      label: "Start a Conversation",
+      href: "https://cal.com/GIKA.AI/30-mins",
+    },
+    featured: false,
+    content: `
 ## Introduction
 
 Advantage will shift to those who wire agents into end-to-end workflows, build secure data and compute moats, and monetize superior decision-making.
@@ -119,27 +124,30 @@ GiKA is built to solve exactly these limits.
 GiKA is a reasoning-first AI engine.
 
 It's not about doing things faster. It's about ensuring the right decisions are made — with the same data.
-        `
+        `,
+  },
+  {
+    id: 2,
+    slug: "copilot-for-the-business",
+    title:
+      "AI Copilot for the Business: Bringing Structure to Enterprise Decision-Making",
+    excerpt:
+      "Why has coding seen such a leap in AI performance and trust, while other domains grapple with hallucinations? The answer lies in structure — and GiKA is bringing that structure to enterprise decision-making.",
+    category: "AI & Technology",
+    categorySlug: "ai-technology",
+    author: {
+      name: "GiKA AI Team",
+      avatar: "/logo.png",
+      role: "GiKA AI",
+      bio: "The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.",
     },
-    {
-        id: 2,
-        slug: 'copilot-for-the-business',
-        title: 'AI Copilot for the Business: Bringing Structure to Enterprise Decision-Making',
-        excerpt: 'Why has coding seen such a leap in AI performance and trust, while other domains grapple with hallucinations? The answer lies in structure — and GiKA is bringing that structure to enterprise decision-making.',
-        category: 'AI & Technology',
-        categorySlug: 'ai-technology',
-        author: {
-            name: 'GiKA AI Team',
-            avatar: '/logo.png',
-            role: 'GiKA AI',
-            bio: 'The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.'
-        },
-        publishedAt: '2025-09-02',
-        readTime: 6,
-        coverImage: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80',
-        cta: { label: 'Book a Call', href: 'https://cal.com/gikagraph/30-mins' },
-        featured: false,
-        content: `
+    publishedAt: "2025-09-02",
+    readTime: 6,
+    coverImage:
+      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80",
+    cta: { label: "Book a Call", href: "https://cal.com/GIKA.AI/30-mins" },
+    featured: false,
+    content: `
 ## The Rise of AI-Assisted Coding
 
 The most unambiguous success stories in generative AI have emerged in the domain of AI-assisted coding. AI-coding tools like GitHub Copilot and Cursor have rapidly reached — and in many cases exceeded — human-level performance in writing, completing, and even debugging code.
@@ -203,28 +211,30 @@ The future of enterprise AI will not be built on ever-larger models guessing at 
 All grounded in how businesses think.
 
 **This is not just a more effective AI — it is a more intelligent one.**
-        `
+        `,
+  },
+  {
+    id: 3,
+    slug: "GIKA.AI-ai-intelligence-layer",
+    title: "AI that Truly Understands your Business",
+    excerpt:
+      "GiKA blends your internal data with global knowledge, understands complex relationships between business entities, and reasons across multiple layers to deliver insights that drive smarter, strategic decisions.",
+    category: "Platform Insights",
+    categorySlug: "platform-insights",
+    author: {
+      name: "GiKA AI Team",
+      avatar: "/logo.png",
+      role: "GiKA AI",
+      bio: "The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.",
     },
-    {
-        id: 3,
-        slug: 'gikagraph-ai-intelligence-layer',
-        title: 'AI that Truly Understands your Business',
-        excerpt: 'GiKA blends your internal data with global knowledge, understands complex relationships between business entities, and reasons across multiple layers to deliver insights that drive smarter, strategic decisions.',
-        category: 'Platform Insights',
-        categorySlug: 'platform-insights',
-        author: {
-            name: 'GiKA AI Team',
-            avatar: '/logo.png',
-            role: 'GiKA AI',
-            bio: 'The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.'
-        },
-        publishedAt: '2025-12-04',
-        readTime: 5,
-        coverImage: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80',
-        cta: { label: 'See a Demo', href: 'https://playground.gikagraph.ai' },
-        featured: false,
-        content: `
-## What is GiKaGraph?
+    publishedAt: "2025-12-04",
+    readTime: 5,
+    coverImage:
+      "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
+    cta: { label: "See a Demo", href: "https://playground.GIKA.AI.ai" },
+    featured: false,
+    content: `
+## What is GIKA.AI?
 
 GiKA blends your internal data with global knowledge, understands complex relationships between business entities, and reasons across multiple layers to deliver insights that drive smarter, strategic decisions.
 
@@ -236,13 +246,13 @@ Not a generic chatbot — this is a **reasoning engine grounded in your unique o
 
 ## 2. Business-Tuned Graph + Language Models
 
-GiKaGraph creates a **customized knowledge graph** for each business, automatically mapping different entities.
+GIKA.AI creates a **customized knowledge graph** for each business, automatically mapping different entities.
 
 Layered on top of this is a **small language model tailored to that graph**, enabling precise and context-rich responses.
 
 ## 3. Blended Knowledge: Internal + World Context
 
-Strategic insights often require more than internal data. GiKaGraph blends enterprise data with world knowledge:
+Strategic insights often require more than internal data. GIKA.AI blends enterprise data with world knowledge:
 
 - **Market trends**
 - **Regulations**
@@ -273,191 +283,190 @@ Integrates with your existing stack:
 
 Acts as a **semantic and reasoning layer** — unifying fragmented data sources into one intelligent conversation layer.
 
-## Why GiKaGraph is Different
+## Why GIKA.AI is Different
 
-GiKaGraph isn't vertical SaaS or a dashboard replacement — it's an **AI-native intelligence layer** that adapts to your business, not the other way around.
+GIKA.AI isn't vertical SaaS or a dashboard replacement — it's an **AI-native intelligence layer** that adapts to your business, not the other way around.
 
 Our architecture allows us to train business-specific models quickly, giving companies **strategic foresight, not just rear-view metrics**.
-        `
-    },
-//     {
-//         id: 4,
-//         slug: 'gika-knowledge-graph-ai-financial-services',
-//         title: 'GIKA: Your Cognitive twin for financial services',
-//         excerpt: 'GiKA combines domain-tuned small language models with a dynamic knowledge graph to unify scattered data and generate insights across PE, asset management, wealth management, equity research, and credit risk.',
-//         category: 'Use Cases',
-//         categorySlug: 'use-cases',
-//         author: {
-//             name: 'GiKA AI Team',
-//             avatar: '/GikaAI.png',
-//             role: 'GiKA AI',
-//             bio: 'The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.'
-//         },
-//         publishedAt: '2025-12-04',
-//         readTime: 15,
-//         coverImage: '/blog/blog.png',
-//         featured: false,
-//         content: `
-// ## Overview
+        `,
+  },
+  //     {
+  //         id: 4,
+  //         slug: 'gika-knowledge-graph-ai-financial-services',
+  //         title: 'GIKA: Your Cognitive twin for financial services',
+  //         excerpt: 'GiKA combines domain-tuned small language models with a dynamic knowledge graph to unify scattered data and generate insights across PE, asset management, wealth management, equity research, and credit risk.',
+  //         category: 'Use Cases',
+  //         categorySlug: 'use-cases',
+  //         author: {
+  //             name: 'GiKA AI Team',
+  //             avatar: '/GikaAI.png',
+  //             role: 'GiKA AI',
+  //             bio: 'The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.'
+  //         },
+  //         publishedAt: '2025-12-04',
+  //         readTime: 15,
+  //         coverImage: '/blog/blog.png',
+  //         featured: false,
+  //         content: `
+  // ## Overview
 
-// GiKA's platform combines domain-tuned small language models (SLMs) with a dynamic knowledge graph to unify scattered data and generate insights. In finance use cases (private equity, asset/investment management, wealth management, equity research, credit risk), this approach addresses fragmented information and manual processes by linking internal records (CRM, portfolio systems, documents) with external sources (market data, news, filings) into one "entity graph".
+  // GiKA's platform combines domain-tuned small language models (SLMs) with a dynamic knowledge graph to unify scattered data and generate insights. In finance use cases (private equity, asset/investment management, wealth management, equity research, credit risk), this approach addresses fragmented information and manual processes by linking internal records (CRM, portfolio systems, documents) with external sources (market data, news, filings) into one "entity graph".
 
-// In practice, GiKA promises to **transform fragmented data into grounded, actionable insights** using its specialized AI and graph architecture.
+  // In practice, GiKA promises to **transform fragmented data into grounded, actionable insights** using its specialized AI and graph architecture.
 
-// ## Segment Challenges & Solutions
+  // ## Segment Challenges & Solutions
 
-// ### Private Equity
+  // ### Private Equity
 
-// PE firms juggle deals and portfolio data in siloed systems, spreadsheets and Virtual Data Rooms. GiKA graph links deals, companies, investors, financials, documents, competitors, market and news to support faster due diligence, synergy analysis and value tracking.
+  // PE firms juggle deals and portfolio data in siloed systems, spreadsheets and Virtual Data Rooms. GiKA graph links deals, companies, investors, financials, documents, competitors, market and news to support faster due diligence, synergy analysis and value tracking.
 
-// Our dynamic knowledge graph connects companies, markets, investors, metrics, communication data, financial data and deal structures to continuously compound institutional knowledge and surface real-time risks/opportunities.
+  // Our dynamic knowledge graph connects companies, markets, investors, metrics, communication data, financial data and deal structures to continuously compound institutional knowledge and surface real-time risks/opportunities.
 
-// **Key solutions:**
-// - Data unification (linking CRM, fund/accounting systems, business data, market intelligence, competitor data, VDRs, internal communication, govt filing)
-// - Decision support (automated diligence, KPIs monitoring, compliance readiness)
-// - Agent assistants to draft investment memos and bring deeper insights
+  // **Key solutions:**
+  // - Data unification (linking CRM, fund/accounting systems, business data, market intelligence, competitor data, VDRs, internal communication, govt filing)
+  // - Decision support (automated diligence, KPIs monitoring, compliance readiness)
+  // - Agent assistants to draft investment memos and bring deeper insights
 
-// ### Investment/Asset Management
+  // ### Investment/Asset Management
 
-// Asset managers need unified views of portfolio, mandates, benchmarks and research. Our platform fuses portfolio holdings, research reports, market data and client mandates.
+  // Asset managers need unified views of portfolio, mandates, benchmarks and research. Our platform fuses portfolio holdings, research reports, market data and client mandates.
 
-// **Key problems solved:**
-// - Aggregation of internal analyst notes with premium sources
-// - Risk analysis and portfolio rebalancing
-// - Answering complex questions like "What tail risks does this portfolio have, given the recent news on oil prices?"
+  // **Key problems solved:**
+  // - Aggregation of internal analyst notes with premium sources
+  // - Risk analysis and portfolio rebalancing
+  // - Answering complex questions like "What tail risks does this portfolio have, given the recent news on oil prices?"
 
-// ### Wealth Management
+  // ### Wealth Management
 
-// Advisors struggle to personalize advice due to scattered client data (CRM, accounts, communications). GiKA consolidates each client's profile, holdings, advisor notes and external market signals.
+  // Advisors struggle to personalize advice due to scattered client data (CRM, accounts, communications). GiKA consolidates each client's profile, holdings, advisor notes and external market signals.
 
-// **With GiKA, wealth teams can:**
-// - Rapidly generate tailored portfolio strategies
-// - Run compliance checks by querying the unified graph
-// - Identify high-value prospects and concentrated risk factors
+  // **With GiKA, wealth teams can:**
+  // - Rapidly generate tailored portfolio strategies
+  // - Run compliance checks by querying the unified graph
+  // - Identify high-value prospects and concentrated risk factors
 
-// ### Equity Research
+  // ### Equity Research
 
-// Analysts mine documents (filings, transcripts, news) manually. By linking company fundamentals, expert calls and news in a graph, our system accelerates report writing and insight discovery.
+  // Analysts mine documents (filings, transcripts, news) manually. By linking company fundamentals, expert calls and news in a graph, our system accelerates report writing and insight discovery.
 
-// GiKA's SLMs are fine-tuned on financial language to extract key facts, while the KG provides causal links (e.g. connecting a CEO change in the news to a firm's credit rating).
+  // GiKA's SLMs are fine-tuned on financial language to extract key facts, while the KG provides causal links (e.g. connecting a CEO change in the news to a firm's credit rating).
 
-// ### Credit Risk
+  // ### Credit Risk
 
-// Banks and lenders have siloed borrower data (loan books, credit reports), lagging risk signals, customer profile data. A knowledge graph links counterparties, subsidiaries, financials and external events to reveal hidden exposure.
+  // Banks and lenders have siloed borrower data (loan books, credit reports), lagging risk signals, customer profile data. A knowledge graph links counterparties, subsidiaries, financials and external events to reveal hidden exposure.
 
-// GiKA's platform uses graph analytics to uncover hidden risks, alerting on contagion risks or fraud by traversing multi-hop relationships in real time.
+  // GiKA's platform uses graph analytics to uncover hidden risks, alerting on contagion risks or fraud by traversing multi-hop relationships in real time.
 
-// ## Integration & Entry Points
+  // ## Integration & Entry Points
 
-// Onboarding starts by connecting GiKA to key data systems:
+  // Onboarding starts by connecting GiKA to key data systems:
 
-// **Internal systems:**
-// - CRM (Salesforce, Dynamics)
-// - Portfolio/fund administration tools
-// - ERP/financial systems, data warehouses
-// - Spreadsheets and internal document repositories (SharePoint, email, Slack)
+  // **Internal systems:**
+  // - CRM (Salesforce, Dynamics)
+  // - Portfolio/fund administration tools
+  // - ERP/financial systems, data warehouses
+  // - Spreadsheets and internal document repositories (SharePoint, email, Slack)
 
-// **External data feeds:**
-// - Market/financial data (Bloomberg, Refinitiv, Capital IQ, FactSet)
-// - News APIs, regulatory filings (SEC Edgar, global registries)
-// - Industry research (Gartner, Preqin, PitchBook)
+  // **External data feeds:**
+  // - Market/financial data (Bloomberg, Refinitiv, Capital IQ, FactSet)
+  // - News APIs, regulatory filings (SEC Edgar, global registries)
+  // - Industry research (Gartner, Preqin, PitchBook)
 
-// **Unstructured content:**
-// - Company reports, investment memos, analyst presentations
-// - Call transcripts (PDFs, Word docs)
+  // **Unstructured content:**
+  // - Company reports, investment memos, analyst presentations
+  // - Call transcripts (PDFs, Word docs)
 
-// **Domain sources:**
-// - Economic indicators, sanctions lists, legal registries, ESG databases
+  // **Domain sources:**
+  // - Economic indicators, sanctions lists, legal registries, ESG databases
 
-// ## Product Offerings
+  // ## Product Offerings
 
-// ### Unified Knowledge Graph
-// A persistent, schema-flexible graph that links all enterprise data with public domain knowledge. It continuously enriches entities (companies, deals, people, products) via NER and relationship extraction.
+  // ### Unified Knowledge Graph
+  // A persistent, schema-flexible graph that links all enterprise data with public domain knowledge. It continuously enriches entities (companies, deals, people, products) via NER and relationship extraction.
 
-// ### Domain-Specialized AI Agents
-// AI assistants fine-tuned on business data and financial context. They answer complex queries and generate outputs like investment memos, regulatory reports or meeting summaries.
+  // ### Domain-Specialized AI Agents
+  // AI assistants fine-tuned on business data and financial context. They answer complex queries and generate outputs like investment memos, regulatory reports or meeting summaries.
 
-// ### Advanced Search & Q&A
-// A conversational interface for natural-language questions about any linked data. Responses are precise, traceable, and hallucination-free.
+  // ### Advanced Search & Q&A
+  // A conversational interface for natural-language questions about any linked data. Responses are precise, traceable, and hallucination-free.
 
-// ### Analytics & Dashboards
-// Pre-built financial dashboards (performance tracking, forecasting, cash flow models) and ad-hoc analytics with real-time KPI monitoring.
+  // ### Analytics & Dashboards
+  // Pre-built financial dashboards (performance tracking, forecasting, cash flow models) and ad-hoc analytics with real-time KPI monitoring.
 
-// ### Market & Competitive Insights
-// Alerts and reports on market shifts, industry news, regulatory changes and peer moves with proactive intelligence.
+  // ### Market & Competitive Insights
+  // Alerts and reports on market shifts, industry news, regulatory changes and peer moves with proactive intelligence.
 
-// ### Secure, Scalable Deployment
-// Enterprise-grade data governance (access controls, audit trails) with private cloud or on-prem options.
+  // ### Secure, Scalable Deployment
+  // Enterprise-grade data governance (access controls, audit trails) with private cloud or on-prem options.
 
-// ## Competitors & Market Landscape
+  // ## Competitors & Market Landscape
 
-// ### Brownloop (Kairos AI)
-// A PE-focused intelligence platform. Kairos integrates CRMs, VDRs, fund accounting and external data.
+  // ### Brownloop (Kairos AI)
+  // A PE-focused intelligence platform. Kairos integrates CRMs, VDRs, fund accounting and external data.
 
-// **How GiKA differs:** Brownloop is a workflow-focused AI assistant. GiKA is a reasoning-first AI agent that understands context, interprets complex data, and drives decisions.
+  // **How GiKA differs:** Brownloop is a workflow-focused AI assistant. GiKA is a reasoning-first AI agent that understands context, interprets complex data, and drives decisions.
 
-// ### Wipro WealthAI
-// A cloud "advise-the-advisor" platform for wealth management.
+  // ### Wipro WealthAI
+  // A cloud "advise-the-advisor" platform for wealth management.
 
-// **How GiKA differs:** WealthAI provides insights and recommendations. GiKA acts like the analyst itself — understanding context and driving decisions.
+  // **How GiKA differs:** WealthAI provides insights and recommendations. GiKA acts like the analyst itself — understanding context and driving decisions.
 
-// ### KiteEdge (Apex)
-// An AI-driven analytics platform for wealth/investment research using RAG-based AI.
+  // ### KiteEdge (Apex)
+  // An AI-driven analytics platform for wealth/investment research using RAG-based AI.
 
-// **How GiKA differs:** KiteEdge focuses on aggregating insights. GiKA draws conclusions and makes actionable decisions.
+  // **How GiKA differs:** KiteEdge focuses on aggregating insights. GiKA draws conclusions and makes actionable decisions.
 
-// ### Stardog (Voicebox)
-// Provides "100% hallucination-free" answers by leveraging knowledge graphs.
+  // ### Stardog (Voicebox)
+  // Provides "100% hallucination-free" answers by leveraging knowledge graphs.
 
-// **How GiKA differs:** Stardog is "Ask your data". GiKA is "Think with your data and decide".
+  // **How GiKA differs:** Stardog is "Ask your data". GiKA is "Think with your data and decide".
 
-// ### Quantexa
-// A platform for risk and customer analytics, exposing hidden fraud and credit risk.
+  // ### Quantexa
+  // A platform for risk and customer analytics, exposing hidden fraud and credit risk.
 
-// **How GiKA differs:** Quantexa powers risk detection. GiKA goes beyond relationships to reasoning — understanding context, intent, and decisions.
+  // **How GiKA differs:** Quantexa powers risk detection. GiKA goes beyond relationships to reasoning — understanding context, intent, and decisions.
 
-// ### AlphaSense
-// AI-powered financial research platform aggregating broker research, transcripts, filings, news.
+  // ### AlphaSense
+  // AI-powered financial research platform aggregating broker research, transcripts, filings, news.
 
-// **How GiKA differs:** AlphaSense is search and retrieval. GiKA is reasoning and decision — helping analysts think and arrive at actual decisions.
+  // **How GiKA differs:** AlphaSense is search and retrieval. GiKA is reasoning and decision — helping analysts think and arrive at actual decisions.
 
-// ### Palantir (Foundry)
-// Enterprise data integration platform enabling deeper analytics and "What-if" modeling.
+  // ### Palantir (Foundry)
+  // Enterprise data integration platform enabling deeper analytics and "What-if" modeling.
 
-// **How GiKA differs:** Foundry is a powerful operating system for analysts. GiKA goes one layer above, acting as the analyst itself.
+  // **How GiKA differs:** Foundry is a powerful operating system for analysts. GiKA goes one layer above, acting as the analyst itself.
 
-// ## Why GiKA is Different
+  // ## Why GiKA is Different
 
-// These companies have a combination of core capabilities:
-// - Aggregate/Integrate data
-// - Surface level insights, KPI dashboards, retrieval
-// - Automating analyst tasks
+  // These companies have a combination of core capabilities:
+  // - Aggregate/Integrate data
+  // - Surface level insights, KPI dashboards, retrieval
+  // - Automating analyst tasks
 
-// **But the harder part is still left to human analysts:** interpreting context → reasoning → making the decision.
+  // **But the harder part is still left to human analysts:** interpreting context → reasoning → making the decision.
 
-// **GiKA is fundamentally different** because it performs the interpretation and reasoning itself, turning raw data into a decision, not just insights.
+  // **GiKA is fundamentally different** because it performs the interpretation and reasoning itself, turning raw data into a decision, not just insights.
 
-// GiKA is a true AI analyst that takes the natural next step to be a cognitive partner — becoming the truly intelligent AI decision engine.
+  // GiKA is a true AI analyst that takes the natural next step to be a cognitive partner — becoming the truly intelligent AI decision engine.
 
-// **It is your Cognitive Twin!**
-//         `
-//     },
-
-]
+  // **It is your Cognitive Twin!**
+  //         `
+  //     },
+];
 
 // Helper function to get a blog post by slug
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-    return blogPosts.find(post => post.slug === slug)
+  return blogPosts.find((post) => post.slug === slug);
 }
 
 // Helper function to get all slugs (useful for static generation)
 export function getAllBlogSlugs(): string[] {
-    return blogPosts.map(post => post.slug)
+  return blogPosts.map((post) => post.slug);
 }
 
 export const categories = [
-    { name: 'All Posts', slug: 'all' },
-    { name: 'AI & Technology', slug: 'ai-technology' },
-    { name: 'Platform Insights', slug: 'platform-insights' },
-    { name: 'Use Cases', slug: 'use-cases' }
-]
+  { name: "All Posts", slug: "all" },
+  { name: "AI & Technology", slug: "ai-technology" },
+  { name: "Platform Insights", slug: "platform-insights" },
+  { name: "Use Cases", slug: "use-cases" },
+];

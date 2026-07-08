@@ -10,20 +10,20 @@ import { Button } from "@/components/ui/button";
 const settings = {
   badge: { text: "Get Started" },
   headlinePrefix: "Start Using ",
-  headlineHighlight: "GikaGraph",
+  headlineHighlight: "GIKA.AI",
   headlineSuffix: " Today",
   description:
     "Experience the power of entity-aware AI tailored specifically for your enterprise needs.",
   CTA: {
     content: "Request Demo",
-    href: "https://cal.com/gikagraph/30-mins",
+    href: "https://cal.com/GIKA.AI/30-mins",
   },
 };
 
 export default function CTA() {
   return (
     <SlideEffect isSpring={false} className="relative mx-auto text-center">
-      <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-orange-50 via-white to-orange-100 px-6 py-16 md:py-20">
+      <div className="relative overflow-hidden rounded-2xl border border-border bg-[linear-gradient(135deg,#e5d3ec,#c9a8d4,white,#e5d3ec)] animate-gradient px-6 py-16 md:py-20">
         <div className="absolute inset-0 bg-grid -z-10 pointer-events-none" />
 
         <div className="relative flex flex-col items-center gap-5">

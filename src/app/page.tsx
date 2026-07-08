@@ -13,7 +13,7 @@ import ScrollReelTestimonials from "@/components/ui/scroll-reel-testimonials";
 const TESTIMONIALS = [
   {
     quote:
-      "GikaGraph completely changed how we explore our data. What used to take a data analyst hours now takes minutes.",
+      "GIKA.AI completely changed how we explore our data. What used to take a data analyst hours now takes minutes.",
     author: "Jan Dittrich",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop",
@@ -66,8 +66,8 @@ export default function HomePage() {
             delay={0.1}
             className="px-2 sm:px-10 md:px-0 w-full md:max-w-xl mx-auto text-sm lg:text-base text-muted-foreground"
           >
-            Our users are our best ambassadors. Discover why they trust
-            GikaGraph to turn scattered data into a knowledge graph.
+            Our users are our best ambassadors. Discover why they trust GIKA.AI
+            to turn scattered data into a knowledge graph.
           </SlideEffect>
         </div>
 
