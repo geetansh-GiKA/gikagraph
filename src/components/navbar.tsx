@@ -2,11 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "./ui/button";
 import { AlignJustify, X } from "lucide-react";
-import { AnimatePresence } from "motion/react";
+import {
+  AnimatePresence,
+  useMotionValueEvent,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "motion/react";
 import * as motion from "motion/react-m";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 const settings = {
@@ -16,10 +21,13 @@ const settings = {
     { name: "How It Works", href: "/how-it-works" },
     { name: "Docs", href: "/docs" },
   ] as const,
-  cta: {
-    content: "Quick Call",
-    href: "https://cal.com/gikagraph/30-mins",
-    external: true,
+  loginCTA: {
+    content: "Login",
+    href: "https://playground.gikagraph.ai",
+  },
+  mainCTA: {
+    content: "Book a Call",
+    href: "#",
   },
 };
 
@@ -40,175 +48,197 @@ const docsLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isDocsOpen, setIsDocsOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  return (
-    <nav className="w-full h-fit py-3 px-2 flex items-center justify-between sticky top-3 z-50  backdrop-blur-md shadow-sm shadow-black/5">
-      {/* Logo */}
-      <Link href="/" title="Home" id="Logo" className="flex items-center gap-2">
-        <Image
-          src="/logo.png"
-          alt="GikaGraph Logo"
-          width={62}
-          height={14}
-          priority
-        />
-        <span className="font-semibold text-base text-foreground hidden sm:inline">
-          GiKA AI
-        </span>
-      </Link>
+  // Scroll progress as a motion value — updates outside React's render
+  // cycle, so no per-pixel re-renders (this was the source of the jank).
+  const { scrollY } = useScroll();
+  // Overshoot then settle: width bumps up briefly past 100% before
+  // easing down to the pill size, driven by a spring for a natural feel.
+  const widthRaw = useTransform(scrollY, [0, 8, 60], [100, 100, 95]);
+  const width = useSpring(widthRaw, {
+    stiffness: 220,
+    damping: 24,
+    mass: 0.6,
+  });
 
-      {/* desktop menu */}
-      <div className="items-center justify-center gap-5 hidden md:flex">
-        {/* Nav Links */}
-        <ul className="flex items-center justify-center gap-5 text-foreground font-medium select-none text-link">
-          {settings.navLinks.map((link) => {
-            // Special handling for Docs dropdown (desktop)
-            if (link.name === "Docs") {
+  // Only used to toggle discrete classes (border/blur/shape), which is
+  // cheap to re-render on since it's a boolean flip, not a scroll tick.
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled((prev) => {
+      const next = latest > 1;
+      return prev === next ? prev : next;
+    });
+  });
+
+  return (
+    <nav
+      className={`w-[75.8rem] mx-auto sticky top-3 z-500 flex justify-center transition-all duration-300 ease-out translate-y-0 opacity-100"
+      }`}
+    >
+      <motion.div
+        style={{ width: useTransform(width, (w) => `${w}%`) }}
+        className={`flex items-center justify-between gap-4 border transition-colors duration-500 ease-out ${
+          isScrolled
+            ? "mt-0 rounded-xl border-border bg-background/95 backdrop-blur-md shadow-md shadow-black/5 px-4 sm:px-6 py-3"
+            : "mt-0 rounded-b-3xl border-t-0 border-transparent bg-transparent shadow-none px-4 sm:px-6 py-3"
+        }`}
+      >
+        {/* Logo */}
+        <Link
+          href="/"
+          title="Home"
+          id="Logo"
+          className="flex items-center gap-2 shrink-0"
+        >
+          <Image
+            src="/logo.png"
+            alt="GikaGraph Logo"
+            width={36}
+            height={11}
+            priority
+          />
+          <span className="font-semibold text-base text-foreground hidden sm:inline">
+            GiKA.AI
+          </span>
+        </Link>
+
+        {/* desktop menu */}
+        <div className="items-center justify-center gap-6 hidden md:flex">
+          {/* Nav Links */}
+          <ul className="flex items-center justify-center gap-1 text-foreground font-medium select-none text-link rounded-full p-1">
+            {settings.navLinks.map((link) => {
+              // Special handling for Docs dropdown (desktop)
+              if (link.name === "Docs") {
+                return (
+                  <li
+                    key={link.name}
+                    className="relative"
+                    onMouseEnter={() => setIsDocsOpen(true)}
+                    onMouseLeave={() => setIsDocsOpen(false)}
+                  >
+                    {/* Trigger */}
+                    <button
+                      type="button"
+                      className="transition-all capitalize inline-flex items-center gap-1 rounded-full px-3 py-1.5"
+                    >
+                      {link.name}
+                      <span className="text-xs opacity-70">▾</span>
+                    </button>
+
+                    {/* Dropdown */}
+                    <AnimatePresence>
+                      {isDocsOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 8 }}
+                          transition={{
+                            duration: 0.18,
+                            ease: [0.16, 1, 0.3, 1],
+                          }}
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-3 z-50"
+                        >
+                          <div className="w-[320px] lg:w-[420px] rounded-xl border border-border bg-background/95 backdrop-blur shadow-lg shadow-black/10 p-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              {docsLinks.map((doc) => (
+                                <Link
+                                  key={doc.href}
+                                  href={doc.href}
+                                  className="rounded-md px-2 py-2 hover:bg-accent hover:text-accent-foreground transition-colors text-left dark:hover:text-black"
+                                >
+                                  <p className="text-sm font-medium mb-0.5">
+                                    {doc.title}
+                                  </p>
+                                  <p className="text-xs text-muted-foreground leading-snug line-clamp-2">
+                                    {doc.description}
+                                  </p>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </li>
+                );
+              }
+
+              // Default simple link
               return (
-                <li
-                  key={link.name}
-                  className="relative"
-                  onMouseEnter={() => setIsDocsOpen(true)}
-                  onMouseLeave={() => setIsDocsOpen(false)}
-                >
-                  {/* Trigger */}
-                  <button
-                    type="button"
-                    className="hover:opacity-80 transition-all capitalize inline-flex items-center gap-1"
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    title={link.name}
+                    className="block transition-all capitalize rounded-full px-3 py-1.5"
                   >
                     {link.name}
-                    <span className="text-xs opacity-70">▾</span>
-                  </button>
-
-                  {/* Dropdown */}
-                  <AnimatePresence>
-                    {isDocsOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 8 }}
-                        transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-3 z-50"
-                      >
-                        <div className="w-[320px] lg:w-[420px] rounded-xl border border-border bg-background/95 backdrop-blur shadow-lg shadow-black/10 p-4">
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                            {docsLinks.map((doc) => (
-                              <Link
-                                key={doc.href}
-                                href={doc.href}
-                                className="rounded-md px-2 py-2 hover:bg-accent hover:text-accent-foreground transition-colors text-left dark:hover:text-black"
-                              >
-                                <p className="text-sm font-medium mb-0.5">
-                                  {doc.title}
-                                </p>
-                                <p className="text-xs text-muted-foreground leading-snug line-clamp-2">
-                                  {doc.description}
-                                </p>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  </Link>
                 </li>
               );
-            }
+            })}
+          </ul>
+        </div>
 
-            // Default simple link
-            return (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  title={link.name}
-                  className="hover:opacity-80 transition-all capitalize"
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  target={(link as any).external ? "_blank" : undefined}
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  rel={
-                    (link as any).external ? "noopener noreferrer" : undefined
-                  }
-                >
-                  {link.name}
-                </Link>
-              </li>
-            );
-          })}
-
-          <AnimatedThemeToggler />
-        </ul>
-
-        {/* Call To Action */}
-        <Link
-          href={settings.cta.href}
-          title={settings.cta.content}
-          onClick={toggleMenu}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Button className="w-full capitalize">{settings.cta.content}</Button>
-        </Link>
-      </div>
-
-      {/* mobile only - burger menu icon */}
-      <motion.div
-        initial={{ scale: 1, y: 0 }}
-        whileTap={{ scale: 0.8 }}
-        transition={{ duration: 0.3 }}
-        className="bg-background shadow-none flex md:hidden cursor-pointer text-foreground"
-        onClick={toggleMenu}
-      >
-        {!isOpen && <AlignJustify size={20} />}
-        {isOpen && <X size={20} />}
+        {/* mobile toggle */}
+        <div className="flex items-center gap-2 md:hidden">
+          <AnimatedThemeToggler className="text-foreground hover:opacity-80 transition-opacity" />
+          <button
+            type="button"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            className="inline-flex items-center justify-center size-9 rounded-full hover:bg-accent transition-colors"
+          >
+            {isOpen ? (
+              <X className="size-5" />
+            ) : (
+              <AlignJustify className="size-5" />
+            )}
+          </button>
+        </div>
       </motion.div>
 
-      {/* mobile only - menu container with AnimatePresence for exit animations */}
+      {/* mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 1, y: -20 }}
-            animate={{ height: "100vh", opacity: 1, y: 0 }}
-            exit={{ height: 0, opacity: 1, y: -20 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed flex flex-col md:hidden top-16 left-0 w-full bg-background border-b border-border z-50 overflow-hidden"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            className="mx-auto max-w-6xl mt-2 md:hidden"
           >
-            <div className="flex flex-col p-6 space-y-6">
-              <ul className="flex flex-col space-y-2 text-foreground font-medium select-none text-base">
+            <div className="rounded-2xl border border-border bg-background/95 backdrop-blur-md shadow-lg shadow-black/10 p-4">
+              <ul className="flex flex-col text-foreground font-medium select-none text-link">
                 {settings.navLinks.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
                       title={link.name}
-                      onClick={toggleMenu}
-                      className="block py-2 capitalize"
-                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                      target={(link as any).external ? "_blank" : undefined}
-                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                      rel={
-                        (link as any).external
-                          ? "noopener noreferrer"
-                          : undefined
-                      }
+                      onClick={() => setIsOpen(false)}
+                      className="block py-2.5 capitalize hover:opacity-80 transition-all"
                     >
                       {link.name}
                     </Link>
                   </li>
                 ))}
+                {docsLinks.map((doc) => (
+                  <li key={doc.href}>
+                    <Link
+                      href={doc.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block py-2.5 pl-4 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {doc.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
-
-              <Link
-                href={settings.cta.href}
-                title={settings.cta.content}
-                onClick={toggleMenu}
-              >
-                <Button className="w-full capitalize">
-                  {settings.cta.content}
-                </Button>
-              </Link>
             </div>
           </motion.div>
         )}

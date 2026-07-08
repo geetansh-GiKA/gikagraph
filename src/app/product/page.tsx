@@ -1,12 +1,10 @@
-"use client"
+"use client";
 
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/sections/footer"
-import SlideEffect from "@/components/slide-effect"
-import { DataFlowSections } from "./components/data-flow-sections"
-import { DataFlowArchitecture } from "./components/data-flow-architecture"
-import { ArrowRight, FileText, Network, Shield } from "lucide-react"
-import Link from "next/link"
+import { Navbar } from "@/components/navbar";
+import SlideEffect from "@/components/slide-effect";
+import { DataFlowSections } from "./components/data-flow-sections";
+import { DataFlowArchitecture } from "./components/data-flow-architecture";
+import { Network } from "lucide-react";
 
 export default function DataFlowPage() {
   return (
@@ -34,10 +32,10 @@ export default function DataFlowPage() {
         </SlideEffect>
 
         <SlideEffect className="max-w-2xl mx-auto text-sm md:text-base text-muted-foreground leading-relaxed">
-          From raw data ingestion to actionable intelligence — see how GiKA transforms
-          fragmented information into a unified knowledge graph with enterprise-grade security.
+          From raw data ingestion to actionable intelligence — see how GiKA
+          transforms fragmented information into a unified knowledge graph with
+          enterprise-grade security.
         </SlideEffect>
-
       </section>
 
       {/* Architecture Visual */}
@@ -50,7 +48,9 @@ export default function DataFlowPage() {
               <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
               <div className="w-3 h-3 rounded-full bg-green-500/60" />
             </div>
-            <span className="text-xs text-muted-foreground ml-2">GiKA Data Pipeline — Live Architecture</span>
+            <span className="text-xs text-muted-foreground ml-2">
+              GiKA Data Pipeline — Live Architecture
+            </span>
           </div>
           <div className="flex justify-center px-4 py-2">
             <DataFlowArchitecture />
@@ -59,8 +59,11 @@ export default function DataFlowPage() {
           <div className="mx-4 mb-4 flex items-start gap-3 border border-primary/20 rounded-xl px-4 py-3 bg-primary/5">
             <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
             <p className="text-xs text-muted-foreground leading-relaxed">
-              From fragmented enterprise memory to absolute data sovereignty — see how GiKA architects{" "}
-              <span className="text-foreground font-medium">hyper-precise RFP responses</span>{" "}
+              From fragmented enterprise memory to absolute data sovereignty —
+              see how GiKA architects{" "}
+              <span className="text-foreground font-medium">
+                hyper-precise RFP responses
+              </span>{" "}
               with enterprise-grade security.
             </p>
           </div>
@@ -78,7 +81,8 @@ export default function DataFlowPage() {
               Explore Each Stage
             </h2>
             <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
-              Click through each stage to see how data transforms from raw inputs to intelligent insights.
+              Click through each stage to see how data transforms from raw
+              inputs to intelligent insights.
             </p>
           </div>
         </SlideEffect>
@@ -93,7 +97,9 @@ export default function DataFlowPage() {
             <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
               <Network className="w-4 h-4 text-primary" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground">Complete Data Pipeline</h3>
+            <h3 className="text-lg font-semibold text-foreground">
+              Complete Data Pipeline
+            </h3>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
             {[
@@ -126,18 +132,18 @@ export default function DataFlowPage() {
                 key={step}
                 className={`space-y-3 p-4 rounded-xl border ${border} ${bg} transition-all hover:scale-[1.02]`}
               >
-                <span className={`text-2xl font-bold font-mono ${color}`}>{step}</span>
+                <span className={`text-2xl font-bold font-mono ${color}`}>
+                  {step}
+                </span>
                 <h4 className="font-medium text-sm text-foreground">{title}</h4>
-                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </SlideEffect>
-
-      <div className="pt-4 sm:pt-6">
-        <Footer />
-      </div>
     </div>
-  )
+  );
 }

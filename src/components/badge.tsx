@@ -1,10 +1,21 @@
-export default function Badge({ text }: { number?: number, text: string }) {
+import Image from "next/image";
+
+export default function Badge({
+  text,
+  icon,
+}: {
+  number?: number;
+  text: string;
+  icon?: string;
+}) {
   return (
-    <div className="w-fit mx-auto rounded-full p-px bg-gradient-to-r from-primary/50 via-primary/20 to-primary/50">
-      <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-background/80 backdrop-blur-sm">
-        <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-sm shadow-primary/50" />
-        <span className="text-xs md:text-sm font-semibold uppercase tracking-widest text-primary">{text}</span>
-      </div>
+    <div className="w-fit mx-auto flex items-center gap-2 px-4 py-1.5 rounded-full bg-background border border-border shadow-sm">
+      {icon ? (
+        <Image src={icon} alt="" width={16} height={16} className="size-4" />
+      ) : null}
+      <span className="text-xs md:text-sm font-medium text-foreground">
+        {text}
+      </span>
     </div>
-  )
+  );
 }

@@ -1,145 +1,91 @@
-'use client'
+"use client";
 
-import Badge from "@/components/badge"
-import FlipCard from "@/components/flip-card"
-import Carousel from "@/components/carousel"
-import SlideEffect from "@/components/slide-effect"
-import { Brain, Database, Layers, Target } from "lucide-react"
+import Image from "next/image";
+import SlideEffect from "@/components/slide-effect";
+import Badge from "@/components/badge";
 
 const settings = {
   badge: {
     number: 1,
-    text: 'Domain-Specific AI',
+    text: "Domain-Specific AI",
   },
-  title: 'Purpose-Driven',
-  description: 'Engineered for enterprise-scale performance, our platform transforms fragmented data into grounded, actionable insights that business can trust using our specialized AI platform.',
-  card_1: {
-    title: 'LLM\'s Aren\'t Enough',
-    content: 'Off-the-shelf LLMs lack the depth, precision, and adaptability required for real business impact. Missing Business Context, High Hallucination Risk, Generic Cookie-cutter output, High Operational Costs.',
-    solutionTitle: 'Domain-Tuned SLMs',
-    solutionPoints: [
-      'Industry-specific fine-tuning',
-      '99.2% accuracy rate',
-      'Minimal hallucination',
-      '10x cost reduction',
-    ],
-    carousel_images: [
-      // "https://upload.wikimedia.org/wikipedia/commons/e/e6/Mistral_AI_logo_%282025%E2%80%93%29.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_%28symbol%29.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",
-      "https://upload.wikimedia.org/wikipedia/commons/1/14/Anthropic.png",
-    ]
-  },
-  card_2: {
-    title: 'Own Your Data',
-    content: 'Businesses suffer due to: Fragmented & Inconsistent Data, No unified Intelligence, Knowledge is scattered, no clear ownership.',
-    solutionTitle: 'Unified Knowledge Graph',
-    solutionPoints: [
-      'Full data ownership',
-      'Entity resolution',
-      'Single source of truth',
-      'Connected data sources',
-    ],
-  },
-  card_3: {
-    title: 'All Data, One Brain',
-    content: 'Enterprises struggle because: Information is fragmented and scattered, No Unified View – impacts strategic decisions quality, Missing External Context – Competitor moves and market shifts.',
-    solutionTitle: 'Entity Intelligence Engine',
-    solutionPoints: [
-      'Unified internal & external data',
-      'Real-time market intelligence',
-      'Competitor tracking',
-      '360° business view',
-    ],
-  },
-  card_4: {
-    title: 'Built for Business Impact',
-    content: 'Generic AI solutions are too lightweight for enterprise complexity — the volume of documents, depth of cross-referencing, and RFP-grade precision they demand. They lack domain expertise and produce insights misaligned with business objectives.',
-    solutionTitle: 'Measurable Outcomes',
-    solutionPoints: [
-      '15-50x ROI',
-      'Built for purpose on RFPs & complex workflows',
-      'Handles enterprise-scale document volumes',
-      'Intelligent alerts & AI recommendations',
-    ],
-  },
-}
+  headlinePrefix: "Purpose-",
+  headlineHighlight: "Driven",
+  headlineSuffix: "",
+  description:
+    "Engineered for enterprise-scale performance, our platform transforms fragmented data into grounded, actionable insights that business can trust using our specialized AI platform.",
+  cards: [
+    {
+      title: "Off-The-Shelf AI Models Aren't Enough",
+      description:
+        "GiKA fine-tunes domain-specific small language models on your business context, delivering 99.2% accuracy with minimal hallucination at a fraction of the cost.",
+      image:
+        "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      title: "Your Data Is Fragmented and Scattered",
+      description:
+        "GiKA unifies every data source into a single knowledge graph with entity resolution, giving your business one connected source of truth.",
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      title: "Generic AI Can't Handle Enterprise Complexity",
+      description:
+        "GiKA is purpose-built for RFP-grade precision and enterprise-scale document volume, driving 15-50x ROI on real business outcomes.",
+      image:
+        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop",
+    },
+  ],
+};
 
 export default function Features1() {
   return (
-    <div id='features' className="space-y-6 sm:space-y-7 md:space-y-8 lg:space-y-10 mx-auto text-center -mt-16">
-      {/* Badge */}
-      <SlideEffect>
-        <Badge number={settings.badge.number} text={settings.badge.text} />
-      </SlideEffect>
-
-      {/* Title */}
-      <SlideEffect>
-        <h2 className="text-2xl md:text-4xl lg:text-header capitalize font-medium leading-none text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/60">{settings.title}</h2>
-      </SlideEffect>
-
-      {/* Description */}
-      <SlideEffect className="px-2 sm:px-10 md:px-0 w-full md:max-w-3/4 mx-auto text-sm lg:text-base">{settings.description}</SlideEffect>
-
-      {/* Cards */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-        {/* card 1 */}
-        <SlideEffect direction="right" className="col-span-1 lg:col-span-3 min-h-[320px]" isSpring={false}>
-          <FlipCard
-            frontTitle={settings.card_1.title}
-            frontContent={settings.card_1.content}
-            solutionTitle={settings.card_1.solutionTitle}
-            solutionPoints={settings.card_1.solutionPoints}
-            carousel={<Carousel images={settings.card_1.carousel_images} />}
-            icon={<Brain className="w-5 h-5" />}
-            accentColor="bg-violet-500"
-            accentTextColor="text-violet-400"
-            accentBorderColor="border-violet-500/30"
-          />
+    <div id="features" className="space-y-12 md:space-y-16 mx-auto -mt-16">
+      {/* Header */}
+      <div className="flex flex-col items-center text-center gap-5">
+        <SlideEffect>
+          <Badge number={settings.badge.number} text={settings.badge.text} icon="/connections.png" />
         </SlideEffect>
 
-        {/* card 2 */}
-        <SlideEffect direction="left" duration={1.3} className="col-span-1 lg:col-span-2 min-h-[320px]" isSpring={false}>
-          <FlipCard
-            frontTitle={settings.card_2.title}
-            frontContent={settings.card_2.content}
-            solutionTitle={settings.card_2.solutionTitle}
-            solutionPoints={settings.card_2.solutionPoints}
-            icon={<Database className="w-5 h-5" />}
-            accentColor="bg-sky-500"
-            accentTextColor="text-sky-400"
-            accentBorderColor="border-sky-500/30"
-          />
-        </SlideEffect>
-
-        {/* card 3 */}
-        <SlideEffect direction="right" duration={1} className="col-span-1 lg:col-span-2 min-h-[320px]" isSpring={false}>
-          <FlipCard
-            frontTitle={settings.card_3.title}
-            frontContent={settings.card_3.content}
-            solutionTitle={settings.card_3.solutionTitle}
-            solutionPoints={settings.card_3.solutionPoints}
-            icon={<Layers className="w-5 h-5" />}
-            accentColor="bg-amber-500"
-            accentTextColor="text-amber-400"
-            accentBorderColor="border-amber-500/30"
-          />
-        </SlideEffect>
-
-        {/* card 4 */}
-        <SlideEffect direction="left" className="col-span-1 lg:col-span-3 min-h-[320px]" isSpring={false}>
-          <FlipCard
-            frontTitle={settings.card_4.title}
-            frontContent={settings.card_4.content}
-            solutionTitle={settings.card_4.solutionTitle}
-            solutionPoints={settings.card_4.solutionPoints}
-            icon={<Target className="w-5 h-5" />}
-            accentColor="bg-emerald-500"
-            accentTextColor="text-emerald-400"
-            accentBorderColor="border-emerald-500/30"
-          />
+        <SlideEffect className="px-2 sm:px-10 md:px-0 w-full md:max-w-2xl mx-auto text-sm lg:text-base text-muted-foreground">
+          {settings.description}
         </SlideEffect>
       </div>
+
+      {/* Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {settings.cards.map((card, index) => (
+          <SlideEffect
+            key={card.title}
+            direction="top"
+            delay={0.08 * index}
+            isSpring={false}
+            className="h-full"
+          >
+            <div className="flex flex-col gap-5 h-full">
+              <div className="relative aspect-[4/3] w-full rounded-2xl border border-border overflow-hidden">
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-orange-500/10" />
+              </div>
+              <div className="space-y-2 text-start">
+                <h3 className="text-lg md:text-xl font-semibold tracking-tight leading-snug">
+                  {card.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {card.description}
+                </p>
+              </div>
+            </div>
+          </SlideEffect>
+        ))}
+      </div>
     </div>
-  )
+  );
 }

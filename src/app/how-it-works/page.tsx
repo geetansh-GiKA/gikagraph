@@ -1,30 +1,37 @@
-"use client"
+"use client";
 
-import { useState, useTransition } from "react"
-import { Navbar } from "@/components/navbar"
-import { SlideEffect } from "@/components/slide-effect"
-import { cn } from "@/lib/utils"
-import { Footer } from "@/sections/footer"
-import { OnboardingFlow } from "./components/onboarding-flow"
-import { AnimatedBeamDemo } from "./components/animated-beam"
-import { layers } from "./data/layers"
-import dynamic from "next/dynamic"
+import { useState, useTransition } from "react";
+import { Navbar } from "@/components/navbar";
+import { SlideEffect } from "@/components/slide-effect";
+import { cn } from "@/lib/utils";
+import { OnboardingFlow } from "./components/onboarding-flow";
+import { AnimatedBeamDemo } from "./components/animated-beam";
+import { layers } from "./data/layers";
+import dynamic from "next/dynamic";
 
-const PrivateEquityDemo = dynamic(() => import("./components/private-equity"), { ssr: false })
-const AssetManagementDemo = dynamic(() => import("./components/asset-management"), { ssr: false })
-const WealthManagement = dynamic(() => import("./components/wealth-management"), { ssr: false })
+const PrivateEquityDemo = dynamic(() => import("./components/private-equity"), {
+  ssr: false,
+});
+const AssetManagementDemo = dynamic(
+  () => import("./components/asset-management"),
+  { ssr: false },
+);
+const WealthManagement = dynamic(
+  () => import("./components/wealth-management"),
+  { ssr: false },
+);
 
 export default function HowItWorksPage() {
-  const [activeTab, setActiveTab] = useState<"private_equity" | "asset" | "wealth">(
-    "private_equity"
-  )
-  const [isPending, startTransition] = useTransition()
+  const [activeTab, setActiveTab] = useState<
+    "private_equity" | "asset" | "wealth"
+  >("private_equity");
+  const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (tab: "private_equity" | "asset" | "wealth") => {
     startTransition(() => {
-      setActiveTab(tab)
-    })
-  }
+      setActiveTab(tab);
+    });
+  };
 
   return (
     <div className="px-4 xl:px-0 max-w-5xl mx-auto space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24">
@@ -45,9 +52,9 @@ export default function HowItWorksPage() {
           </SlideEffect>
 
           <SlideEffect className="max-w-2xl mx-auto text-sm md:text-base text-muted-foreground">
-            We connect to your business data, normalize it into a knowledge graph,
-            tune an LLM to your workflows, and expose everything through a
-            single query interface your team can actually use.
+            We connect to your business data, normalize it into a knowledge
+            graph, tune an LLM to your workflows, and expose everything through
+            a single query interface your team can actually use.
           </SlideEffect>
         </div>
       </section>
@@ -79,7 +86,7 @@ export default function HowItWorksPage() {
                 activeTab === "private_equity"
                   ? "text-foreground shadow-md scale-[1.02]"
                   : "text-muted-foreground hover:text-foreground hover:shadow",
-                isPending && "opacity-70"
+                isPending && "opacity-70",
               )}
             >
               Financial Data Analysis
@@ -93,7 +100,7 @@ export default function HowItWorksPage() {
                 activeTab === "wealth"
                   ? "text-foreground shadow-md scale-[1.02]"
                   : "text-muted-foreground hover:text-foreground hover:shadow",
-                isPending && "opacity-70"
+                isPending && "opacity-70",
               )}
             >
               Customer Support
@@ -107,7 +114,7 @@ export default function HowItWorksPage() {
                 activeTab === "asset"
                   ? "text-foreground shadow-md scale-[1.02]"
                   : "text-muted-foreground hover:text-foreground hover:shadow",
-                isPending && "opacity-70"
+                isPending && "opacity-70",
               )}
             >
               Competitive Analysis
@@ -117,14 +124,14 @@ export default function HowItWorksPage() {
           <div className="mt-4">
             <div
               className="transition-all duration-200 ease-in-out"
-              style={{ minHeight: '420px' }}
+              style={{ minHeight: "420px" }}
             >
               {activeTab === "private_equity" && (
                 <div className="animate-in fade-in duration-200">
                   <PrivateEquityDemo />
                   <p className="mt-3 text-xs md:text-sm text-muted-foreground text-center">
-                    Example: leaders exploring exposures, performance and scenarios across
-                    key initiatives.
+                    Example: leaders exploring exposures, performance and
+                    scenarios across key initiatives.
                   </p>
                 </div>
               )}
@@ -133,7 +140,8 @@ export default function HowItWorksPage() {
                 <div className="animate-in fade-in duration-200">
                   <WealthManagement />
                   <p className="mt-3 text-xs md:text-sm text-muted-foreground text-center">
-                    Example: teams answering complex questions about customers, journeys, and outcomes in real time.
+                    Example: teams answering complex questions about customers,
+                    journeys, and outcomes in real time.
                   </p>
                 </div>
               )}
@@ -142,7 +150,8 @@ export default function HowItWorksPage() {
                 <div className="animate-in fade-in duration-200">
                   <AssetManagementDemo />
                   <p className="mt-3 text-xs md:text-sm text-muted-foreground text-center">
-                    Example: operators exploring performance, risk, and scenarios across products, regions, or business units.
+                    Example: operators exploring performance, risk, and
+                    scenarios across products, regions, or business units.
                   </p>
                 </div>
               )}
@@ -179,9 +188,7 @@ export default function HowItWorksPage() {
                   {layer.title}
                 </h4>
 
-                <p className="text-sm text-muted-foreground">
-                  {layer.tldr}
-                </p>
+                <p className="text-sm text-muted-foreground">{layer.tldr}</p>
 
                 <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
                   {layer.points.map((point) => (
@@ -208,7 +215,8 @@ export default function HowItWorksPage() {
               Platform Onboarding Flow
             </h3>
             <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-              From signup to AI-powered insights in minutes. Here&apos;s your complete journey through the platform.
+              From signup to AI-powered insights in minutes. Here&apos;s your
+              complete journey through the platform.
             </p>
           </div>
         </SlideEffect>
@@ -226,27 +234,31 @@ export default function HowItWorksPage() {
               <div className="space-y-2 p-4 rounded-xl bg-background/50 border">
                 <div className="text-2xl">1️⃣</div>
                 <h5 className="font-medium text-sm">Get Started</h5>
-                <p className="text-xs text-muted-foreground">User logs in → Goes to Home → Chooses Document Repo or Workgroup</p>
+                <p className="text-xs text-muted-foreground">
+                  User logs in → Goes to Home → Chooses Document Repo or
+                  Workgroup
+                </p>
               </div>
               <div className="space-y-2 p-4 rounded-xl bg-background/50 border">
                 <div className="text-2xl">2️⃣</div>
                 <h5 className="font-medium text-sm">Setup Data</h5>
-                <p className="text-xs text-muted-foreground">Connect Knowledge Bases → Create workgroups → Assign users & repos</p>
+                <p className="text-xs text-muted-foreground">
+                  Connect Knowledge Bases → Create workgroups → Assign users &
+                  repos
+                </p>
               </div>
               <div className="space-y-2 p-4 rounded-xl bg-background/50 border">
                 <div className="text-2xl">3️⃣</div>
                 <h5 className="font-medium text-sm">Start Working</h5>
-                <p className="text-xs text-muted-foreground">Chat with AI → View dashboard stats → Browse documents → Explore AI reasoning graph</p>
+                <p className="text-xs text-muted-foreground">
+                  Chat with AI → View dashboard stats → Browse documents →
+                  Explore AI reasoning graph
+                </p>
               </div>
             </div>
           </div>
         </SlideEffect>
       </section>
-
-
-      <div className="pt-8 sm:pt-10">
-        <Footer />
-      </div>
     </div>
-  )
+  );
 }
