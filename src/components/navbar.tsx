@@ -11,7 +11,7 @@ import {
   useTransform,
 } from "motion/react";
 import * as motion from "motion/react-m";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 const settings = {
@@ -112,63 +112,6 @@ export function Navbar() {
           {/* Nav Links */}
           <ul className="flex items-center justify-center gap-1 text-foreground font-medium select-none text-link rounded-full p-1">
             {settings.navLinks.map((link) => {
-              // Special handling for Docs dropdown (desktop)
-              if (link.name === "Docs") {
-                return (
-                  <li
-                    key={link.name}
-                    className="relative"
-                    onMouseEnter={() => setIsDocsOpen(true)}
-                    onMouseLeave={() => setIsDocsOpen(false)}
-                  >
-                    {/* Trigger */}
-                    <button
-                      type="button"
-                      className="transition-all capitalize inline-flex items-center gap-1 rounded-full px-3 py-1.5"
-                    >
-                      {link.name}
-                      <span className="text-xs opacity-70">▾</span>
-                    </button>
-
-                    {/* Dropdown */}
-                    <AnimatePresence>
-                      {isDocsOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 8 }}
-                          transition={{
-                            duration: 0.18,
-                            ease: [0.16, 1, 0.3, 1],
-                          }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-3 z-50"
-                        >
-                          <div className="w-[320px] lg:w-[420px] rounded-xl border border-border bg-background/95 backdrop-blur shadow-lg shadow-black/10 p-4">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                              {docsLinks.map((doc) => (
-                                <Link
-                                  key={doc.href}
-                                  href={doc.href}
-                                  className="rounded-md px-2 py-2 hover:bg-accent hover:text-accent-foreground transition-colors text-left dark:hover:text-black"
-                                >
-                                  <p className="text-sm font-medium mb-0.5">
-                                    {doc.title}
-                                  </p>
-                                  <p className="text-xs text-muted-foreground leading-snug line-clamp-2">
-                                    {doc.description}
-                                  </p>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </li>
-                );
-              }
-
-              // Default simple link
               return (
                 <li key={link.name}>
                   <Link
