@@ -60,6 +60,15 @@ html {
   scroll-behavior: smooth;
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;

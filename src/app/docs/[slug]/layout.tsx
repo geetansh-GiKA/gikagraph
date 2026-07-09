@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { getBlogPostBySlug } from "@/app/blog/data/blogData";
+import { getBlogPostBySlug } from "@/app/docs/data/blogData";
 
 export async function generateMetadata({
   params,

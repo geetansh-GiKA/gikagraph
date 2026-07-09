@@ -22,8 +22,7 @@ const settings = {
 
   usefulLinks: [
     { name: "Home", href: "/" },
-    { name: "Product", href: "/product" },
-    { name: "How It Works", href: "/how-it-works" },
+    { name: "Platform", href: "/platform" },
     { name: "Docs", href: "/docs" },
     { name: "Blog", href: "/blog" },
     { name: "FAQ", href: "/#faq" },

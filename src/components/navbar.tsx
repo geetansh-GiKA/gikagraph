@@ -17,8 +17,7 @@ import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 const settings = {
   navLinks: [
     { name: "home", href: "/" },
-    { name: "Product", href: "/product" },
-    { name: "How It Works", href: "/how-it-works" },
+    { name: "Platform", href: "/platform" },
     { name: "Docs", href: "/docs" },
   ] as const,
   loginCTA: {
@@ -45,10 +44,10 @@ const docsLinks = [
   },
 ];
 
-export function Navbar() {
+export function Navbar({ pill = false }: { pill?: boolean } = {}) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isDocsOpen, setIsDocsOpen] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(pill);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -59,7 +58,11 @@ export function Navbar() {
   const { scrollY } = useScroll();
   // Overshoot then settle: width bumps up briefly past 100% before
   // easing down to the pill size, driven by a spring for a natural feel.
-  const widthRaw = useTransform(scrollY, [0, 8, 60], [100, 100, 95]);
+  const widthRaw = useTransform(
+    scrollY,
+    [0, 8, 60],
+    pill ? [95, 95, 95] : [100, 100, 95],
+  );
   const width = useSpring(widthRaw, {
     stiffness: 220,
     damping: 24,
@@ -69,6 +72,7 @@ export function Navbar() {
   // Only used to toggle discrete classes (border/blur/shape), which is
   // cheap to re-render on since it's a boolean flip, not a scroll tick.
   useMotionValueEvent(scrollY, "change", (latest) => {
+    if (pill) return;
     setIsScrolled((prev) => {
       const next = latest > 1;
       return prev === next ? prev : next;
@@ -84,7 +88,7 @@ export function Navbar() {
         style={{ width: useTransform(width, (w) => `${w}%`) }}
         className={`flex items-center justify-between gap-4 border transition-colors duration-500 ease-out ${
           isScrolled
-            ? "mt-0 rounded-xl border-border bg-background/95 backdrop-blur-md shadow-md shadow-black/5 px-4 sm:px-6 py-3"
+            ? "mt-0 rounded-xl border-border bg-background/95 px-4 sm:px-6 py-3"
             : "mt-0 rounded-b-3xl border-t-0 border-transparent bg-transparent shadow-none px-4 sm:px-6 py-3"
         }`}
       >

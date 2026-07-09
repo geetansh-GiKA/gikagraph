@@ -32,16 +32,7 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              try {
-                const theme = localStorage.getItem('theme');
-                // Default to dark theme if no preference is set
-                if (theme !== 'light') {
-                  document.documentElement.classList.add('dark');
-                }
-              } catch (e) {
-                // Default to dark on error
-                document.documentElement.classList.add('dark');
-              }
+                document.documentElement.classList.add('light');
             `,
           }}
         />
