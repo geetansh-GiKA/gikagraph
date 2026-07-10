@@ -1,6 +1,5 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { LocationMap } from "@/components/ui/expand-map";
 import { ArrowRight, Sparkle } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -130,10 +129,10 @@ export default function AboutSection3() {
               </div>
               <div className="sm:text-base text-xs font-sans text-(--text-300)">
                 <p className="leading-relaxed text-justify">
-                  Every organisation has unique data needs. We blend deep
-                  technical expertise with specialized small language models to
-                  build intelligence platforms that are grounded, accurate, and
-                  built to scale.
+                  Trust is earned through accuracy. Every output from our
+                  platform is grounded in your verified data, not guesswork,
+                  so teams can act on it with confidence instead of second
+                  guessing what the numbers actually mean.
                 </p>
               </div>
             </div>
@@ -149,9 +148,9 @@ export default function AboutSection3() {
 
             <div className="sm:text-base text-xs font-sans text-(--text-300)">
               <p className="leading-relaxed text-justify">
-                Placeholder paragraph text goes here. Replace this with your
-                final copy describing the third point you want to highlight
-                about the platform. Placeholder paragraph text goes here.
+                From messy data to structured knowledge graphs, we
+                help teams connect the dots across systems, so every decision
+                is backed by context, not guesswork. Our platform turns records into a living map of your business.
               </p>
             </div>
           </div>
