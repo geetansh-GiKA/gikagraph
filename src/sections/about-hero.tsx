@@ -1,6 +1,12 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkle } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkle,
+  Phone,
+  LinkedinIcon,
+  Youtube,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -22,32 +28,30 @@ export default function AboutSection3() {
                 WHO ARE WE
               </span>
               <div className="text-center ml-2">
-                <Button className="capitalize mx-auto" variant="masti">
-                  Lets Talk <ArrowRight />
-                </Button>
+                <a
+                  href="https://cal.com/gikagraph/30-mins"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="capitalize mx-auto" variant="masti">
+                    Lets Talk <ArrowRight />
+                  </Button>
+                </a>
               </div>
             </div>
             <div className="flex gap-3">
               {[
                 {
-                  href: "https://www.facebook.com/",
-                  src: "https://pro-section.ui-layouts.com/facebook.svg",
-                  alt: "fb",
+                  href: "https://cal.com/gikagraph/30-mins",
+                  alt: "contact",
                 },
                 {
-                  href: "https://www.instagram.com/",
-                  src: "https://pro-section.ui-layouts.com/instagram.svg",
-                  alt: "insta",
-                },
-                {
-                  href: "https://www.linkedin.com/",
-                  src: "https://pro-section.ui-layouts.com/linkedin.svg",
+                  href: "https://www.linkedin.com/company/gika-ai/",
                   alt: "linkedin",
                 },
                 {
-                  href: "https://www.youtube.com/",
-                  src: "https://pro-section.ui-layouts.com/youtube.svg",
-                  alt: "youtube",
+                  href: "https://www.youtube.com/watch?v=rivJ6WXKzUA",
+                  alt: "Youtube",
                 },
               ].map((social) => (
                 <a
@@ -57,13 +61,18 @@ export default function AboutSection3() {
                   rel="noopener noreferrer"
                   className="md:w-8 md:h-8 w-6 h-6 border border-(--bg-300) bg-(--bg-100) rounded-lg flex items-center justify-center cursor-pointer hover:bg-(--bg-200) transition-colors"
                 >
-                  <Image
-                    src={social.src}
-                    alt={social.alt}
-                    width={16}
-                    height={16}
-                    className="opacity-70"
-                  />
+                  {(() => {
+                    switch (social.alt) {
+                      case "linkedin":
+                        return <LinkedinIcon className="w-4 h-4 opacity-70" />;
+                      case "contact":
+                        return <Phone className="w-4 h-4 opacity-70" />;
+                      case "Youtube":
+                        return <Youtube className="w-4 h-4 opacity-70" />;
+                      default:
+                        return <Phone className="w-4 h-4 opacity-70" />;
+                    }
+                  })()}
                 </a>
               ))}
             </div>
@@ -98,13 +107,12 @@ export default function AboutSection3() {
           {/* Stats */}
           <div className="flex flex-wrap lg:justify-start justify-between items-center py-3 text-sm">
             <div className="lg:absolute right-4 bottom-8 flex lg:flex-col flex-row-reverse lg:gap-0 gap-4">
-              <div className="flex lg:text-4xl sm:text-3xl text-2xl items-center gap-2 mb-2 font-sans">
-                <span className="text-purple-400 font-semibold">100+</span>
-                <span className="text-(--text-200) uppercase">clients</span>
+              <div className="flex lg:text-3xl items-center gap-2 mb-2 font-sans">
+                <span className="font-semibold uppercase">20+ Years Exp</span>
               </div>
               <div className="flex items-center gap-2 mb-2 sm:text-base text-xs font-sans">
-                <span className="text-purple-400 font-bold">30%</span>
-                <span className="text-(--text-300)">avg cost reduction</span>
+                <span className="font-bold">5x</span>
+                <span className="text-(--text-300)">time saved</span>
                 <span className="text-(--bg-300) lg:hidden block">|</span>
               </div>
             </div>
@@ -130,9 +138,9 @@ export default function AboutSection3() {
               <div className="sm:text-base text-xs font-sans text-(--text-300)">
                 <p className="leading-relaxed text-justify">
                   Trust is earned through accuracy. Every output from our
-                  platform is grounded in your verified data, not guesswork,
-                  so teams can act on it with confidence instead of second
-                  guessing what the numbers actually mean.
+                  platform is grounded in your verified data, not guesswork, so
+                  teams can act on it with confidence instead of second guessing
+                  what the numbers actually mean.
                 </p>
               </div>
             </div>
@@ -148,9 +156,10 @@ export default function AboutSection3() {
 
             <div className="sm:text-base text-xs font-sans text-(--text-300)">
               <p className="leading-relaxed text-justify">
-                From messy data to structured knowledge graphs, we
-                help teams connect the dots across systems, so every decision
-                is backed by context, not guesswork. Our platform turns records into a living map of your business.
+                From messy data to structured knowledge graphs, we help teams
+                connect the dots across systems, so every decision is backed by
+                context, not guesswork. Our platform turns records into a living
+                map of your business.
               </p>
             </div>
           </div>

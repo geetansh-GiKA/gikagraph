@@ -267,10 +267,10 @@ const LOGOS: Logo[] = [
 
   // Row 2
   {
-    name: "Oracle",
+    name: "Amazon",
     brandLight: "#8B5A2B",
-    brandDark: "#FF9A73",
-    pixelColors: ["#8B5A2B", "#B97A3D", "#D4A373"],
+    brandDark: "#000000",
+    pixelColors: ["#146eb4", "#ff9900", "#000000"],
     row: 2,
     col: 1,
   },
