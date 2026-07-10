@@ -14,7 +14,7 @@ const settings = {
     {
       icon: Mail,
       title: "Mail us",
-      text: "contact@GIKA.AI.ai",
+      text: "contact@gikagraph.ai",
     },
   ],
   description:

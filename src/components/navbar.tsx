@@ -18,7 +18,9 @@ const settings = {
   navLinks: [
     { name: "home", href: "/" },
     { name: "Platform", href: "/platform" },
-    { name: "Docs", href: "/docs" },
+    { name: "About Us", href: "/about" },
+    { name: "Blogs", href: "/docs" },
+    { name: "Contact", href: "https://cal.com/gikagraph/30-mins" },
   ] as const,
   loginCTA: {
     content: "Login",
@@ -121,7 +123,13 @@ export function Navbar({ pill = false }: { pill?: boolean } = {}) {
                   <Link
                     href={link.href}
                     title={link.name}
-                    className="block transition-all capitalize rounded-full px-3 py-1.5"
+                    target={link.name === "Contact" ? "_blank" : undefined}
+                    rel={
+                      link.name === "Contact"
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    className="relative block transition-all capitalize rounded-full px-3 py-1.5 after:content-[''] after:absolute after:left-3 after:right-3 after:-bottom-0 after:h-0.5 after:bg-primary after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100"
                   >
                     {link.name}
                   </Link>
@@ -167,6 +175,12 @@ export function Navbar({ pill = false }: { pill?: boolean } = {}) {
                     <Link
                       href={link.href}
                       title={link.name}
+                      target={link.name === "Contact" ? "_blank" : undefined}
+                      rel={
+                        link.name === "Contact"
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
                       onClick={() => setIsOpen(false)}
                       className="block py-2.5 capitalize hover:opacity-80 transition-all"
                     >
