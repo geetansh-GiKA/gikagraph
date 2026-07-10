@@ -167,9 +167,10 @@ export function ScrollReelTestimonials({
     const raf = requestAnimationFrame(() =>
       requestAnimationFrame(() => setMounted(true))
     );
+    const activeTimeouts = timeouts.current;
     return () => {
       cancelAnimationFrame(raf);
-      timeouts.current.forEach(clearTimeout);
+      activeTimeouts.forEach(clearTimeout);
     };
   }, []);
 

@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 import DashboardPreview from "@/components/dashboard-preview";
-import Navbar from "@/components/navbar";
 
 const settings = {
   headlinePrefix: "Agents That ",
