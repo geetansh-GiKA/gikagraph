@@ -18,6 +18,7 @@ const settings = {
   navLinks: [
     { name: "home", href: "/" },
     { name: "Platform", href: "/platform" },
+    { name: "Pricing", href: "/pricing" },
     { name: "About Us", href: "/about" },
     { name: "Blogs", href: "/docs" },
     { name: "Contact", href: "https://cal.com/gikagraph/30-mins" },
@@ -48,7 +49,6 @@ const docsLinks = [
 
 export function Navbar({ pill = false }: { pill?: boolean } = {}) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isDocsOpen, setIsDocsOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(pill);
 
   const toggleMenu = () => {

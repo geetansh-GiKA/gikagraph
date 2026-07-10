@@ -9,7 +9,7 @@ const settings = {
     {
       icon: MapPin,
       title: "Find us",
-      text: "1010 Avenue, SW 54321, Chandigarh",
+      text: "6854 Windsor way San Jose Ca 95129",
     },
     {
       icon: Mail,
