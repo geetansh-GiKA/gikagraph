@@ -48,7 +48,21 @@ export default function Features1() {
           <Badge number={settings.badge.number} text={settings.badge.text} icon="/connections.png" />
         </SlideEffect>
 
-        <SlideEffect className="px-2 sm:px-10 md:px-0 w-full md:max-w-2xl mx-auto text-sm lg:text-base text-muted-foreground">
+        <SlideEffect
+          direction="top"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter max-w-2xl mx-auto"
+        >
+          <h2 className="text-black">
+            {settings.headlinePrefix}
+            {settings.headlineHighlight}
+            {settings.headlineSuffix}
+          </h2>
+        </SlideEffect>
+
+        <SlideEffect
+          delay={0.1}
+          className="px-2 sm:px-10 md:px-0 w-full md:max-w-2xl mx-auto text-sm lg:text-base text-muted-foreground"
+        >
           {settings.description}
         </SlideEffect>
       </div>
