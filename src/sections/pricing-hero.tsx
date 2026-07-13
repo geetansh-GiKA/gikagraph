@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 
 const settings = {
   badge: { text: "Pricing" },
-  headline: "Simple, predictable pricing",
+  headline: "Simple, Predictable Pricing",
   description:
     "Start on the General plan and see real results in days. Move to Enterprise when you're ready to connect your own knowledge bases.",
 };

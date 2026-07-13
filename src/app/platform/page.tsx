@@ -26,7 +26,7 @@ export default function PlatformPage() {
       <div className="h-1"></div>
       <Navbar pill />
       <div className="px-4 xl:px-0 max-w-6xl mx-auto">
-        <div className="absolute inset-x-0 top-0 h-[1600px] bg-grid -z-10 pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-[1600px] -z-10 pointer-events-none" />
 
         {/* Hero Section */}
         <ContainerScroll className="pt-16">

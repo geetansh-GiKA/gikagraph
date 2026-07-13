@@ -49,7 +49,6 @@ const docsLinks = [
 
 export function Navbar({ pill = false }: { pill?: boolean } = {}) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState<boolean>(pill);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -71,28 +70,15 @@ export function Navbar({ pill = false }: { pill?: boolean } = {}) {
     mass: 0.6,
   });
 
-  // Only used to toggle discrete classes (border/blur/shape), which is
-  // cheap to re-render on since it's a boolean flip, not a scroll tick.
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    if (pill) return;
-    setIsScrolled((prev) => {
-      const next = latest > 1;
-      return prev === next ? prev : next;
-    });
-  });
-
   return (
     <nav
       className={`w-[75.8rem] mx-auto sticky top-3 z-500 flex justify-center transition-all duration-300 ease-out translate-y-0 opacity-100"
       }`}
     >
       <motion.div
-        style={{ width: useTransform(width, (w) => `${w}%`) }}
-        className={`flex items-center justify-between gap-4 border transition-colors duration-500 ease-out ${
-          isScrolled
-            ? "mt-0 rounded-xl border-border bg-background/95 px-4 sm:px-6 py-3"
-            : "mt-0 rounded-b-3xl border-t-0 border-transparent bg-transparent shadow-none px-4 sm:px-6 py-3"
-        }`}
+        className={
+          "min-w-6xl flex items-center justify-between gap-4 border transition-colors duration-500 ease-out mt-0 rounded-xl border-border bg-background/95 px-4 sm:px-6 py-3"
+        }
       >
         {/* Logo */}
         <Link

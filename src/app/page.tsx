@@ -33,7 +33,7 @@ export default function HomePage() {
       <div className="h-1"></div>
       <Navbar />
       <div className="px-4 xl:px-0 max-w-6xl mx-auto space-y-20 sm:space-y-24 md:space-y-32 lg:space-y-40 scroll-smooth">
-        <div className="absolute inset-x-0 top-0 h-[1600px] bg-grid -z-10 pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-[1600px] -z-10 pointer-events-none" />
         <Hero />
         <Features1 />
         <IntegrationsMarquee />
@@ -59,7 +59,7 @@ export default function HomePage() {
             Our users are our best ambassadors. Discover why they trust GIKA.AI
             to turn scattered data into a knowledge graph.
           </SlideEffect>
-        </div>
+      </div>
 
         <SlideEffect delay={0.2}>
           <div className="flex justify-center">
