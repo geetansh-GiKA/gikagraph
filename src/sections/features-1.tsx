@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { BrainCircuit, Network, Building2 } from "lucide-react";
 import SlideEffect from "@/components/slide-effect";
 import Badge from "@/components/badge";
 
@@ -19,22 +19,19 @@ const settings = {
       title: "Off-The-Shelf AI Models Aren't Enough",
       description:
         "GiKA fine-tunes domain-specific small language models on your business context, delivering 99.2% accuracy with minimal hallucination at a fraction of the cost.",
-      image:
-        "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop",
+      icon: BrainCircuit,
     },
     {
       title: "Your Data Is Fragmented and Scattered",
       description:
         "GiKA unifies every data source into a single knowledge graph with entity resolution, giving your business one connected source of truth.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+      icon: Network,
     },
     {
       title: "Generic AI Can't Handle Enterprise Complexity",
       description:
         "GiKA is purpose-built for RFP-grade precision and enterprise-scale document volume, driving 15-50x ROI on real business outcomes.",
-      image:
-        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop",
+      icon: Building2,
     },
   ],
 };
@@ -45,7 +42,11 @@ export default function Features1() {
       {/* Header */}
       <div className="flex flex-col items-center text-center gap-5">
         <SlideEffect>
-          <Badge number={settings.badge.number} text={settings.badge.text} icon="/connections.png" />
+          <Badge
+            number={settings.badge.number}
+            text={settings.badge.text}
+            icon="/connections.png"
+          />
         </SlideEffect>
 
         <SlideEffect
@@ -69,36 +70,38 @@ export default function Features1() {
 
       {/* Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {settings.cards.map((card, index) => (
-          <SlideEffect
-            key={card.title}
-            direction="top"
-            delay={0.08 * index}
-            isSpring={false}
-            className="h-full"
-          >
-            <div className="flex flex-col gap-5 h-full">
-              <div className="relative aspect-[4/3] w-full rounded-2xl border border-border overflow-hidden">
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-orange-500/10" />
+        {settings.cards.map((card, index) => {
+          const Icon = card.icon;
+          return (
+            <SlideEffect
+              key={card.title}
+              direction="top"
+              delay={0.08 * index}
+              isSpring={false}
+              className="h-full"
+            >
+              <div className="relative h-full overflow-hidden rounded-2xl border border-border bg-card p-8 shadow-[0px_0px_15px_rgba(0,0,0,0.06)]">
+                <div className="absolute -right-6 -top-8 flex h-24 w-24 items-end justify-start rounded-full bg-foreground pb-6 pl-7">
+                  <span className="text-xl font-bold text-background">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                <div className="flex flex-col gap-4 text-start">
+                  <div className="flex h-12 w-12 items-center text-foreground">
+                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                  </div>
+                  <h3 className="text-lg md:text-xl font-semibold tracking-tight leading-snug">
+                    {card.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {card.description}
+                  </p>
+                </div>
               </div>
-              <div className="space-y-2 text-start">
-                <h3 className="text-lg md:text-xl font-semibold tracking-tight leading-snug">
-                  {card.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {card.description}
-                </p>
-              </div>
-            </div>
-          </SlideEffect>
-        ))}
+            </SlideEffect>
+          );
+        })}
       </div>
     </div>
   );
