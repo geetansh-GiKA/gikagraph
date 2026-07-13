@@ -90,7 +90,7 @@ export default function DocsLayout({
     <>
       <div className="h-1"></div>
       <div className="pointer-events-none fixed inset-0 -z-10" />
-      <Navbar pill />
+      <Navbar />
 
       <div className="px-4 xl:px-0 max-w-6xl mx-auto py-8 md:py-12 relative">
         {/* Mobile nav toggle */}

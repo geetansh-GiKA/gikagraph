@@ -8,7 +8,7 @@ export default function PricingPage() {
   return (
     <>
       <div className="h-1"></div>
-      <Navbar pill />
+      <Navbar />
       <div className="px-4 xl:px-0 max-w-6xl mx-auto py-16">
         <PricingHero />
       </div>

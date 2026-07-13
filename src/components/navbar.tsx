@@ -3,12 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AlignJustify, X } from "lucide-react";
-import {
-  AnimatePresence,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "motion/react";
+import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-m";
 import { useState } from "react";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
@@ -46,28 +41,12 @@ const docsLinks = [
   },
 ];
 
-export function Navbar({ pill = false }: { pill?: boolean } = {}) {
+export function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-  // Scroll progress as a motion value — updates outside React's render
-  // cycle, so no per-pixel re-renders (this was the source of the jank).
-  const { scrollY } = useScroll();
-  // Overshoot then settle: width bumps up briefly past 100% before
-  // easing down to the pill size, driven by a spring for a natural feel.
-  const widthRaw = useTransform(
-    scrollY,
-    [0, 8, 60],
-    pill ? [95, 95, 95] : [100, 100, 95],
-  );
-  const width = useSpring(widthRaw, {
-    stiffness: 220,
-    damping: 24,
-    mass: 0.6,
-  });
 
   return (
     <nav

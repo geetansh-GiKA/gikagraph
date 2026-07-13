@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+// @ts-expect-error: allow importing global CSS without type declarations
 import "./globals.css";
-import LenisProvider from "@/providers/lenis";
 import { domAnimation, LazyMotion } from "framer-motion";
 
 export const metadata: Metadata = {
@@ -26,6 +26,7 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font -- App Router root layout; two of these fonts aren't in next/font/google's metadata */}
         <link
           href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Domine:wght@400..700&family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Unica+One&display=swap"
           rel="stylesheet"
