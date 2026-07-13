@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import LenisProvider from "@/providers/lenis";
+import { domAnimation, LazyMotion } from "framer-motion";
 
 export const metadata: Metadata = {
   title: "GIKA.AI - Entity Intelligence Platform",
@@ -41,9 +42,9 @@ export default function RootLayout({
         className="font-sans antialiased w-full min-h-screen"
         suppressHydrationWarning
       >
-        <LenisProvider>
+        <LazyMotion features={domAnimation}>
           <div className="overflow-x-clip">{children}</div>
-        </LenisProvider>
+        </LazyMotion>
       </body>
     </html>
   );
