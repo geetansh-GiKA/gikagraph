@@ -5,7 +5,6 @@ import Link from "next/link";
 import { AlignJustify, X } from "lucide-react";
 import {
   AnimatePresence,
-  useMotionValueEvent,
   useScroll,
   useSpring,
   useTransform,
