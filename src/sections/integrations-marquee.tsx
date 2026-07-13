@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import SlideEffect from "@/components/slide-effect";
 
 const logos = [
@@ -25,6 +26,28 @@ function LogoTile({ name, src }: { name: string; src: string }) {
 }
 
 export default function IntegrationsMarquee() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const setRef = useRef<HTMLDivElement>(null);
+  const [repeat, setRepeat] = useState(2);
+
+  useEffect(() => {
+    const measure = () => {
+      const containerWidth = containerRef.current?.offsetWidth ?? 0;
+      const setWidth = setRef.current?.scrollWidth ?? 0;
+      if (!containerWidth || !setWidth) return;
+      // Ensure one repeated "set" is at least as wide as the container,
+      // so the -50% loop point always falls beyond the visible edge.
+      const needed = Math.ceil(containerWidth / setWidth);
+      setRepeat((prev) => Math.max(prev, needed + 1, 2));
+    };
+
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  const set = Array.from({ length: repeat }, () => logos).flat();
+
   return (
     <div className="space-y-10 md:space-y-12 mx-auto text-center">
       <SlideEffect>
@@ -34,18 +57,29 @@ export default function IntegrationsMarquee() {
       </SlideEffect>
 
       <SlideEffect delay={0.15}>
-        <div className="relative overflow-hidden w-full">
+        <div ref={containerRef} className="relative overflow-hidden w-full">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-background to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
           <div className="flex w-max animate-marquee">
-            {[...logos, ...logos].map((logo, i) => (
-              <LogoTile
-                key={`${logo.name}-${i}`}
-                name={logo.name}
-                src={logo.src}
-              />
-            ))}
+            <div ref={setRef} className="flex shrink-0">
+              {set.map((logo, i) => (
+                <LogoTile
+                  key={`a-${logo.name}-${i}`}
+                  name={logo.name}
+                  src={logo.src}
+                />
+              ))}
+            </div>
+            <div className="flex shrink-0" aria-hidden="true">
+              {set.map((logo, i) => (
+                <LogoTile
+                  key={`b-${logo.name}-${i}`}
+                  name={logo.name}
+                  src={logo.src}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </SlideEffect>
