@@ -102,7 +102,7 @@ export function Navbar({ pill = false }: { pill?: boolean } = {}) {
           className="flex items-center gap-2 shrink-0"
         >
           <Image
-            src="/logo.png"
+            src="/Company/Company.png"
             alt="GIKA.AI Logo"
             width={42}
             height={16}

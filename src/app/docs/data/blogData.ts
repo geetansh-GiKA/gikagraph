@@ -31,7 +31,7 @@ export const blogPosts: BlogPost[] = [
     categorySlug: "ai-technology",
     author: {
       name: "Gika AI Team",
-      avatar: "/logo.png",
+      avatar: "/Company/Company.png",
       role: "Co-Founder, GiKA AI",
       bio: "Manoj Agarwal is a co-founder at GiKA AI, leading the vision for reasoning-first AI systems that transform how businesses make decisions. Along with Prabhath Chellingi, Sayantan Kanjilal, and Aadey Shah, he is building the next generation of cognitive AI for enterprise.",
     },
@@ -137,7 +137,7 @@ It's not about doing things faster. It's about ensuring the right decisions are 
     categorySlug: "ai-technology",
     author: {
       name: "GiKA AI Team",
-      avatar: "/logo.png",
+      avatar: "//Company/Company.png",
       role: "GiKA AI",
       bio: "The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.",
     },
@@ -223,7 +223,7 @@ All grounded in how businesses think.
     categorySlug: "platform-insights",
     author: {
       name: "GiKA AI Team",
-      avatar: "/logo.png",
+      avatar: "//Company/Company.png",
       role: "GiKA AI",
       bio: "The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.",
     },
@@ -463,7 +463,7 @@ Our architecture allows us to train business-specific models quickly, giving com
     categorySlug: "platform-insights",
     author: {
       name: "GiKA AI Team",
-      avatar: "/logo.png",
+      avatar: "//Company/Company.png",
       role: "GiKA AI",
       bio: "The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.",
     },

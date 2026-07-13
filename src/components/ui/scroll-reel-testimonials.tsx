@@ -318,7 +318,7 @@ export function ScrollReelTestimonials({
 
           {/* Text stage */}
           <div
-            className="relative w-full max-w-[390px] overflow-hidden"
+            className="relative w-full max-w-[640px] overflow-hidden"
             aria-live="polite"
           >
             {/* Invisible in-flow copy sizes the stage to the current

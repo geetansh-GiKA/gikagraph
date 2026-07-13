@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Transform fragmented data into grounded, actionable insights with specialized small language models.",
   icons: {
-    icon: "/logo.png",
+    icon: "/Company/Company.png",
   },
 };
 

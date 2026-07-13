@@ -17,11 +17,11 @@ const settings = {
     "An intelligent decision-making platform that delivers better responses, reduces analytical burden, and drives measurable business outcomes.",
   mainCTA: {
     content: "Explore Platform",
-    href: "https://gikagraph.ai/",
+    href: "https://cal.com/gikagraph/30-mins",
   },
   secondaryCTA: {
     content: "view live demo",
-    href: "#",
+    href: "https://cal.com/gikagraph/30-mins",
   },
 };
 

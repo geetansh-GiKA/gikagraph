@@ -23,8 +23,9 @@ const settings = {
   usefulLinks: [
     { name: "Home", href: "/" },
     { name: "Platform", href: "/platform" },
-    { name: "Docs", href: "/docs" },
-    { name: "Blog", href: "/blog" },
+    { name: "Blogs", href: "/docs/ai-that-truly-understands-your-business" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "About", href: "/about" },
     { name: "FAQ", href: "/#faq" },
   ],
   legalLinks: [
@@ -45,7 +46,7 @@ export function Footer() {
           <div className="md:col-span-5">
             <Link href="/" className="flex items-center gap-2 mb-5">
               <Image
-                src="/logo.png"
+                src="/Company/Company.png"
                 alt="GIKA.AI Logo"
                 width={42}
                 height={16}
@@ -69,7 +70,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors capitalize"
+                    className="relative inline-block text-sm text-muted-foreground transition-colors capitalize after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-0.5 after:bg-primary after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100"
                   >
                     {link.name}
                   </Link>

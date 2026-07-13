@@ -16,7 +16,7 @@ const settings = {
     "Experience the power of entity-aware AI tailored specifically for your enterprise needs.",
   CTA: {
     content: "Request Demo",
-    href: "https://cal.com/GIKA.AI/30-mins",
+    href: "https://cal.com/gikagraph/30-mins",
   },
 };
 

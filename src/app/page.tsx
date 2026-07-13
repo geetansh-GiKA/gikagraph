@@ -13,27 +13,17 @@ import ScrollReelTestimonials from "@/components/ui/scroll-reel-testimonials";
 const TESTIMONIALS = [
   {
     quote:
-      "GIKA.AI completely changed how we explore our data. What used to take a data analyst hours now takes minutes.",
-    author: "Jan Dittrich",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop",
+      "GikaGraph transformed how we handle product search and recommendations. The improved data quality and entity matching led to substantially better discovery rates for niche product searches.",
+    author: "Divya Manjari - Founder Drezily",
+    image: "/Customers/Drezily.png",
     alt: "Portrait of Jan Dittrich",
   },
   {
     quote:
-      "I'm building a new analytics workflow and it's absolutely ridiculous how valuable this has been for our team.",
-    author: "Michael Riddering",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80&auto=format&fit=crop",
+      "GiKA AI didn’t just answer questions — it demonstrated true intelligence: contextual accuracy across massive, constantly evolving knowledge, human-level negotiation, and real-time competitive understanding at scale.",
+    author: "Vineet Chaturvedi - Ex CEO Edureka",
+    image: "/Customers/Edureka.png",
     alt: "Portrait of Michael Riddering",
-  },
-  {
-    quote:
-      "Way too much value for the price to be honest — our whole team relies on it now.",
-    author: "James Traf",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80&auto=format&fit=crop",
-    alt: "Portrait of James Traf",
   },
 ];
 

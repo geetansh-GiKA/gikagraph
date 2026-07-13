@@ -1,13 +1,19 @@
-"use client"
+"use client";
 
-import { forwardRef, useRef } from "react"
-import Image from "next/image"
-import { cn } from "@/lib/utils"
-import { AnimatedBeam } from "@/components/ui/animated-beam"
+import { forwardRef, useRef } from "react";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { AnimatedBeam } from "@/components/ui/animated-beam";
 import {
-  Database, Network, BarChart3,
-  FileText, Globe, Building2, Users, Bot
-} from "lucide-react"
+  Database,
+  Network,
+  BarChart3,
+  FileText,
+  Globe,
+  Building2,
+  Users,
+  Bot,
+} from "lucide-react";
 
 const Circle = forwardRef<
   HTMLDivElement,
@@ -19,7 +25,7 @@ const Circle = forwardRef<
         ref={ref}
         className={cn(
           "z-10 flex size-10 md:size-12 items-center justify-center rounded-full border-2 bg-background p-2.5 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
-          className
+          className,
         )}
       >
         {children}
@@ -30,28 +36,28 @@ const Circle = forwardRef<
         </span>
       )}
     </div>
-  )
-})
-Circle.displayName = "Circle"
+  );
+});
+Circle.displayName = "Circle";
 
 export function DataFlowArchitecture() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  
+  const containerRef = useRef<HTMLDivElement>(null);
+
   // Data sources (left)
-  const dbRef = useRef<HTMLDivElement>(null)
-  const apiRef = useRef<HTMLDivElement>(null)
-  const fileRef = useRef<HTMLDivElement>(null)
-  const erpRef = useRef<HTMLDivElement>(null)
-  
+  const dbRef = useRef<HTMLDivElement>(null);
+  const apiRef = useRef<HTMLDivElement>(null);
+  const fileRef = useRef<HTMLDivElement>(null);
+  const erpRef = useRef<HTMLDivElement>(null);
+
   // Center - GiKA only
-  const gikaRef = useRef<HTMLDivElement>(null)
-  
+  const gikaRef = useRef<HTMLDivElement>(null);
+
   // Outputs (right) - 5 nodes
-  const dashRef = useRef<HTMLDivElement>(null)
-  const alertRef = useRef<HTMLDivElement>(null)
-  const reportRef = useRef<HTMLDivElement>(null)
-  const userRef = useRef<HTMLDivElement>(null)
-  const agentRef = useRef<HTMLDivElement>(null)
+  const dashRef = useRef<HTMLDivElement>(null);
+  const alertRef = useRef<HTMLDivElement>(null);
+  const reportRef = useRef<HTMLDivElement>(null);
+  const userRef = useRef<HTMLDivElement>(null);
+  const agentRef = useRef<HTMLDivElement>(null);
 
   return (
     <div
@@ -61,25 +67,45 @@ export function DataFlowArchitecture() {
       <div className="flex size-full max-w-4xl flex-row items-center justify-between gap-4 md:gap-8">
         {/* Left column - Data Sources */}
         <div className="flex flex-col items-center gap-3 md:gap-4">
-          <Circle ref={dbRef} className="border-blue-500/50 bg-blue-500/10" label="Databases">
+          <Circle
+            ref={dbRef}
+            className="border-blue-500/50 bg-blue-500/10"
+            label="Databases"
+          >
             <Database className="w-4 h-4 md:w-5 md:h-5 text-blue-500" />
           </Circle>
-          <Circle ref={apiRef} className="border-green-500/50 bg-green-500/10" label="WebSearch">
+          <Circle
+            ref={apiRef}
+            className="border-green-500/50 bg-green-500/10"
+            label="WebSearch"
+          >
             <Globe className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
           </Circle>
-          <Circle ref={fileRef} className="border-orange-500/50 bg-orange-500/10" label="Files">
+          <Circle
+            ref={fileRef}
+            className="border-orange-500/50 bg-orange-500/10"
+            label="Files"
+          >
             <FileText className="w-4 h-4 md:w-5 md:h-5 text-orange-500" />
           </Circle>
-          <Circle ref={erpRef} className="border-purple-500/50 bg-purple-500/10" label="ERP/CRM">
+          <Circle
+            ref={erpRef}
+            className="border-purple-500/50 bg-purple-500/10"
+            label="ERP/CRM"
+          >
             <Building2 className="w-4 h-4 md:w-5 md:h-5 text-purple-500" />
           </Circle>
         </div>
 
         {/* Center - GiKA Engine only */}
         <div className="flex items-center justify-center">
-          <Circle ref={gikaRef} className="border-primary/50 bg-primary/10 size-16 md:size-20" label="GiKA Engine">
+          <Circle
+            ref={gikaRef}
+            className="border-primary/50 bg-primary/10 size-16 md:size-20"
+            label="GiKA Engine"
+          >
             <Image
-              src="/logo.png"
+              src="//Company/Company.png"
               alt="GiKA"
               width={40}
               height={40}
@@ -90,19 +116,39 @@ export function DataFlowArchitecture() {
 
         {/* Right column - Outputs (5 nodes) */}
         <div className="flex flex-col items-center gap-2 md:gap-3">
-          <Circle ref={dashRef} className="border-rose-500/50 bg-rose-500/10" label="Dashboard">
+          <Circle
+            ref={dashRef}
+            className="border-rose-500/50 bg-rose-500/10"
+            label="Dashboard"
+          >
             <BarChart3 className="w-4 h-4 md:w-5 md:h-5 text-rose-500" />
           </Circle>
-          <Circle ref={alertRef} className="border-amber-500/50 bg-amber-500/10" label="Alerts">
+          <Circle
+            ref={alertRef}
+            className="border-amber-500/50 bg-amber-500/10"
+            label="Alerts"
+          >
             <Network className="w-4 h-4 md:w-5 md:h-5 text-amber-500" />
           </Circle>
-          <Circle ref={reportRef} className="border-violet-500/50 bg-violet-500/10" label="Reports">
+          <Circle
+            ref={reportRef}
+            className="border-violet-500/50 bg-violet-500/10"
+            label="Reports"
+          >
             <Network className="w-4 h-4 md:w-5 md:h-5 text-violet-500" />
           </Circle>
-          <Circle ref={userRef} className="border-emerald-500/50 bg-emerald-500/10" label="Users">
+          <Circle
+            ref={userRef}
+            className="border-emerald-500/50 bg-emerald-500/10"
+            label="Users"
+          >
             <Users className="w-4 h-4 md:w-5 md:h-5 text-emerald-500" />
           </Circle>
-          <Circle ref={agentRef} className="border-cyan-500/50 bg-cyan-500/10" label="Agent">
+          <Circle
+            ref={agentRef}
+            className="border-cyan-500/50 bg-cyan-500/10"
+            label="Agent"
+          >
             <Bot className="w-4 h-4 md:w-5 md:h-5 text-cyan-500" />
           </Circle>
         </div>
@@ -184,5 +230,5 @@ export function DataFlowArchitecture() {
         gradientStopColor="#06b6d4"
       />
     </div>
-  )
+  );
 }

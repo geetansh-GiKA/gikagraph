@@ -3,22 +3,12 @@
 import SlideEffect from "@/components/slide-effect";
 
 const logos = [
-  { name: "Jira", src: "https://cdn.simpleicons.org/jira/2684FF" },
-  { name: "Confluence", src: "https://cdn.simpleicons.org/confluence/2684FF" },
-  { name: "HubSpot", src: "https://cdn.simpleicons.org/hubspot/FF7A59" },
-  { name: "Notion", src: "https://cdn.simpleicons.org/notion/000000" },
-  { name: "GitHub", src: "https://cdn.simpleicons.org/github/181717" },
-  { name: "Zendesk", src: "https://cdn.simpleicons.org/zendesk/03363D" },
-  { name: "Slack", src: "https://cdn.simpleicons.org/slack/4A154B" },
-  {
-    name: "Microsoft Teams",
-    src: "https://cdn.simpleicons.org/microsoftteams/6264A7",
-  },
-  {
-    name: "Google Drive",
-    src: "https://cdn.simpleicons.org/googledrive/4285F4",
-  },
-  { name: "Salesforce", src: "https://cdn.simpleicons.org/salesforce/00A1E0" },
+  { name: "AWS", src: "/Connectors/aws.svg" },
+  { name: "Dropbox", src: "/Connectors/dropbox.svg" },
+  { name: "Google Drive", src: "/Connectors/google-drive.svg" },
+  { name: "MongoDB", src: "/Connectors/mongodb.svg" },
+  { name: "MySQL", src: "/Connectors/mysql.png" },
+  { name: "OneDrive", src: "/Connectors/onedrive.svg" },
 ];
 
 function LogoTile({ name, src }: { name: string; src: string }) {
