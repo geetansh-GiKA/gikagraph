@@ -58,6 +58,22 @@ export const changelogEntries: ChangelogEntry[] = [
     },
   },
   {
+    version: "Version 1.2.1",
+    date: "23 September 2025",
+    title: "Data Connectors",
+    description:
+      "Connect GiKA directly to the systems you already use, so answers are always grounded in your live data.",
+    items: [
+      "Attach databases directly for real-time, queryable access",
+      "Connect Gmail to bring email context into your knowledge graph",
+      "Connect Google Drive to index documents, sheets, and slides automatically",
+      "Sync files and folders as they're added or updated, with no manual re-uploads",
+      "Support for 50+ new data source connectors",
+      "Enterprise-grade security and access controls on every connection",
+    ],
+    image: "/Features/Data.png",
+  },
+  {
     version: "Version 1.3.0",
     date: "15 November 2025",
     title: "Dashboard Generation",
@@ -75,21 +91,5 @@ export const changelogEntries: ChangelogEntry[] = [
       url: "https://gika.ai/platform",
       text: "Explore the dashboard",
     },
-  },
-  {
-    version: "Version 1.2.1",
-    date: "23 September 2025",
-    title: "Data Connectors",
-    description:
-      "Connect GiKA directly to the systems you already use, so answers are always grounded in your live data.",
-    items: [
-      "Attach databases directly for real-time, queryable access",
-      "Connect Gmail to bring email context into your knowledge graph",
-      "Connect Google Drive to index documents, sheets, and slides automatically",
-      "Sync files and folders as they're added or updated, with no manual re-uploads",
-      "Support for 50+ new data source connectors",
-      "Enterprise-grade security and access controls on every connection",
-    ],
-    image: "/Features/Data.png",
   },
 ];

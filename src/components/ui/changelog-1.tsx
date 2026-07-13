@@ -124,14 +124,14 @@ export const Changelog1 = ({ entries = defaultEntries }: Changelog1Props) => {
         <div className="mx-auto max-w-6xl md:flex md:gap-16">
           {currentImage && (
             <div className="hidden md:block md:w-1/2">
-              <div className="sticky top-32 aspect-[4/3] overflow-hidden rounded-lg">
+              <div className="sticky top-32 aspect-[3/3] overflow-hidden rounded-lg">
                 {imagedEntries.map(({ entry, index }) => (
                   <Image
                     key={index}
                     src={entry.image!}
                     alt={`${entry.version} visual`}
                     fill
-                    className="object-cover transition-opacity duration-500 ease-in-out"
+                    className="object-contain transition-opacity duration-500 ease-out-in"
                     style={{
                       opacity: index === currentImage.index ? 1 : 0,
                     }}

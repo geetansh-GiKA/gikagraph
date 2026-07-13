@@ -31,9 +31,10 @@ export default function Hero() {
       <section className="flex flex-col gap-4 lg:gap-12 items-center relative">
         {/* Hero Content */}
         <div className="flex flex-col text-center items-center gap-4">
-          <h2 className=" text-[130px] pt-12 font-bold tracking-tighter uppercase leading-tight">
+          <h2 className=" text-[120px] pt-12 font-bold  uppercase leading-tight">
             {settings.headlinePrefix}
-            <span className="bg-gradient-to-br from-black via-[#9868a8] to-[#c9a8d4] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-br from-black via-[#9868a8] to-[#c9a8d4] bg-clip-text text-transparent ">
+              {" "}
               {settings.headlineHighlight}
             </span>
             {settings.headlineMiddle}
