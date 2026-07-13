@@ -1,7 +1,9 @@
 "use client";
 
+import { PartyPopper } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import SlideEffect from "@/components/slide-effect";
+import Badge from "@/components/badge";
 import { changelogEntries } from "./data/changelog";
 import { Changelog1 } from "@/components/ui/changelog-1";
 import CTA from "@/sections/cta";
@@ -63,7 +65,7 @@ export default function PlatformPage() {
               >
                 {platformStats.map((stat) => (
                   <div key={stat.label} className="flex flex-col items-center">
-                    <span className="text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-br from-black via-[#9868a8] to-[#c9a8d4] bg-clip-text text-transparent">
+                    <span className="text-2xl md:text-3xl font-bold tracking-tight bg-clip-text text-black">
                       {stat.value}
                     </span>
                     <span className="text-xs md:text-sm text-muted-foreground">
@@ -97,6 +99,30 @@ export default function PlatformPage() {
             </video>
           </ContainerInset>
         </ContainerScroll>
+      </div>
+
+      <div className="px-4 xl:px-0 max-w-6xl mx-auto pt-16">
+        <div className="flex flex-col items-center text-center gap-5">
+          <SlideEffect>
+            <Badge text="Features" Icon={PartyPopper} />
+          </SlideEffect>
+
+          <SlideEffect
+            direction="top"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter max-w-2xl mx-auto"
+          >
+            <h2 className="text-black">Everything You Need</h2>
+          </SlideEffect>
+
+          <SlideEffect
+            delay={0.1}
+            className="px-2 sm:px-10 md:px-0 w-full md:max-w-2xl mx-auto text-sm lg:text-base text-muted-foreground"
+          >
+            From connecting your data to automating your most complex workflows,
+            explore the features that make GiKA a complete platform for
+            enterprise intelligence.
+          </SlideEffect>
+        </div>
       </div>
 
       <Changelog1 entries={changelogEntries} />
