@@ -233,7 +233,7 @@ type Logo = {
 const LOGOS: Logo[] = [
   // Row 1
   {
-    name: "Samsung",
+    name: "Samsung Research",
     brandLight: "#1428A0",
     brandDark: "#4F6DFF",
     pixelColors: ["#1428A0", "#3B5BDB", "#4F6DFF"],
@@ -241,7 +241,7 @@ const LOGOS: Logo[] = [
     col: 1,
   },
   {
-    name: "Microsoft",
+    name: "Microsoft Research",
     brandLight: "#737373",
     brandDark: "#737373",
     pixelColors: ["#F25022", "#7FBA00", "#00A4EF", "#FFB900"],
@@ -291,7 +291,7 @@ const LOGOS: Logo[] = [
     col: 3,
   },
   {
-    name: "IBM",
+    name: "IBM Research",
     brandLight: "#052FAD",
     brandDark: "#4F6DFF",
     pixelColors: ["#052FAD", "#1261FE", "#4A90FF"],

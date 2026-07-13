@@ -76,9 +76,9 @@ export default function PlatformPage() {
           </ContainerStagger>
 
           <ContainerInset
-            insetYRange={[35, 0]}
+            insetYRange={[27, 0]}
             insetXRange={[10, 0]}
-            roundednessRange={[80, 16]}
+            roundednessRange={[16, 16]}
             className="max-w-6xl mx-auto mt-8 border"
           >
             <video
