@@ -16,7 +16,7 @@ import FAQ from "@/sections/faq";
 
 const platformStats = [
   { value: "99.2%", label: "Response accuracy" },
-  { value: "50+", label: "Data source connectors" },
+  { value: "5+", label: "Data source connectors" },
   { value: "15-50x", label: "ROI on real outcomes" },
 ];
 

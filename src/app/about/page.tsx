@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/sections/footer";
 import AboutHero from "@/sections/about-hero";
+import AboutStory from "@/sections/about-story";
 import CTA from "@/sections/cta";
 import FAQ from "@/sections/faq";
 import Badge from "@/components/badge";
@@ -15,6 +16,9 @@ export default function AboutPage() {
       <div className="px-4 xl:px-0 max-w-6xl mx-auto">
         <div className="absolute inset-x-0 top-0 h-[1600px] -z-10 pointer-events-none" />
         <AboutHero />
+      </div>
+      <div className="px-4 xl:px-0 max-w-6xl mx-auto py-16">
+        <AboutStory />
       </div>
       <div className="px-4 xl:px-0 max-w-6xl mx-auto py-16 space-y-12">
         <div className="flex flex-col items-center text-center gap-5">
