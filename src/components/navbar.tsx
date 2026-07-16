@@ -13,6 +13,7 @@ const settings = {
     { name: "home", href: "/" },
     { name: "Platform", href: "/platform" },
     { name: "Pricing", href: "/pricing" },
+    { name: "ROI Calculator", href: "/roi-calculator" },
     { name: "About Us", href: "/about" },
     { name: "Blogs", href: "/docs" },
     { name: "Contact", href: "https://cal.com/gikagraph/30-mins" },
