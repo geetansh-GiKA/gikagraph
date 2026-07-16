@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 @theme {
-  --font-sans: "Elms Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "JetBrains Mono", ui-monospace, monospace;
   --font-serif: "Domine", serif;
   --font-display: "Bebas Neue", sans-serif;
   --font-accent: "Unica One", sans-serif;
@@ -17,7 +17,7 @@
   --color-muted-foreground: #6b6b6b;
   --color-card: #ffffff;
   --color-ring: #6ECE9D;
-  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border: rgba(0, 0, 0, 0.2);
 
   --text-base: 18px;
   --text-link: 16px;

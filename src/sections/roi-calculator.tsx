@@ -188,7 +188,7 @@ export default function RoiCalculator() {
             </div>
           </div>
 
-          <div className="space-y-3 mt-4.5">
+          <div className="space-y-3 mt-9.5">
             <StatCard label="Time saved / year" value={formatUSD(timeSaved)} />
             <StatCard
               label="Tooling saved / year"
