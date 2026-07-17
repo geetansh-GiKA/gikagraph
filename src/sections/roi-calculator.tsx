@@ -47,15 +47,15 @@ const fields: {
   { key: "rfpsPerYear", label: "RFPs processed per year" },
   { key: "hoursPerRfp", label: "Avg. hours spent per RFP" },
   { key: "teamSize", label: "Team size working on RFPs" },
-  { key: "avgSalary", label: "Avg. fully-loaded salary", prefix: "$" },
-  { key: "winRate", label: "Current win rate", suffix: "%" },
-  { key: "contractValue", label: "Avg. value per won RFP", prefix: "$" },
   {
     key: "toolingSpend",
     label: "Current tooling/proposal software spend",
     prefix: "$",
     suffix: "/mo",
   },
+  { key: "avgSalary", label: "Avg. fully-loaded salary", prefix: "$" },
+  { key: "winRate", label: "Current win rate", suffix: "%" },
+  { key: "contractValue", label: "Avg. value per won RFP", prefix: "$" },
 ];
 
 const formatUSD = (value: number) =>
@@ -188,7 +188,7 @@ export default function RoiCalculator() {
             </div>
           </div>
 
-          <div className="space-y-3 mt-9.5">
+          <div className="space-y-3 mt-4.5">
             <StatCard label="Time saved / year" value={formatUSD(timeSaved)} />
             <StatCard
               label="Tooling saved / year"
