@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Minus } from "lucide-react";
+import { Check, Minus, Scale } from "lucide-react";
 
 import Badge from "@/components/badge";
 import SlideEffect from "@/components/slide-effect";
@@ -51,7 +51,7 @@ export default function PricingComparison() {
     <div className="space-y-12 mx-auto">
       <div className="flex flex-col items-center text-center gap-5">
         <SlideEffect>
-          <Badge text={settings.badge.text} />
+          <Badge text={settings.badge.text} Icon={Scale}/>
         </SlideEffect>
 
         <SlideEffect

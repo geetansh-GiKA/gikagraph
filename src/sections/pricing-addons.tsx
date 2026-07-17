@@ -2,6 +2,7 @@
 
 import Badge from "@/components/badge";
 import SlideEffect from "@/components/slide-effect";
+import { HeartPlus } from "lucide-react";
 
 const settings = {
   badge: { text: "Need More?" },
@@ -47,7 +48,9 @@ function AddonCard({
               <div className="font-medium text-foreground">{item.name}</div>
               <div className="text-muted-foreground">{item.amount}</div>
             </div>
-            <div className="font-semibold text-foreground shrink-0">{item.price}</div>
+            <div className="font-semibold text-foreground shrink-0">
+              {item.price}
+            </div>
           </li>
         ))}
       </ul>
@@ -60,7 +63,7 @@ export default function PricingAddons() {
     <div className="space-y-12 mx-auto">
       <div className="flex flex-col items-center text-center gap-5">
         <SlideEffect>
-          <Badge text={settings.badge.text} />
+          <Badge text={settings.badge.text} Icon={HeartPlus} />
         </SlideEffect>
 
         <SlideEffect
@@ -78,7 +81,10 @@ export default function PricingAddons() {
         </SlideEffect>
       </div>
 
-      <SlideEffect delay={0.15} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto w-full">
+      <SlideEffect
+        delay={0.15}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto w-full"
+      >
         <AddonCard
           title="General plan add-ons"
           note="Top up GiKA or RFP credits as you go."

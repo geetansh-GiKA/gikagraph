@@ -1,12 +1,13 @@
 import Badge from "@/components/badge";
 import SlideEffect from "@/components/slide-effect";
+import { Scroll } from "lucide-react";
 
 export default function AboutStory() {
   return (
     <div className="flex flex-col gap-12">
       <div className="flex flex-col items-center text-center gap-5">
         <SlideEffect>
-          <Badge text="Our Story" />
+          <Badge text="Our Story" Icon={Scroll}/>
         </SlideEffect>
 
         <SlideEffect

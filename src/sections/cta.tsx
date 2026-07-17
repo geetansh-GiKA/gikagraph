@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, PlayIcon } from "lucide-react";
 
 import Badge from "@/components/badge";
 import SlideEffect from "@/components/slide-effect";
@@ -28,7 +28,7 @@ export default function CTA() {
 
         <div className="relative flex flex-col items-center gap-5">
           <SlideEffect>
-            <Badge text={settings.badge.text} />
+            <Badge text={settings.badge.text} Icon={PlayIcon}/>
           </SlideEffect>
 
           <SlideEffect

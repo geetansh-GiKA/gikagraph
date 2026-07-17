@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import Badge from "@/components/badge";
 import SlideEffect from "@/components/slide-effect";
+import { Calculator } from "lucide-react";
 
 const settings = {
   badge: { text: "ROI Calculator" },
@@ -135,7 +136,7 @@ export default function RoiCalculator() {
       {/* Header */}
       <div className="flex flex-col items-center text-center gap-5">
         <SlideEffect>
-          <Badge text={settings.badge.text} />
+          <Badge text={settings.badge.text} Icon={Calculator} />
         </SlideEffect>
 
         <SlideEffect

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, CircleDollarSign } from "lucide-react";
 
 import Badge from "@/components/badge";
 import SlideEffect from "@/components/slide-effect";
@@ -59,7 +59,7 @@ export default function PricingHero() {
       {/* Header */}
       <div className="flex flex-col items-center text-center gap-5">
         <SlideEffect>
-          <Badge text={settings.badge.text} />
+          <Badge text={settings.badge.text} Icon={CircleDollarSign}/>
         </SlideEffect>
 
         <SlideEffect
