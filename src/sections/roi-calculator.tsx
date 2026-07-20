@@ -8,7 +8,7 @@ import { Calculator } from "lucide-react";
 
 const settings = {
   badge: { text: "ROI Calculator" },
-  headline: "See what GiKA.AI is worth to you",
+  headline: "See what is worth to you",
   description:
     "Estimate the annual value GiKA.AI delivers across time saved on RFP responses, tooling consolidation, and win-rate lift.",
 };
