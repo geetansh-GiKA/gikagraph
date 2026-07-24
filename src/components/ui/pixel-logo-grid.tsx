@@ -241,7 +241,7 @@ const LOGOS: Logo[] = [
     col: 1,
   },
   {
-    name: "Microsoft Research",
+    name: "Microsoft AI & Research",
     brandLight: "#737373",
     brandDark: "#737373",
     pixelColors: ["#F25022", "#7FBA00", "#00A4EF", "#FFB900"],
