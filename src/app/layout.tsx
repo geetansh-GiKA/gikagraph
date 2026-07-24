@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-// @ts-expect-error: allow importing global CSS without type declarations
 import "./globals.css";
 import { domAnimation, LazyMotion } from "framer-motion";
 
