@@ -13,30 +13,35 @@ const settings = {
     "Estimate the annual value GiKA.AI delivers across time saved on RFP responses, tooling consolidation, and win-rate lift.",
 };
 
+// Calibrated against GiKA's base ROI model (1X = 24 RFPs/year):
+// Direct Cost Savings = laborAutomationRate * RFPs * hoursPerRfp * hourlyRate
+//                        + 12 * legacySoftwareMonthlyCost + fixedBaseSavings
 const MULTIPLIERS = {
-  timeEfficiency: 0.4,
-  toolingReduction: 0.3,
-  winRateUplift: 0.15,
+  gikaWinRateUplift: 10, // percentage points added on top of legacy win rate
+  laborAutomationRate: 0.8,
+  fixedBaseSavings: 4812,
 };
 
 type Inputs = {
   rfpsPerYear: number;
   hoursPerRfp: number;
-  teamSize: number;
-  avgSalary: number;
-  winRate: number;
-  contractValue: number;
+  hourlyRate: number;
   toolingSpend: number;
+  legacyWinRate: number;
+  contractValue: number;
 };
 
+const BASE_RFPS_PER_YEAR = 24;
+const MIN_BASE = 1;
+const MAX_BASE = 5;
+
 const defaultInputs: Inputs = {
-  rfpsPerYear: 50,
-  hoursPerRfp: 20,
-  teamSize: 5,
-  avgSalary: 90000,
-  winRate: 20,
-  contractValue: 50000,
+  rfpsPerYear: BASE_RFPS_PER_YEAR,
+  hoursPerRfp: 40,
+  hourlyRate: 75,
   toolingSpend: 2000,
+  legacyWinRate: 20,
+  contractValue: 1000000,
 };
 
 const fields: {
@@ -45,18 +50,22 @@ const fields: {
   prefix?: string;
   suffix?: string;
 }[] = [
-  { key: "rfpsPerYear", label: "RFPs processed per year" },
-  { key: "hoursPerRfp", label: "Avg. hours spent per RFP" },
-  { key: "teamSize", label: "Team size working on RFPs" },
+  { key: "rfpsPerYear", label: "RFPs submitted per year" },
+  { key: "hoursPerRfp", label: "Human hours per RFP " },
+  {
+    key: "hourlyRate",
+    label: "Cost of human labor",
+    prefix: "$",
+    suffix: "/hr",
+  },
   {
     key: "toolingSpend",
-    label: "Current tooling/proposal software spend",
+    label: "Cost of legacy software",
     prefix: "$",
     suffix: "/mo",
   },
-  { key: "avgSalary", label: "Avg. fully-loaded salary", prefix: "$" },
-  { key: "winRate", label: "Current win rate", suffix: "%" },
-  { key: "contractValue", label: "Avg. value per won RFP", prefix: "$" },
+  { key: "legacyWinRate", label: "Legacy win rate", suffix: "%" },
+  { key: "contractValue", label: "Average contract value", prefix: "$" },
 ];
 
 const formatUSD = (value: number) =>
@@ -82,7 +91,7 @@ function NumberField({
   return (
     <label className="flex flex-col gap-2 text-sm">
       <span className="font-medium text-foreground">{label}</span>
-      <div className="flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2 focus-within:ring-2 focus-within:ring-primary/30">
+      <div className="flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2 focus-within:ring-2 focus-within:ring-foreground/30">
         {prefix && <span className="text-muted-foreground">{prefix}</span>}
         <input
           type="number"
@@ -94,6 +103,41 @@ function NumberField({
         {suffix && <span className="text-muted-foreground">{suffix}</span>}
       </div>
     </label>
+  );
+}
+
+function BaseSlider({
+  value,
+  onChange,
+}: {
+  value: number;
+  onChange: (value: number) => void;
+}) {
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="flex items-center justify-between">
+        <span className="text-sm font-medium text-foreground">
+          Base RFP volume
+        </span>
+        <span className="text-sm font-semibold text-foreground">
+          {value}x
+        </span>
+      </div>
+      <input
+        type="range"
+        min={MIN_BASE}
+        max={MAX_BASE}
+        step={1}
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+        className="w-full accent-foreground"
+      />
+      <div className="flex justify-between text-xs text-muted-foreground">
+        {Array.from({ length: MAX_BASE - MIN_BASE + 1 }, (_, i) => (
+          <span key={i}>{MIN_BASE + i}x</span>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -110,26 +154,39 @@ function StatCard({ label, value }: { label: string; value: string }) {
 
 export default function RoiCalculator() {
   const [inputs, setInputs] = useState<Inputs>(defaultInputs);
+  const [base, setBase] = useState(1);
 
   const updateField = (key: keyof Inputs, value: number) => {
     setInputs((prev) => ({ ...prev, [key]: value }));
   };
 
-  const totalManualHours =
-    inputs.rfpsPerYear * inputs.hoursPerRfp * inputs.teamSize;
+  const updateBase = (value: number) => {
+    setBase(value);
+    updateField("rfpsPerYear", BASE_RFPS_PER_YEAR * value);
+  };
 
-  const timeSaved =
-    (totalManualHours / 2080) * inputs.avgSalary * MULTIPLIERS.timeEfficiency;
+  const gikaWinRate = inputs.legacyWinRate + MULTIPLIERS.gikaWinRateUplift;
 
-  const toolingSaved = inputs.toolingSpend * 12 * MULTIPLIERS.toolingReduction;
+  const legacyRevenue =
+    inputs.rfpsPerYear * (inputs.legacyWinRate / 100) * inputs.contractValue;
 
-  const revenueLift =
+  const gikaRevenue =
+    inputs.rfpsPerYear * (gikaWinRate / 100) * inputs.contractValue;
+
+  const revenueLift = gikaRevenue - legacyRevenue;
+
+  const laborSavings =
+    MULTIPLIERS.laborAutomationRate *
     inputs.rfpsPerYear *
-    (inputs.winRate / 100) *
-    MULTIPLIERS.winRateUplift *
-    inputs.contractValue;
+    inputs.hoursPerRfp *
+    inputs.hourlyRate;
 
-  const totalROI = timeSaved + toolingSaved + revenueLift;
+  const toolingSaved = inputs.toolingSpend * 12;
+
+  const costSavings =
+    laborSavings + toolingSaved + MULTIPLIERS.fixedBaseSavings;
+
+  const totalROI = revenueLift + costSavings;
 
   return (
     <div className="space-y-16 mx-auto">
@@ -154,11 +211,26 @@ export default function RoiCalculator() {
         </SlideEffect>
       </div>
 
+      {/* Total Impact */}
+      <SlideEffect direction="top" className="max-w-2xl mx-auto w-full">
+        <div className="rounded-2xl border border-border/60 bg-card p-8 md:p-10 text-center space-y-2">
+          <div className="text-sm text-muted-foreground">
+            Total Annual Financial Impact
+          </div>
+          <div className="text-4xl md:text-5xl font-bold tracking-tight">
+            {formatUSD(totalROI)}
+          </div>
+        </div>
+      </SlideEffect>
+
       {/* Inputs + Results */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto w-full items-start">
         {/* Left: Inputs */}
         <SlideEffect delay={0.1} direction="left">
           <div className="rounded-2xl border border-border/60 bg-card p-6 md:p-8">
+            <div className="mb-6 pb-6 border-b border-border/60">
+              <BaseSlider value={base} onChange={updateBase} />
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {fields.map((field) => (
                 <NumberField
@@ -180,24 +252,22 @@ export default function RoiCalculator() {
           direction="right"
           className="lg:sticky lg:top-24"
         >
-          <div className="rounded-2xl border border-border/60 bg-card p-8 md:p-10 text-center space-y-2">
-            <div className="text-sm text-muted-foreground">
-              Total Annual ROI
-            </div>
-            <div className="text-4xl md:text-5xl font-bold tracking-tight">
-              {formatUSD(totalROI)}
-            </div>
-          </div>
-
-          <div className="space-y-3 mt-4.5">
-            <StatCard label="Time saved / year" value={formatUSD(timeSaved)} />
+          <div className="space-y-3">
             <StatCard
-              label="Tooling saved / year"
-              value={formatUSD(toolingSaved)}
+              label={`Legacy revenue (${inputs.legacyWinRate}% win rate)`}
+              value={formatUSD(legacyRevenue)}
             />
             <StatCard
-              label="Win-rate revenue lift / year"
-              value={formatUSD(revenueLift)}
+              label={`GiKA revenue (${gikaWinRate}% win rate)`}
+              value={formatUSD(gikaRevenue)}
+            />
+            <StatCard
+              label="New revenue unlocked"
+              value={`+${formatUSD(revenueLift)}`}
+            />
+            <StatCard
+              label="Direct cost savings"
+              value={formatUSD(costSavings)}
             />
           </div>
         </SlideEffect>
