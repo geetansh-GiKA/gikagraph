@@ -14,6 +14,7 @@ import {
   ContainerScroll,
   ContainerStagger,
 } from "@/components/blocks/hero-video";
+import { HeroVideoPlayer } from "@/components/blocks/hero-video-player";
 import FAQ from "@/sections/faq";
 
 const platformStats = [
@@ -81,22 +82,9 @@ export default function PlatformPage() {
             insetYRange={[27, 0]}
             insetXRange={[10, 0]}
             roundednessRange={[16, 16]}
-            className="max-w-6xl mx-auto mt-8 border"
+            className="max-w-6xl  mt-8"
           >
-            <video
-              width="100%"
-              height="100%"
-              loop
-              playsInline
-              autoPlay
-              muted
-              className="relative z-10 block h-auto max-h-full w-full object-cover align-middle"
-            >
-              <source
-                src="https://videos.pexels.com/video-files/8084758/8084758-uhd_2560_1440_25fps.mp4"
-                type="video/mp4"
-              />
-            </video>
+            <HeroVideoPlayer src="/Videos/RFP-demo-web.mp4" />
           </ContainerInset>
         </ContainerScroll>
       </div>
