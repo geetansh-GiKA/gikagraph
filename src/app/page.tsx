@@ -42,7 +42,7 @@ export default function HomePage() {
       <div className="px-4 xl:px-0 max-w-6xl mx-auto space-y-10 md:space-y-12 py-32">
         <div className="flex flex-col items-center text-center gap-5">
           <SlideEffect>
-            <Badge text="Testimonials" icon="/userslove.png" />
+            <Badge text="Testimonials" icon="/Badges/userslove.png" />
           </SlideEffect>
 
           <SlideEffect

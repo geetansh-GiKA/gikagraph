@@ -45,7 +45,7 @@ export default function Features1() {
           <Badge
             number={settings.badge.number}
             text={settings.badge.text}
-            icon="/connections.png"
+            icon="/Badges/connections.png"
           />
         </SlideEffect>
 

@@ -55,7 +55,7 @@ export default function FAQ() {
       {/* Header */}
       <div className="flex flex-col items-center text-center gap-5">
         <SlideEffect>
-          <Badge text={settings.badge.text} icon="/Faq.png" />
+          <Badge text={settings.badge.text} icon="/Badges/Faq.png" />
         </SlideEffect>
 
         <SlideEffect
