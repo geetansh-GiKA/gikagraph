@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AlignJustify, X } from "lucide-react";
 import { AnimatePresence } from "motion/react";
 import * as motion from "motion/react-m";
@@ -44,9 +45,16 @@ const docsLinks = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const isActive = (href: string) => {
+    if (href.startsWith("http")) return false;
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
   };
 
   return (
@@ -83,6 +91,7 @@ export function Navbar() {
           {/* Nav Links */}
           <ul className="flex items-center justify-center gap-1 text-foreground font-medium select-none text-link rounded-full p-1">
             {settings.navLinks.map((link) => {
+              const active = isActive(link.href);
               return (
                 <li key={link.name}>
                   <Link
@@ -94,7 +103,12 @@ export function Navbar() {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="relative block transition-all capitalize rounded-full px-3 py-1.5 after:content-[''] after:absolute after:left-3 after:right-3 after:-bottom-0 after:h-0.5 after:bg-primary after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100"
+                    aria-current={active ? "page" : undefined}
+                    className={`relative block transition-all capitalize rounded-full px-3 py-1.5 after:content-[''] after:absolute after:left-3 after:right-3 after:-bottom-0 after:h-0.5 after:bg-primary after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100 ${
+                      active
+                        ? "text-primary after:scale-x-100"
+                        : "after:scale-x-0"
+                    }`}
                   >
                     {link.name}
                   </Link>
@@ -135,24 +149,34 @@ export function Navbar() {
           >
             <div className="rounded-2xl border border-border bg-background/95 backdrop-blur-md shadow-lg shadow-black/10 p-4">
               <ul className="flex flex-col text-foreground font-medium select-none text-link">
-                {settings.navLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      title={link.name}
-                      target={link.name === "Contact" ? "_blank" : undefined}
-                      rel={
-                        link.name === "Contact"
-                          ? "noopener noreferrer"
-                          : undefined
-                      }
-                      onClick={() => setIsOpen(false)}
-                      className="block py-2.5 capitalize hover:opacity-80 transition-all"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
+                {settings.navLinks.map((link) => {
+                  const active = isActive(link.href);
+                  return (
+                    <li key={link.name}>
+                      <Link
+                        href={link.href}
+                        title={link.name}
+                        target={
+                          link.name === "Contact" ? "_blank" : undefined
+                        }
+                        rel={
+                          link.name === "Contact"
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                        aria-current={active ? "page" : undefined}
+                        onClick={() => setIsOpen(false)}
+                        className={`block py-2.5 capitalize transition-all ${
+                          active
+                            ? "text-primary"
+                            : "hover:opacity-80"
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  );
+                })}
                 {docsLinks.map((doc) => (
                   <li key={doc.href}>
                     <Link
