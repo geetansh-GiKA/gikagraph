@@ -8,22 +8,28 @@ import IntegrationsMarquee from "@/sections/integrations-marquee";
 import Navbar from "@/components/navbar";
 import Badge from "@/components/badge";
 import SlideEffect from "@/components/slide-effect";
-import ScrollReelTestimonials from "@/components/ui/scroll-reel-testimonials";
+import TestimonialCard from "@/components/ui/testimonial-card";
 
 const TESTIMONIALS = [
   {
     quote:
       "GikaGraph transformed how we handle product search and recommendations. The improved data quality and entity matching led to substantially better discovery rates for niche product searches.",
-    author: "Divya Manjari - Founder Drezily",
+    emphasis: "substantially better discovery",
+    author: "Divya Manjari",
+    role: "Founder",
+    company: "Drezily",
     image: "/Customers/Drezily.png",
-    alt: "Portrait of Jan Dittrich",
+    alt: "Portrait of Divya Manjari",
   },
   {
     quote:
-      "GiKA AI didn’t just answer questions — it demonstrated true intelligence: contextual accuracy across massive, constantly evolving knowledge, human-level negotiation, and real-time competitive understanding at scale.",
-    author: "Vineet Chaturvedi - Ex CEO Edureka",
+      "GiKA AI didn’t just answer questions it demonstrated true intelligence: contextual accuracy across massive, constantly evolving knowledge, human-level negotiation, and real-time understanding at scale.",
+    emphasis: "contextual accuracy",
+    author: "Vineet Chaturvedi",
+    role: "Ex CEO",
+    company: "Edureka",
     image: "/Customers/Edureka.png",
-    alt: "Portrait of Michael Riddering",
+    alt: "Portrait of Vineet Chaturvedi",
   },
 ];
 
@@ -59,11 +65,13 @@ export default function HomePage() {
             Our users are our best ambassadors. Discover why they trust GIKA.AI
             to turn scattered data into a knowledge graph.
           </SlideEffect>
-      </div>
+        </div>
 
         <SlideEffect delay={0.2}>
-          <div className="flex justify-center">
-            <ScrollReelTestimonials testimonials={TESTIMONIALS} />
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 w-fit mx-auto">
+            {TESTIMONIALS.map((testimonial) => (
+              <TestimonialCard key={testimonial.author} {...testimonial} />
+            ))}
           </div>
         </SlideEffect>
       </div>
