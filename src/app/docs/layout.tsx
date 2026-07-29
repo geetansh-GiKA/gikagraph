@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AlignJustify, Search, X } from "lucide-react";
 import { Navbar } from "@/components/navbar";
@@ -46,7 +47,6 @@ export default function DocsLayout({
         </p>
       )}
       {filteredPosts.map((post) => {
-        const i = blogPosts.indexOf(post);
         const href = `/docs/${post.slug}`;
         const isActive = pathname === href;
         return (
@@ -60,16 +60,18 @@ export default function DocsLayout({
                 : "border-border/60 hover:border-border bg-transparent"
             }`}
           >
-            <div className="flex items-start gap-2">
-              <span
-                className={`font-mono text-[11px] pt-0.5 shrink-0 ${
-                  isActive
-                    ? "text-foreground"
-                    : "text-muted-foreground/60 group-hover:text-muted-foreground"
-                }`}
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
+            <div className="space-y-2">
+              {post.coverImage && (
+                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg border border-border/60">
+                  <Image
+                    src={post.coverImage}
+                    alt=""
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 320px"
+                    className="object-cover"
+                  />
+                </div>
+              )}
               <p
                 className={`text-sm leading-snug transition-colors ${
                   isActive

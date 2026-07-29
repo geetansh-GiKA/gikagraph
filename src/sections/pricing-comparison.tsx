@@ -11,28 +11,24 @@ const settings = {
   description: "A closer look at what's included in every plan.",
 };
 
-const plans = ["General", "Enterprise"] as const;
+const plans = ["Free Trial", "Foundation", "Professional", "Enterprise"] as const;
 
 type Cell = boolean | string;
 
-const rows: { feature: string; values: [Cell, Cell] }[] = [
-  { feature: "Upload & analyze RFPs", values: [true, true] },
-  { feature: "Requirement identification", values: [true, true] },
-  { feature: "Competitive analysis", values: [true, true] },
-  { feature: "Chat with GiKA AI agent", values: [true, true] },
-  { feature: "Collaboration (Threads)", values: [true, true] },
-  { feature: "Customer knowledge base connection", values: [false, true] },
-  { feature: "Deep research", values: [true, true] },
+const rows: { feature: string; values: [Cell, Cell, Cell, Cell] }[] = [
+  { feature: "Price", values: ["Free (30 days)", "$599/month", "$20,000/year", "Custom"] },
+  { feature: "RFP Credits", values: ["30", "50/month", "1,000/year", "Custom"] },
   {
-    feature: "RFP credits",
-    values: ["50/mo (~5 full RFPs)", "1,000/yr (~100 full RFPs)"],
+    feature: "Knowledge Repository",
+    values: ["Standard", "Standard", "Enterprise", "Custom"],
   },
-  { feature: "Additional credit top-ups", values: [true, true] },
-  { feature: "Dedicated support & SLA", values: [false, true] },
   {
-    feature: "Billing",
-    values: ["Monthly, quarterly or yearly", "Annual, negotiated"],
+    feature: "Structured Data",
+    values: ["Standard", "Standard", "Unlimited", "Unlimited"],
   },
+  { feature: "AI Agents", values: [true, true, true, true] },
+  { feature: "Connectors", values: ["Standard", "Standard", "Advanced", "Custom"] },
+  { feature: "Support", values: ["Standard", "Standard", "Dedicated", "Dedicated"] },
 ];
 
 function Cell({ value }: { value: Cell }) {
@@ -70,9 +66,9 @@ export default function PricingComparison() {
       </div>
 
       <SlideEffect delay={0.15} className="w-full overflow-x-auto">
-        <div className="min-w-[560px] max-w-4xl mx-auto rounded-2xl border border-border bg-card">
+        <div className="min-w-[720px] max-w-5xl mx-auto rounded-2xl border border-border bg-card">
           {/* Header row */}
-          <div className="grid grid-cols-3 border-b border-border">
+          <div className="grid grid-cols-5 border-b border-border">
             <div className="p-4 md:p-5" />
             {plans.map((plan) => (
               <div
@@ -88,7 +84,7 @@ export default function PricingComparison() {
           {rows.map((row, i) => (
             <div
               key={row.feature}
-              className={`grid grid-cols-3 items-center ${
+              className={`grid grid-cols-5 items-center ${
                 i !== rows.length - 1 ? "border-b border-border" : ""
               }`}
             >

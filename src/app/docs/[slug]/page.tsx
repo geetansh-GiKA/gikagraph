@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import { getBlogPostBySlug, type BlogPost } from "@/app/docs/data/blogData";
 import { Button } from "@/components/ui/button";
@@ -59,6 +60,19 @@ export default function DocPage() {
       <h1 className="text-2xl md:text-4xl font-semibold tracking-tight text-foreground leading-tight">
         {post.title}
       </h1>
+
+      {post.coverImage && (
+        <div className="relative w-full aspect-[16/9] overflow-hidden rounded-2xl border border-border/60">
+          <Image
+            src={post.coverImage}
+            alt={post.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 768px"
+            className="object-cover"
+            priority
+          />
+        </div>
+      )}
 
       <MarkdownContent content={post.content} />
     </article>

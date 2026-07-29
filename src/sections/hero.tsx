@@ -8,7 +8,7 @@ import Link from "next/link";
 import DashboardPreview from "@/components/dashboard-preview";
 
 const settings = {
-  headlinePrefix: "Agents That ",
+  headlinePrefix: "AI That ",
   headlineHighlight: "Truly",
   headlineMiddle: " ",
   headlineHighlight2: "Understands",
