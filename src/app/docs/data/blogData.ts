@@ -137,7 +137,7 @@ It's not about doing things faster. It's about ensuring the right decisions are 
     categorySlug: "ai-technology",
     author: {
       name: "GiKA AI Team",
-      avatar: "//Company/Company.png",
+      avatar: "/Company/Company.png",
       role: "GiKA AI",
       bio: "The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.",
     },
@@ -223,7 +223,7 @@ All grounded in how businesses think.
     categorySlug: "platform-insights",
     author: {
       name: "GiKA AI Team",
-      avatar: "//Company/Company.png",
+      avatar: "/Company/Company.png",
       role: "GiKA AI",
       bio: "The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.",
     },
@@ -301,7 +301,7 @@ Our architecture allows us to train business-specific models quickly, giving com
     categorySlug: "platform-insights",
     author: {
       name: "GiKA AI Team",
-      avatar: "//Company/Company.png",
+      avatar: "/Company/Company.png",
       role: "GiKA AI",
       bio: "The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.",
     },
@@ -392,7 +392,7 @@ Let's start a conversation. Block your slot on the website, or simply drop a mes
     categorySlug: "ai-technology",
     author: {
       name: "GiKA AI Team",
-      avatar: "//Company/Company.png",
+      avatar: "/Company/Company.png",
       role: "GiKA AI",
       bio: "The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.",
     },

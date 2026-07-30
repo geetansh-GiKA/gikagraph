@@ -45,8 +45,8 @@ const plans: Plan[] = [
   {
     name: "Foundation",
     description: "The fastest way to run RFPs end to end every month.",
-    price: "$599",
-    period: "/month",
+    price: "$5999",
+    period: "/year",
     cta: "Get Started",
     href: "https://playground.GIKA.AI.ai",
     features: [
@@ -119,7 +119,11 @@ export default function PricingHero() {
       {/* Plans */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch max-w-7xl mx-auto">
         {plans.map((plan, index) => (
-          <SlideEffect key={plan.name} delay={0.1 + index * 0.05} className="h-full">
+          <SlideEffect
+            key={plan.name}
+            delay={0.1 + index * 0.05}
+            className="h-full"
+          >
             <div
               className={`rounded-2xl text-sm h-full p-6 md:p-8 flex flex-col items-start justify-start text-start gap-4 text-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-0.5 ${
                 plan.highlighted
