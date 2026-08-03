@@ -10,8 +10,6 @@ import CTA from "@/sections/cta";
 import Footer from "@/sections/footer";
 import {
   ContainerAnimated,
-  ContainerInset,
-  ContainerScroll,
   ContainerStagger,
 } from "@/components/blocks/hero-video";
 import { HeroVideoPlayer } from "@/components/blocks/hero-video-player";
@@ -32,7 +30,7 @@ export default function PlatformPage() {
         <div className="absolute inset-x-0 top-0 h-[1600px] -z-10 pointer-events-none" />
 
         {/* Hero Section */}
-        <ContainerScroll className="pt-16">
+        <div className="pt-16 pb-[10%]">
           <ContainerStagger className="flex flex-col items-center justify-center text-center gap-6">
             <SlideEffect delay={0.05}>
               <ContainerAnimated animation="top">
@@ -78,15 +76,22 @@ export default function PlatformPage() {
             </SlideEffect>
           </ContainerStagger>
 
-          <ContainerInset
-            insetYRange={[27, 0]}
-            insetXRange={[10, 0]}
-            roundednessRange={[16, 16]}
-            className="max-w-6xl  mt-8"
+          <div
+            className="max-w-6xl mt-8 rounded-[28px] overflow-hidden"
+            style={{
+              padding: "32px",
+              background:
+                "radial-gradient(circle at 15% 10%, rgba(201,168,212,0.35), transparent 45%), radial-gradient(circle at 90% 85%, rgba(122,78,136,0.3), transparent 55%), linear-gradient(155deg, rgba(152,104,168,0.22) 0%, rgba(122,78,136,0.12) 40%, rgba(152,104,168,0.06) 100%)",
+            }}
           >
-            <HeroVideoPlayer src="/Videos/RFP-demo-web.mp4" />
-          </ContainerInset>
-        </ContainerScroll>
+            <div className="rounded-2xl overflow-hidden">
+              <HeroVideoPlayer
+                src="/Videos/RFP-demo-web.mp4"
+                poster="/Videos/RFPPoster.png"
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="px-4 xl:px-0 max-w-6xl mx-auto pt-16">

@@ -10,7 +10,6 @@ import {
   getBlogPostBySlug,
   type BlogPost,
 } from "@/app/docs/data/blogData";
-import { Button } from "@/components/ui/button";
 import MarkdownContent from "@/app/docs/components/markdown-content";
 
 function createSlug(text: string): string {
