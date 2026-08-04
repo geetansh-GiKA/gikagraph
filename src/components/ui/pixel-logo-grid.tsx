@@ -226,77 +226,56 @@ type Logo = {
   brandLight: string;
   brandDark?: string;
   pixelColors: string[];
-  row: number;
-  col: number;
 };
 
 const LOGOS: Logo[] = [
-  // Row 1
   {
     name: "Samsung Research",
     brandLight: "#1428A0",
     brandDark: "#4F6DFF",
     pixelColors: ["#1428A0", "#3B5BDB", "#4F6DFF"],
-    row: 1,
-    col: 1,
   },
   {
     name: "Microsoft AI & Research",
     brandLight: "#737373",
     brandDark: "#737373",
     pixelColors: ["#F25022", "#7FBA00", "#00A4EF", "#FFB900"],
-    row: 1,
-    col: 2,
   },
   {
     name: "Razorpay",
     brandLight: "#072654",
     brandDark: "#2B7FFF",
     pixelColors: ["#072654", "#0F5BFF", "#2B7FFF"],
-    row: 1,
-    col: 3,
   },
   {
     name: "Uber",
     brandLight: "#000000",
     brandDark: "#000000",
     pixelColors: ["#000000", "#545454", "#FFFFFF"],
-    row: 1,
-    col: 4,
   },
-
-  // Row 2
   {
     name: "Amazon",
     brandLight: "#8B5A2B",
     brandDark: "#000000",
     pixelColors: ["#146eb4", "#ff9900", "#000000"],
-    row: 2,
-    col: 1,
   },
   {
     name: "Rippling",
     brandLight: "#5B2A86",
     brandDark: "#000",
     pixelColors: ["#5B2A86", "#7B3FC7", "#A66BFF"],
-    row: 2,
-    col: 2,
   },
   {
     name: "Sprinklr",
     brandLight: "#FF6A39",
     brandDark: "#FF9A73",
     pixelColors: ["#FF6A39", "#FF8157", "#FF9A73"],
-    row: 2,
-    col: 3,
   },
   {
     name: "IBM Research",
     brandLight: "#052FAD",
     brandDark: "#4F6DFF",
     pixelColors: ["#052FAD", "#1261FE", "#4A90FF"],
-    row: 2,
-    col: 4,
   },
 ];
 
@@ -308,12 +287,12 @@ const LOGOS: Logo[] = [
  * -------------------------------------------------------------------------- */
 
 function LogoCard({ logo }: { logo: Logo }) {
-  const { name, brandLight, brandDark, pixelColors, row, col } = logo;
+  const { name, brandLight, brandDark, pixelColors } = logo;
 
   return (
     <div
       className={cn(
-        "group relative grid place-items-center overflow-hidden bg-card cursor-pointer select-none isolate",
+        "group relative grid place-items-center overflow-hidden bg-card cursor-pointer select-none isolate p-2 text-center",
         "transition-shadow duration-300 hover:z-[2]",
         // --brand resolves to --brand-light by default, or to --brand-dark when
         // an ancestor has the .dark class. Lets hover colors stay theme-aware.
@@ -324,15 +303,13 @@ function LogoCard({ logo }: { logo: Logo }) {
         {
           "--brand-light": brandLight,
           "--brand-dark": brandDark ?? brandLight,
-          gridRow: row,
-          gridColumn: col,
         } as React.CSSProperties
       }
     >
       <PixelCanvas colors={pixelColors} gap={5} speed={30} />
       <span
         className={cn(
-          "relative z-[1] text-lg md:text-xl font-semibold tracking-tight transition-all duration-300",
+          "relative z-[1] text-sm sm:text-lg md:text-xl font-semibold tracking-tight transition-all duration-300",
           "text-muted-foreground/60 group-hover:text-[var(--brand)] group-hover:scale-[1.06]",
         )}
       >
@@ -345,13 +322,12 @@ function LogoCard({ logo }: { logo: Logo }) {
 export const Component = () => {
   return (
     <div
-      className="grid grid-cols-4 w-full max-w-[75.8rem] mx-auto gap-px bg-border border border-border rounded-xl overflow-hidden"
-      style={{ gridTemplateRows: "repeat(2, 96px)" }}
+      className="grid grid-cols-2 sm:grid-cols-4 w-full max-w-6xl mx-auto gap-px bg-border border border-border rounded-xl overflow-hidden"
+      style={{ gridAutoRows: "96px" }}
     >
       {LOGOS.map((logo) => (
         <LogoCard key={logo.name} logo={logo} />
       ))}
-      <div className="bg-card" style={{ gridRow: 2, gridColumn: 4 }} />
     </div>
   );
 };

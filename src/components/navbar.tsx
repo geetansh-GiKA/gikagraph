@@ -1,55 +1,100 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AlignJustify, X } from "lucide-react";
-import { AnimatePresence } from "motion/react";
-import * as motion from "motion/react-m";
-import { useState } from "react";
-import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+import {
+  AlignJustify,
+  ScrollText,
+  BarChart,
+  DollarSign,
+  FileText,
+  LayersIcon,
+  Mail,
+  Users,
+  X,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import {
+  NavGridCard,
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavItemMobile,
+  type NavItemType,
+} from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
-const settings = {
-  navLinks: [
-    { name: "home", href: "/" },
-    { name: "Platform", href: "/platform" },
-    { name: "Pricing", href: "/pricing" },
-    { name: "ROI Calculator", href: "/roi-calculator" },
-    { name: "About Us", href: "/about" },
-    { name: "Blogs", href: "/docs" },
-    { name: "Contact", href: "https://cal.com/gikagraph/30-mins" },
-  ] as const,
-  loginCTA: {
-    content: "Login",
-    href: "https://playground.GIKA.AI.ai",
+const productLinks: NavItemType[] = [
+  {
+    title: "Document Intelligence",
+    href: "/platform",
+    description:
+      "The unified enterprise intelligence platform that extracts, structures, and connects insights across all your documents.",
+    icon: LayersIcon,
   },
-  mainCTA: {
-    content: "Book a Call",
-    href: "#",
-  },
+];
+
+const rfpOverviewLink: NavItemType = {
+  title: "Request for Proposal",
+  href: "/request-for-proposal",
+  description: "End-to-end RFP automation, from intake to submission.",
+  icon: ScrollText,
 };
 
-// All your documentation links for the dropdown
-const docsLinks = [
+const rfpLinks: NavItemType[] = [
   {
-    title: "Blogs",
-    href: "/blog",
-    description: "Read our latest articles and insights.",
+    title: "Pricing",
+    href: "/pricing",
+    description: "RFP plans that scale with your business",
+    icon: DollarSign,
   },
   {
-    title: "FAQ",
-    href: "/#faq",
-    description: "Find answers to common questions.",
+    title: "ROI",
+    href: "/roi-calculator",
+    description: "Estimate your return on investment",
+    icon: BarChart,
+  },
+];
+
+const companyLinks: NavItemType[] = [
+  {
+    title: "About Us",
+    href: "/about",
+    description:
+      "Learn more about our story, our mission, and the team building the future of data-driven insights",
+    icon: Users,
+  },
+  {
+    title: "Blogs",
+    href: "/docs",
+    description:
+      "Read our latest articles, product updates, and insights on data, analytics, and business intelligence",
+    icon: FileText,
+  },
+];
+
+const directLinks: NavItemType[] = [
+  {
+    title: "Contact",
+    href: "https://cal.com/gikagraph/30-mins",
+    description: "Book a call with our team",
+    icon: Mail,
   },
 ];
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
   const pathname = usePathname();
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const isActive = (href: string) => {
     if (href.startsWith("http")) return false;
@@ -57,16 +102,21 @@ export function Navbar() {
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
+  const isRfpActive =
+    isActive(rfpOverviewLink.href) ||
+    rfpLinks.some((link) => isActive(link.href));
+  const isProductsActive =
+    productLinks.some((link) => isActive(link.href)) || isRfpActive;
+  const isCompanyActive = companyLinks.some((link) => isActive(link.href));
+
   return (
     <nav
-      className={`w-[75.8rem] mx-auto sticky top-3 z-500 flex justify-center transition-all duration-300 ease-out translate-y-0 opacity-100"
-      }`}
+      className={cn(
+        "w-full max-w-6xl px-4 xl:px-0 mx-auto sticky top-3 z-500 flex justify-center",
+        mobileMenuOpen && "hidden",
+      )}
     >
-      <motion.div
-        className={
-          "min-w-6xl flex items-center justify-between gap-4 border transition-colors duration-500 ease-out mt-0 rounded-xl border-border bg-background/95 px-4 sm:px-6 py-3"
-        }
-      >
+      <div className="w-full flex items-center justify-between gap-4 border rounded-xl border-border bg-background/95 px-4 sm:px-6 py-3">
         {/* Logo */}
         <Link
           href="/"
@@ -87,112 +137,167 @@ export function Navbar() {
         </Link>
 
         {/* desktop menu */}
-        <div className="items-center justify-center gap-6 hidden md:flex">
-          {/* Nav Links */}
-          <ul className="flex items-center justify-center gap-1 text-foreground font-medium select-none text-link rounded-full p-1">
-            {settings.navLinks.map((link) => {
-              const active = isActive(link.href);
-              return (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    title={link.name}
-                    target={link.name === "Contact" ? "_blank" : undefined}
-                    rel={
-                      link.name === "Contact"
-                        ? "noopener noreferrer"
-                        : undefined
-                    }
-                    aria-current={active ? "page" : undefined}
-                    className={`relative block transition-all capitalize rounded-full px-3 py-1.5 after:content-[''] after:absolute after:left-3 after:right-3 after:-bottom-0 after:h-0.5 after:bg-primary after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100 ${
-                      active
-                        ? "text-primary after:scale-x-100"
-                        : "after:scale-x-0"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-
-        {/* mobile toggle */}
-        <div className="flex items-center gap-2 md:hidden">
-          <AnimatedThemeToggler className="text-foreground hover:opacity-80 transition-opacity" />
-          <button
-            type="button"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-            aria-expanded={isOpen}
-            className="inline-flex items-center justify-center size-9 rounded-full hover:bg-accent transition-colors"
-          >
-            {isOpen ? (
-              <X className="size-5" />
-            ) : (
-              <AlignJustify className="size-5" />
-            )}
-          </button>
-        </div>
-      </motion.div>
-
-      {/* mobile menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto max-w-6xl mt-2 md:hidden"
-          >
-            <div className="rounded-2xl border border-border bg-background/95 backdrop-blur-md shadow-lg shadow-black/10 p-4">
-              <ul className="flex flex-col text-foreground font-medium select-none text-link">
-                {settings.navLinks.map((link) => {
-                  const active = isActive(link.href);
-                  return (
-                    <li key={link.name}>
-                      <Link
-                        href={link.href}
-                        title={link.name}
-                        target={
-                          link.name === "Contact" ? "_blank" : undefined
-                        }
-                        rel={
-                          link.name === "Contact"
-                            ? "noopener noreferrer"
-                            : undefined
-                        }
-                        aria-current={active ? "page" : undefined}
-                        onClick={() => setIsOpen(false)}
-                        className={`block py-2.5 capitalize transition-all ${
-                          active
-                            ? "text-primary"
-                            : "hover:opacity-80"
-                        }`}
-                      >
-                        {link.name}
-                      </Link>
+        <NavigationMenu className="relative hidden md:flex" viewport={false}>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger
+                className={cn(isProductsActive && "text-primary")}
+              >
+                Products
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className="left-auto right-0">
+                <ul className="grid w-[min(36rem,calc(100vw-2rem))] grid-cols-2 gap-4 p-4">
+                  {productLinks.map((link) => (
+                    <li key={link.href}>
+                      <NavGridCard link={link} className="min-h-36" />
                     </li>
-                  );
-                })}
-                {docsLinks.map((doc) => (
-                  <li key={doc.href}>
-                    <Link
-                      href={doc.href}
-                      onClick={() => setIsOpen(false)}
-                      className="block py-2.5 pl-4 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {doc.title}
-                    </Link>
+                  ))}
+                  <li key={rfpOverviewLink.href}>
+                    <NavGridCard
+                      link={rfpOverviewLink}
+                      subLinks={rfpLinks}
+                      className="min-h-36"
+                    />
                   </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger
+                className={cn(isCompanyActive && "text-primary")}
+              >
+                Company
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className="left-auto right-0">
+                <ul className="grid w-[min(36rem,calc(100vw-2rem))] grid-cols-2 gap-4 p-4">
+                  {companyLinks.map((link) => (
+                    <li key={link.href}>
+                      <NavGridCard link={link} className="min-h-36" />
+                    </li>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            {directLinks.map((link) => (
+              <NavigationMenuItem key={link.href}>
+                <Link
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    link.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                  className={cn(
+                    "inline-flex w-max items-center justify-center rounded-md px-4 py-1 text-sm font-medium border border-transparent transition-[color,box-shadow,border-color] hover:border-foreground hover:bg-accent hover:text-accent-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 outline-none",
+                    isActive(link.href) && "text-primary",
+                  )}
+                >
+                  {link.title}
+                </Link>
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+
+        {/* mobile menu */}
+        <div className="flex items-center gap-2 md:hidden">
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <Button
+                size="icon"
+                variant="ghost"
+                className="rounded-full"
+                aria-label="Toggle menu"
+              >
+                <AlignJustify className="size-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent
+              className="bg-background/95 supports-[backdrop-filter]:bg-background/80 w-full gap-0 backdrop-blur-lg"
+              showClose={false}
+            >
+              <div className="flex h-14 items-center justify-end border-b px-4">
+                <SheetClose asChild>
+                  <Button
+                    size="icon"
+                    variant="ghost"
+                    className="rounded-full"
+                    aria-label="Close menu"
+                  >
+                    <X className="size-5" />
+                  </Button>
+                </SheetClose>
+              </div>
+              <div className="container grid gap-y-1 overflow-y-auto px-4 pt-5 pb-12">
+                <span className="px-2 text-xs font-medium text-muted-foreground uppercase">
+                  Products
+                </span>
+                <ul className="grid gap-1 mb-4">
+                  {productLinks.map((link) => (
+                    <li key={link.href}>
+                      <SheetClose asChild>
+                        <NavItemMobile item={link} href={link.href} />
+                      </SheetClose>
+                    </li>
+                  ))}
+                  <li key={rfpOverviewLink.href}>
+                    <SheetClose asChild>
+                      <NavItemMobile
+                        item={rfpOverviewLink}
+                        href={rfpOverviewLink.href}
+                      />
+                    </SheetClose>
+                  </li>
+                  {rfpLinks.map((link) => (
+                    <li key={link.href}>
+                      <SheetClose asChild>
+                        <NavItemMobile item={link} href={link.href} />
+                      </SheetClose>
+                    </li>
+                  ))}
+                </ul>
+
+                <span className="px-2 text-xs font-medium text-muted-foreground uppercase">
+                  Company
+                </span>
+                <ul className="grid gap-1 mb-4">
+                  {companyLinks.map((link) => (
+                    <li key={link.href}>
+                      <SheetClose asChild>
+                        <NavItemMobile item={link} href={link.href} />
+                      </SheetClose>
+                    </li>
+                  ))}
+                </ul>
+
+                <ul className="grid gap-1">
+                  {directLinks.map((link) => (
+                    <li key={link.href}>
+                      <SheetClose asChild>
+                        <NavItemMobile
+                          item={link}
+                          href={link.href}
+                          target={
+                            link.href.startsWith("http") ? "_blank" : undefined
+                          }
+                          rel={
+                            link.href.startsWith("http")
+                              ? "noopener noreferrer"
+                              : undefined
+                          }
+                        />
+                      </SheetClose>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
     </nav>
   );
 }

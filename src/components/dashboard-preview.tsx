@@ -1,5 +1,6 @@
 "use client";
 
+import { useLayoutEffect, useRef, useState } from "react";
 import { JetBrains_Mono } from "next/font/google";
 import Image from "next/image";
 import {
@@ -76,11 +77,41 @@ const hoursSavedTrendConfig = {
   },
 } satisfies ChartConfig;
 
+const DASHBOARD_BASE_WIDTH = 1180;
+
 export default function DashboardPreview() {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  useLayoutEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+
+    const measure = () => {
+      const containerWidth = wrapper.offsetWidth;
+      setScale(containerWidth / DASHBOARD_BASE_WIDTH);
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(wrapper);
+    return () => observer.disconnect();
+  }, []);
+
+  const scaledHeight = (contentRef.current?.offsetHeight ?? 0) * scale;
+
   return (
-    <div
-      className={`pointer-events-none select-none ${jetBrainsMono.className}`}
-    >
+    <div ref={wrapperRef} style={{ height: scaledHeight || undefined }}>
+      <div
+        ref={contentRef}
+        className={`pointer-events-none select-none ${jetBrainsMono.className}`}
+        style={{
+          width: DASHBOARD_BASE_WIDTH,
+          transform: `scale(${scale})`,
+          transformOrigin: "top left",
+        }}
+      >
       <style>{`
         .grafino-dash{
           --bg: #0a0a0a;
@@ -764,6 +795,7 @@ export default function DashboardPreview() {
             </main>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

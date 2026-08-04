@@ -27,7 +27,7 @@ export default function RootLayout({
         />
         {/* eslint-disable-next-line @next/next/no-page-custom-font -- App Router root layout; two of these fonts aren't in next/font/google's metadata */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Domine:wght@400..700&family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Unica+One&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Domine:wght@400..700&family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&family=Unica+One&display=swap"
           rel="stylesheet"
         />
         <script

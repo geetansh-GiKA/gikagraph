@@ -135,8 +135,8 @@ export default function DocPage() {
       </div>
 
       {/* Body */}
-      <div className="mt-10 grid lg:grid-cols-[320px_1fr] gap-10 items-start">
-        <aside className="space-y-6 lg:sticky lg:top-24 lg:order-1">
+      <div className="mt-10 grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-10 items-start">
+        <aside className="min-w-0 space-y-6 lg:sticky lg:top-24 lg:order-1">
           {/* In this article */}
           {toc.length > 0 && (
             <div className="rounded-2xl border border-border/60 bg-card p-6 text-center">
@@ -150,9 +150,9 @@ export default function DocPage() {
                   <a
                     key={item.id}
                     href={`#${item.id}`}
-                    className="group flex items-center gap-x-2 text-sm text-foreground/80 transition-colors hover:text-foreground"
+                    className="group flex min-w-0 items-center gap-x-2 text-sm text-foreground/80 transition-colors hover:text-foreground"
                   >
-                    <span className="truncate leading-snug">{item.text}</span>
+                    <span className="min-w-0 truncate leading-snug">{item.text}</span>
                     <span
                       aria-hidden
                       className="min-w-[0.75rem] flex-1 border-b border-dotted border-foreground/30"

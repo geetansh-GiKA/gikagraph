@@ -15,7 +15,7 @@ export default function AboutSection3() {
       <div className="max-w-6xl mx-auto">
         <div className="relative">
           {/* Header row */}
-          <div className="flex justify-between items-center mb-8 w-[85%] absolute lg:top-4 md:top-0 sm:-top-2 -top-3 z-10">
+          <div className="flex justify-center sm:justify-between items-center mb-8 pb-6 sm:pb-0 w-full sm:w-[85%] static sm:absolute lg:top-4 md:top-0 sm:-top-2 z-10">
             <div className="flex items-center gap-2 text-xl">
               <motion.span
                 animate={{ rotate: 360 }}
@@ -23,10 +23,10 @@ export default function AboutSection3() {
               >
                 <Sparkle className="w-6 h-6 text-foreground fill-foreground" />
               </motion.span>
-              <span className="text-3xl font-semibold font-sans text-foreground">
+              <span className="text-lg sm:text-3xl font-semibold font-sans text-foreground">
                 WHO ARE WE
               </span>
-              <div className="text-center ml-2">
+              <div className="hidden sm:block text-center ml-2">
                 <a
                   href="https://cal.com/gikagraph/30-mins"
                   target="_blank"
@@ -38,7 +38,7 @@ export default function AboutSection3() {
                 </a>
               </div>
             </div>
-            <div className="flex gap-3">
+            <div className="hidden sm:flex gap-3">
               {[
                 {
                   href: "https://cal.com/gikagraph/30-mins",
@@ -78,7 +78,7 @@ export default function AboutSection3() {
           </div>
 
           {/* Hero image */}
-          <figure className="relative group">
+          <figure className="relative group hidden sm:block">
             <svg
               className="w-full"
               width="100%"
@@ -104,7 +104,7 @@ export default function AboutSection3() {
           </figure>
 
           {/* Stats */}
-          <div className="flex flex-wrap lg:justify-start justify-between items-center py-3 text-sm">
+          <div className="hidden sm:flex flex-wrap lg:justify-start justify-between items-center py-3 text-sm">
             <div className="lg:absolute right-4 bottom-8 flex lg:flex-col flex-row-reverse lg:gap-0 gap-4">
               <div className="flex lg:text-3xl items-center gap-2 mb-2 font-sans">
                 <span className="font-semibold uppercase">20+ Years Exp</span>
@@ -119,13 +119,13 @@ export default function AboutSection3() {
         </div>
 
         {/* Main Content */}
-        <div className="grid md:grid-cols-3 gap-8 mt-4">
+        <div className="grid md:grid-cols-3 gap-4 md:gap-8 mt-4">
           <div className="md:col-span-2">
             <h2 className="sm:text-4xl md:text-5xl text-2xl !leading-[110%] font-sans font-semibold text-foreground mb-8">
               Turning Fragmented Data Into Grounded Intelligence.
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-4 md:gap-8">
               <div className="sm:text-base text-xs font-sans text-(--text-300)">
                 <p className="leading-relaxed text-justify">
                   Our journey began with a simple belief: enterprise data should
@@ -146,11 +146,11 @@ export default function AboutSection3() {
           </div>
 
           <div className="md:col-span-1 flex flex-col justify-between">
-            <div className="flex-1 flex flex-col items-end justify-center gap-2">
-              <h3 className="sm:text-xl md:text-2xl text-2xl !leading-[110%] font-sans font-semibold text-foreground text-right mb-16">
+            <div className="flex-1 flex flex-col items-start sm:items-end justify-start sm:justify-center gap-2">
+              <h3 className="sm:text-xl md:text-2xl text-2xl !leading-[110%] font-sans font-semibold text-foreground text-left sm:text-right mb-4 md:mb-16">
                 Entity Intelligence Platform for Enterprises
               </h3>
-              <h3 className="text-sm !leading-[110%] font-sans text-foreground text-right"></h3>
+              <h3 className="text-sm !leading-[110%] font-sans text-foreground text-left sm:text-right"></h3>
             </div>
 
             <div className="sm:text-base text-xs font-sans text-(--text-300)">

@@ -36,9 +36,9 @@ function Cell({ value }: { value: Cell }) {
     return <span className="text-sm text-foreground">{value}</span>;
   }
   return value ? (
-    <Check className="size-4 text-muted-foreground mx-auto" />
+    <Check className="size-4 text-muted-foreground shrink-0" />
   ) : (
-    <Minus className="size-4 text-muted-foreground/40 mx-auto" />
+    <Minus className="size-4 text-muted-foreground/40 shrink-0" />
   );
 }
 
@@ -65,7 +65,37 @@ export default function PricingComparison() {
         </SlideEffect>
       </div>
 
-      <SlideEffect delay={0.15} className="w-full overflow-x-auto">
+      {/* Mobile: stacked plan cards */}
+      <SlideEffect delay={0.15} className="w-full sm:hidden">
+        <div className="flex flex-col gap-4 max-w-md mx-auto">
+          {plans.map((plan, planIndex) => (
+            <div
+              key={plan}
+              className="rounded-2xl border border-border bg-card overflow-hidden"
+            >
+              <div className="p-4 text-center font-semibold text-base border-b border-border">
+                {plan}
+              </div>
+              {rows.map((row, i) => (
+                <div
+                  key={row.feature}
+                  className={`flex items-center justify-between gap-4 p-4 ${
+                    i !== rows.length - 1 ? "border-b border-border" : ""
+                  }`}
+                >
+                  <span className="text-sm text-muted-foreground">
+                    {row.feature}
+                  </span>
+                  <Cell value={row.values[planIndex]} />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </SlideEffect>
+
+      {/* Tablet and up: full comparison table */}
+      <SlideEffect delay={0.15} className="w-full hidden sm:block overflow-x-auto">
         <div className="min-w-[720px] max-w-5xl mx-auto rounded-2xl border border-border bg-card">
           {/* Header row */}
           <div className="grid grid-cols-5 border-b border-border">

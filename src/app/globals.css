@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 @theme {
-  --font-sans: "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: "Sofia Sans", sans-serif;
   --font-serif: "Domine", serif;
   --font-display: "Bebas Neue", sans-serif;
   --font-accent: "Unica One", sans-serif;
@@ -12,10 +12,13 @@
   --color-foreground: #1a1a1a;
   --color-primary: #9868a8;
   --color-secondary: #F8F5ED;
-  --color-accent: #FFDA6E;
+  --color-accent: #F0F0F0;
+  --color-accent-foreground: #1a1a1a;
   --color-muted: #F0F0F0;
   --color-muted-foreground: #6b6b6b;
   --color-card: #ffffff;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #1a1a1a;
   --color-ring: #6ECE9D;
   --color-border: rgba(0, 0, 0, 0.2);
 
@@ -32,10 +35,13 @@
   --color-foreground: #e5e5e5;
   --color-primary: #6ECE9D;
   --color-secondary: #1a1a1a;
-  --color-accent: #FFDA6E;
+  --color-accent: #262626;
+  --color-accent-foreground: #e5e5e5;
   --color-muted: #262626;
   --color-muted-foreground: #a3a3a3;
   --color-card: #171717;
+  --color-popover: #171717;
+  --color-popover-foreground: #e5e5e5;
   --color-ring: #6ECE9D;
   --color-border: rgba(255, 255, 255, 0.1);
 }
