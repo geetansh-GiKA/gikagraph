@@ -5,8 +5,11 @@ import {
   ClipboardCheck,
   FileSearch,
   PartyPopper,
+  Scale,
   Sparkles,
   Trophy,
+  X,
+  Check,
 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import SlideEffect from "@/components/slide-effect";
@@ -19,11 +22,46 @@ import {
 } from "@/components/blocks/hero-video";
 import { HeroVideoPlayer } from "@/components/blocks/hero-video-player";
 import FAQ from "@/sections/faq";
+import { Reveal2 } from "@/components/ui/reveal2";
+import DocumentsDashboardPreview from "@/components/documents-dashboard-preview";
 
 const rfpStats = [
   { value: "10x", label: "Faster response drafting" },
   { value: "100%", label: "Requirements coverage" },
   { value: "15-50x", label: "ROI on real outcomes" },
+];
+
+const rfpComparison = [
+  {
+    label: "Response time",
+    before: "2-3 weeks per RFP",
+    after: "Hours, not weeks",
+  },
+  {
+    label: "Source of truth",
+    before: "Scattered docs, folders, and old proposals",
+    after: "Single knowledge graph across your org",
+  },
+  {
+    label: "Requirements coverage",
+    before: "Manually tracked in spreadsheets, easy to miss",
+    after: "100% extracted and mapped automatically",
+  },
+  {
+    label: "Reused content",
+    before: "Copy-pasted from whatever's on hand",
+    after: "Best available evidence, matched to each ask",
+  },
+  {
+    label: "Review process",
+    before: "Ad hoc email threads and last-minute edits",
+    after: "Structured approve, revise, or reject at every step",
+  },
+  {
+    label: "Team capacity",
+    before: "Bottlenecked by a few proposal writers",
+    after: "Scales without adding headcount",
+  },
 ];
 
 const rfpStages = [
@@ -40,7 +78,7 @@ const rfpStages = [
     icon: Sparkles,
   },
   {
-    title: "Review & Submission-Ready Package",
+    title: "Submission-Ready Package",
     description:
       "Human-reviewed at every step, with reject, revise, or approve controls, then assembled into a final submission package.",
     icon: ClipboardCheck,
@@ -64,13 +102,13 @@ export default function RequestForProposalPage() {
 
             <SlideEffect delay={0.075}>
               <ContainerAnimated animation="top">
-                <h1 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase leading-tight max-w-4xl">
-                  Win More{" "}
+                <h1 className="text-4xl md:text-6xl font-bold leading-tight max-w-4xl">
+                  WIN MORE{" "}
                   <span className="bg-gradient-to-br from-black via-[#9868a8] to-[#c9a8d4] bg-clip-text text-transparent">
                     RFPs
                   </span>{" "}
                   <span className="bg-gradient-to-br from-[#c9a8d4] via-[#c9a8d4] to-black bg-clip-text text-transparent">
-                    Faster
+                    FASTER
                   </span>
                 </h1>
               </ContainerAnimated>
@@ -81,9 +119,9 @@ export default function RequestForProposalPage() {
                 animation="blur"
                 className="text-base text-muted-foreground max-w-2xl"
               >
-                An end-to-end RFP workflow that takes a document from intake
-                to a final, submission-ready package &mdash; with human
-                review built in at every step.
+                An end-to-end RFP workflow that takes a document from intake to
+                a final, submission-ready package &mdash; with human review
+                built in at every step.
               </ContainerAnimated>
             </SlideEffect>
 
@@ -122,6 +160,45 @@ export default function RequestForProposalPage() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="px-4 xl:px-0 max-w-6xl mx-auto">
+        <div className="flex flex-col items-center text-center gap-5">
+          <SlideEffect>
+            <Badge text="The Difference" Icon={Scale} />
+          </SlideEffect>
+
+          <SlideEffect
+            direction="top"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter max-w-2xl mx-auto"
+          >
+            <h2 className="text-black">From Chaos to Clarity</h2>
+          </SlideEffect>
+
+          <SlideEffect
+            delay={0.1}
+            className="px-2 sm:px-10 md:px-0 w-full md:max-w-2xl mx-auto text-sm lg:text-base text-muted-foreground"
+          >
+            Drag the slider to see how GiKA replaces scattered manual work with
+            one organized workflow.
+          </SlideEffect>
+        </div>
+
+        <Reveal2
+          beforeImage={{
+            src: "/RFP/UnorganisedDocuments.png",
+            alt: "Cluttered, scattered documents",
+          }}
+          afterContent={
+            <div className="absolute inset-0 flex items-start justify-center overflow-hidden bg-[#0a0a0a]">
+              <div className="w-full">
+                <DocumentsDashboardPreview />
+              </div>
+            </div>
+          }
+          beforeLabel="Before"
+          afterLabel="With GiKA"
+          className="py-0"
+        />
       </div>
 
       <div className="px-4 xl:px-0 max-w-6xl mx-auto pt-16">
@@ -180,21 +257,6 @@ export default function RequestForProposalPage() {
             );
           })}
         </div>
-      </div>
-
-      <div className="px-4 xl:px-0 max-w-6xl mx-auto pt-16 md:pt-24">
-        <SlideEffect
-          isSpring={false}
-          className="relative overflow-hidden rounded-[28px] border border-border"
-        >
-          <Image
-            src="/Features/RFP.png"
-            alt="GiKA RFP automation workflow"
-            width={1600}
-            height={900}
-            className="w-full h-auto"
-          />
-        </SlideEffect>
       </div>
 
       <div className="px-4 xl:px-0 max-w-6xl mx-auto py-16">

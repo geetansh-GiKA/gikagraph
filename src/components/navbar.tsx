@@ -147,11 +147,6 @@ export function Navbar() {
               </NavigationMenuTrigger>
               <NavigationMenuContent className="left-auto right-0">
                 <ul className="grid w-[min(36rem,calc(100vw-2rem))] grid-cols-2 gap-4 p-4">
-                  {productLinks.map((link) => (
-                    <li key={link.href}>
-                      <NavGridCard link={link} className="min-h-36" />
-                    </li>
-                  ))}
                   <li key={rfpOverviewLink.href}>
                     <NavGridCard
                       link={rfpOverviewLink}
@@ -159,6 +154,11 @@ export function Navbar() {
                       className="min-h-36"
                     />
                   </li>
+                  {productLinks.map((link) => (
+                    <li key={link.href}>
+                      <NavGridCard link={link} className="min-h-36" />
+                    </li>
+                  ))}
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
