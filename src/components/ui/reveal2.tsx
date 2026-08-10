@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { ShadcnBadge } from "@/components/ui/shadcn-badge";
 import { cn } from "@/lib/utils";
 
 interface Highlight {

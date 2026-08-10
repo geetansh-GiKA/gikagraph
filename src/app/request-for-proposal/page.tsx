@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   ClipboardCheck,
   FileSearch,
@@ -8,8 +7,6 @@ import {
   Scale,
   Sparkles,
   Trophy,
-  X,
-  Check,
 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import SlideEffect from "@/components/slide-effect";
@@ -29,39 +26,6 @@ const rfpStats = [
   { value: "10x", label: "Faster response drafting" },
   { value: "100%", label: "Requirements coverage" },
   { value: "15-50x", label: "ROI on real outcomes" },
-];
-
-const rfpComparison = [
-  {
-    label: "Response time",
-    before: "2-3 weeks per RFP",
-    after: "Hours, not weeks",
-  },
-  {
-    label: "Source of truth",
-    before: "Scattered docs, folders, and old proposals",
-    after: "Single knowledge graph across your org",
-  },
-  {
-    label: "Requirements coverage",
-    before: "Manually tracked in spreadsheets, easy to miss",
-    after: "100% extracted and mapped automatically",
-  },
-  {
-    label: "Reused content",
-    before: "Copy-pasted from whatever's on hand",
-    after: "Best available evidence, matched to each ask",
-  },
-  {
-    label: "Review process",
-    before: "Ad hoc email threads and last-minute edits",
-    after: "Structured approve, revise, or reject at every step",
-  },
-  {
-    label: "Team capacity",
-    before: "Bottlenecked by a few proposal writers",
-    after: "Scales without adding headcount",
-  },
 ];
 
 const rfpStages = [
