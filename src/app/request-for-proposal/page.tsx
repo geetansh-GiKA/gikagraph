@@ -154,8 +154,8 @@ export default function RequestForProposalPage() {
           >
             <div className="rounded-2xl overflow-hidden">
               <HeroVideoPlayer
-                src="/Videos/RFP-demo-web.mp4"
-                poster="/Videos/RFPPoster.png"
+                src="/Videos/RFP/RFP.mp4"
+                poster="/Videos/RFP/RFPPoster.png"
               />
             </div>
           </div>

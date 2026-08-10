@@ -11,7 +11,11 @@ interface HeroVideoPlayerProps {
   className?: string;
 }
 
-export function HeroVideoPlayer({ src, poster, className }: HeroVideoPlayerProps) {
+export function HeroVideoPlayer({
+  src,
+  poster,
+  className,
+}: HeroVideoPlayerProps) {
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = React.useState(false);
@@ -65,7 +69,7 @@ export function HeroVideoPlayer({ src, poster, className }: HeroVideoPlayerProps
           "absolute inset-0 z-20 flex items-center justify-center transition-opacity",
           isPlaying
             ? "opacity-0 group-hover:opacity-100"
-            : "bg-black/20 opacity-100"
+            : "bg-black/20 opacity-100",
         )}
       >
         <span className="flex size-16 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform hover:scale-105">
