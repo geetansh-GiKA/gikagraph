@@ -11,14 +11,25 @@ const settings = {
   description: "A closer look at what's included in every plan.",
 };
 
-const plans = ["Free Trial", "Foundation", "Professional", "Enterprise"] as const;
+const plans = [
+  "Free Trial",
+  "Foundation",
+  "Professional",
+  "Enterprise",
+] as const;
 
 type Cell = boolean | string;
 
 const rows: { feature: string; values: [Cell, Cell, Cell, Cell] }[] = [
-  { feature: "Price", values: ["Free (30 days)", "$599/month", "$20,000/year", "Custom"] },
+  {
+    feature: "Price",
+    values: ["Free (30 days)", "$599/month", "$20,000/year", "Custom"],
+  },
   { feature: "GiKA Credits", values: ["-", "1,000", "25,000", "Custom"] },
-  { feature: "RFP Credits", values: ["30", "50/month", "1,000/year", "Custom"] },
+  {
+    feature: "RFP Credits",
+    values: ["30", "40/month", "1,000/year", "Custom"],
+  },
   {
     feature: "Knowledge Repository",
     values: ["Standard", "Standard", "Enterprise", "Custom"],
@@ -28,8 +39,14 @@ const rows: { feature: string; values: [Cell, Cell, Cell, Cell] }[] = [
     values: ["Standard", "Standard", "Unlimited", "Unlimited"],
   },
   { feature: "AI Agents", values: [true, true, true, true] },
-  { feature: "Connectors", values: ["Standard", "Standard", "Advanced", "Custom"] },
-  { feature: "Support", values: ["Standard", "Standard", "Dedicated", "Dedicated"] },
+  {
+    feature: "Connectors",
+    values: ["Standard", "Standard", "Advanced", "Custom"],
+  },
+  {
+    feature: "Support",
+    values: ["Standard", "Standard", "Dedicated", "Dedicated"],
+  },
 ];
 
 function Cell({ value }: { value: Cell }) {
@@ -48,7 +65,7 @@ export default function PricingComparison() {
     <div className="space-y-12 mx-auto">
       <div className="flex flex-col items-center text-center gap-5">
         <SlideEffect>
-          <Badge text={settings.badge.text} Icon={Scale}/>
+          <Badge text={settings.badge.text} Icon={Scale} />
         </SlideEffect>
 
         <SlideEffect
@@ -96,7 +113,10 @@ export default function PricingComparison() {
       </SlideEffect>
 
       {/* Tablet and up: full comparison table */}
-      <SlideEffect delay={0.15} className="w-full hidden sm:block overflow-x-auto">
+      <SlideEffect
+        delay={0.15}
+        className="w-full hidden sm:block overflow-x-auto"
+      >
         <div className="min-w-[720px] max-w-5xl mx-auto rounded-2xl border border-border bg-card">
           {/* Header row */}
           <div className="grid grid-cols-5 border-b border-border">
