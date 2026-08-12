@@ -122,7 +122,10 @@ export default function PricingComparison() {
                 {row.feature}
               </div>
               {row.values.map((value, j) => (
-                <div key={j} className="p-4 md:p-5 text-center">
+                <div
+                  key={j}
+                  className="p-4 md:p-5 text-center flex justify-center"
+                >
                   <Cell value={value} />
                 </div>
               ))}

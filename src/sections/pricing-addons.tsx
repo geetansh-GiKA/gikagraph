@@ -12,15 +12,15 @@ const settings = {
 };
 
 const generalAddons = [
-  { name: "GiKA credits", amount: "1,000 credits", price: "$49" },
-  { name: "GiKA credits", amount: "5,000 credits", price: "$199" },
-  { name: "RFP credits", amount: "10 credits (~1 RFP)", price: "$149" },
+  { name: "GiKA credits", amount: "1,000 credits", price: "$99" },
+  { name: "GiKA credits", amount: "5,000 credits", price: "$449" },
+  { name: "RFP credits", amount: "10 credits", price: "$99" },
 ];
 
 const enterpriseAddons = [
-  { name: "RFP credits", amount: "100 credits", price: "$1,490" },
-  { name: "RFP credits", amount: "300 credits", price: "$3,990" },
-  { name: "RFP credits", amount: "1,000 credits", price: "$9,990" },
+  { name: "RFP credits", amount: "100 credits", price: "$799" },
+  { name: "RFP credits", amount: "300 credits", price: "$2,999" },
+  { name: "RFP credits", amount: "1,000 credits", price: "$7,999" },
 ];
 
 function AddonCard({
