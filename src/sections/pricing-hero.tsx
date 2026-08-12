@@ -50,7 +50,7 @@ const plans: Plan[] = [
     cta: "Get Started",
     href: "https://playground.GIKA.AI.ai",
     features: [
-      "50 RFP credits/month",
+      "40 RFP credits/month",
       "Standard knowledge repository",
       "Standard structured data",
       "AI agents",
