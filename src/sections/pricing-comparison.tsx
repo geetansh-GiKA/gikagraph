@@ -17,6 +17,7 @@ type Cell = boolean | string;
 
 const rows: { feature: string; values: [Cell, Cell, Cell, Cell] }[] = [
   { feature: "Price", values: ["Free (30 days)", "$599/month", "$20,000/year", "Custom"] },
+  { feature: "GiKA Credits", values: ["-", "1,000", "25,000", "Custom"] },
   { feature: "RFP Credits", values: ["30", "50/month", "1,000/year", "Custom"] },
   {
     feature: "Knowledge Repository",
