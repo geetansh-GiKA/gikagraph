@@ -19,10 +19,12 @@ type Plan = {
   description: string;
   price: string;
   period?: string;
+  altPrice?: string;
   cta: string;
   href: string;
   highlighted?: boolean;
   features: string[];
+  footnote?: string;
 };
 
 const plans: Plan[] = [
@@ -35,45 +37,49 @@ const plans: Plan[] = [
     href: "https://playground.GIKA.AI.ai",
     features: [
       "30 RFP credits",
-      "Standard knowledge repository",
+      "Standard knowledge repository*",
       "Standard structured data",
       "AI agents",
       "Standard connectors",
       "Standard support",
     ],
+    footnote: "*Set up a meeting to know more.",
   },
   {
     name: "Foundation",
     description: "The fastest way to run RFPs end to end every month.",
-    price: "$5999",
-    period: "/year",
+    price: "$599",
+    period: "/month",
+    altPrice: "or $5,999/year",
     cta: "Get Started",
     href: "https://playground.GIKA.AI.ai",
     features: [
       "40 RFP credits/month",
-      "Standard knowledge repository",
+      "Standard knowledge repository*",
       "Standard structured data",
       "AI agents",
       "Standard connectors",
       "Standard support",
     ],
+    footnote: "*Set up a meeting to know more.",
   },
   {
     name: "Professional",
     description: "Unlimited structured data and enterprise-grade repository.",
-    price: "$20,000",
+    price: "$19,999",
     period: "/year",
     cta: "Get Started",
     href: "https://playground.GIKA.AI.ai",
     highlighted: true,
     features: [
       "1,000 RFP credits/year",
-      "Enterprise knowledge repository",
+      "Enterprise knowledge repository*",
       "Unlimited structured data",
       "AI agents",
       "Advanced connectors",
       "Dedicated support",
     ],
+    footnote: "*Set up a meeting to know more.",
   },
   {
     name: "Enterprise",
@@ -145,14 +151,21 @@ export default function PricingHero() {
                 </p>
               </div>
 
-              <div className="flex items-baseline gap-1">
-                <span className="text-3xl font-bold tracking-tight">
-                  {plan.price}
-                </span>
-                {plan.period && (
-                  <span className="text-muted-foreground text-sm">
-                    {plan.period}
+              <div className="space-y-0.5">
+                <div className="flex items-baseline gap-1">
+                  <span className="text-3xl font-bold tracking-tight">
+                    {plan.price}
                   </span>
+                  {plan.period && (
+                    <span className="text-muted-foreground text-sm">
+                      {plan.period}
+                    </span>
+                  )}
+                </div>
+                {plan.altPrice && (
+                  <p className="text-sm text-muted-foreground">
+                    {plan.altPrice}
+                  </p>
                 )}
               </div>
 
@@ -175,6 +188,12 @@ export default function PricingHero() {
                   </li>
                 ))}
               </ul>
+
+              {plan.footnote && (
+                <p className="mt-auto pt-2 text-xs text-muted-foreground">
+                  {plan.footnote}
+                </p>
+              )}
             </div>
           </SlideEffect>
         ))}

@@ -126,13 +126,13 @@ export function Navbar() {
         >
           <Image
             src="/Company/Company.png"
-            alt="GIKA.AI Logo"
+            alt="GiKA GRAPH Logo"
             width={42}
             height={16}
             priority
           />
           <span className="font-semibold text-base text-foreground hidden sm:inline">
-            GiKA.AI
+            GiKA GRAPH
           </span>
         </Link>
 

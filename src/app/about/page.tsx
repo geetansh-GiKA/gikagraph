@@ -38,7 +38,7 @@ export default function AboutPage() {
             className="px-2 sm:px-10 md:px-0 w-full md:max-w-xl mx-auto text-sm lg:text-base text-muted-foreground"
           >
             Our team brings experience from top product companies and
-            institutes, building GIKA.AI to solve real enterprise data problems.
+            institutes, building GiKA GRAPH to solve real enterprise data problems.
           </SlideEffect>
         </div>
 

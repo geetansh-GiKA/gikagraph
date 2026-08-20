@@ -57,7 +57,7 @@ const responseTimeConfig = {
     color: "#2a2a2a",
   },
   gika: {
-    label: "With GIKA.AI",
+    label: "With GiKA GRAPH",
     color: "#9868a8",
   },
 } satisfies ChartConfig;
@@ -632,7 +632,7 @@ export default function DashboardPreview() {
                     </span>
                     <span>
                       <span style={{ background: "var(--accent)" }}></span>
-                      With GIKA.AI
+                      With GiKA GRAPH
                     </span>
                   </div>
                   <div className="gd-rt-live">

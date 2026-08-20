@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 const settings = {
   badge: { text: "Get Started" },
   headlinePrefix: "Start Using ",
-  headlineHighlight: "GIKA.AI",
+  headlineHighlight: "GiKA GRAPH",
   headlineSuffix: " Today",
   description:
     "Experience the power of entity-aware AI tailored specifically for your enterprise needs.",

@@ -62,7 +62,7 @@ export default function HomePage() {
             delay={0.1}
             className="px-2 sm:px-10 md:px-0 w-full md:max-w-xl mx-auto text-sm lg:text-base text-muted-foreground"
           >
-            Our users are our best ambassadors. Discover why they trust GIKA.AI
+            Our users are our best ambassadors. Discover why they trust GiKA GRAPH
             to turn scattered data into a knowledge graph.
           </SlideEffect>
         </div>

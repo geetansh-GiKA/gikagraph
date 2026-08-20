@@ -18,7 +18,7 @@ const settings = {
     },
   ],
   description:
-    "GIKA.AI turns fragmented enterprise data into grounded, entity-aware knowledge graphs — powering insights you can trust.",
+    "GiKA GRAPH turns fragmented enterprise data into grounded, entity-aware knowledge graphs — powering insights you can trust.",
 
   usefulLinks: [
     { name: "Home", href: "/" },
@@ -47,12 +47,12 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2 mb-5">
               <Image
                 src="/Company/Company.png"
-                alt="GIKA.AI Logo"
+                alt="GiKA GRAPH Logo"
                 width={42}
                 height={16}
               />
               <span className="font-semibold text-base text-foreground">
-                GiKA.AI
+                GiKA GRAPH
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
@@ -105,7 +105,7 @@ export function Footer() {
         <div className="border-t border-border">
           <div className="px-6 sm:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-muted-foreground">
-              © {year} GiKA.AI. All rights reserved.
+              © {year} GiKA GRAPH. All rights reserved.
             </p>
             <ul className="flex items-center gap-6">
               {settings.legalLinks.map((link) => (

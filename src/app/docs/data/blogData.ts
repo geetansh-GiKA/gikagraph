@@ -234,7 +234,7 @@ All grounded in how businesses think.
     cta: { label: "See a Demo", href: "https://playground.GIKA.AI.ai" },
     featured: false,
     content: `
-## What is GIKA.AI?
+## What is GiKA GRAPH?
 
 GiKA blends your internal data with global knowledge, understands complex relationships between business entities, and reasons across multiple layers to deliver insights that drive smarter, strategic decisions.
 

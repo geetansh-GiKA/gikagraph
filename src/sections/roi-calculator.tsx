@@ -10,7 +10,7 @@ const settings = {
   badge: { text: "ROI Calculator" },
   headline: "See what is worth to you",
   description:
-    "Estimate the annual value GiKA.AI delivers across time saved on RFP responses, tooling consolidation, and win-rate lift.",
+    "Estimate the annual value GiKA GRAPH delivers across time saved on RFP responses, tooling consolidation, and win-rate lift.",
 };
 
 // Calibrated against GiKA's base ROI model (1X = 24 RFPs/year):

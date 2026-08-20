@@ -33,12 +33,12 @@ function AddonCard({
   items: { name: string; amount: string; price: string }[];
 }) {
   return (
-    <div className="rounded-2xl border border-border/60 bg-card p-6 md:p-8 space-y-5">
+    <div className="rounded-2xl border border-border/60 bg-card p-6 md:p-8 space-y-5 flex flex-col h-full">
       <div className="space-y-1">
         <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="text-sm text-muted-foreground">{note}</p>
+        <p className="text-sm leading-relaxed text-muted-foreground">{note}</p>
       </div>
-      <ul className="space-y-3">
+      <ul className="space-y-3 mt-auto">
         {items.map((item, i) => (
           <li
             key={`${item.name}-${i}`}
@@ -83,16 +83,16 @@ export default function PricingAddons() {
 
       <SlideEffect
         delay={0.15}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto w-full"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto w-full items-stretch"
       >
         <AddonCard
-          title="General plan add-ons"
-          note="Top up GiKA or RFP credits as you go."
+          title="GiKA credits"
+          note="Your team receives generous credits for collaboration, review, and iteration based on inputs/outputs through 1-to-1 Chat or group chat (called Threads) with the GiKA agent. This is the everyday work of shaping a response. 1,000 GiKA credits are sufficient to cover several hundred deep conversations, each grounded in your own enterprise context."
           items={generalAddons}
         />
         <AddonCard
-          title="Enterprise plan add-ons"
-          note="Additional RFP credit packs for high-volume months."
+          title="RFP credits"
+          note="GiKA GRAPH provides a pool of dedicated credits for the AI-powered drafting, retrieval, and analysis that replaces hours of analyst time for preparing an RFP. 9 RFP credits are used to produce an end-to-end RFP response. If you stop early (e.g., due to a No-Go recommendation or a missing knockout requirement identified by GiKA), you save the remaining credits for the next RFP!"
           items={enterpriseAddons}
         />
       </SlideEffect>

@@ -11,12 +11,12 @@ export async function generateMetadata({
 
   if (!post) {
     return {
-      title: "Blog Post Not Found | GIKA.AI",
+      title: "Blog Post Not Found | GiKA GRAPH",
     };
   }
 
   return {
-    title: `${post.title} | GIKA.AI Blog`,
+    title: `${post.title} | GiKA GRAPH Blog`,
     description: post.excerpt,
     openGraph: {
       title: post.title,

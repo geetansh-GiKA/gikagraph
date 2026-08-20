@@ -3,7 +3,7 @@ import "./globals.css";
 import { domAnimation, LazyMotion } from "framer-motion";
 
 export const metadata: Metadata = {
-  title: "GIKA.AI - Entity Intelligence Platform",
+  title: "GiKA GRAPH - Entity Intelligence Platform",
   description:
     "Transform fragmented data into grounded, actionable insights with specialized small language models.",
   icons: {

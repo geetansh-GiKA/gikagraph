@@ -9,6 +9,7 @@ const settings = {
   badge: { text: "Compare Plans" },
   headline: "Features and capabilities",
   description: "A closer look at what's included in every plan.",
+  footnote: "*Set up a meeting to know more.",
 };
 
 const plans = [
@@ -23,7 +24,12 @@ type Cell = boolean | string;
 const rows: { feature: string; values: [Cell, Cell, Cell, Cell] }[] = [
   {
     feature: "Price",
-    values: ["Free (30 days)", "$599/month", "$20,000/year", "Custom"],
+    values: [
+      "Free (30 days)",
+      "$599/month or $5,999/year",
+      "$19,999/year",
+      "Custom",
+    ],
   },
   { feature: "GiKA Credits", values: ["-", "1,000", "25,000", "Custom"] },
   {
@@ -32,7 +38,7 @@ const rows: { feature: string; values: [Cell, Cell, Cell, Cell] }[] = [
   },
   {
     feature: "Knowledge Repository",
-    values: ["Standard", "Standard", "Enterprise", "Custom"],
+    values: ["Standard*", "Standard*", "Enterprise*", "Custom"],
   },
   {
     feature: "Structured Data",
@@ -109,6 +115,7 @@ export default function PricingComparison() {
               ))}
             </div>
           ))}
+          <p className="text-xs text-muted-foreground">{settings.footnote}</p>
         </div>
       </SlideEffect>
 
@@ -153,6 +160,9 @@ export default function PricingComparison() {
             </div>
           ))}
         </div>
+        <p className="min-w-[720px] max-w-5xl mx-auto pt-3 text-xs text-muted-foreground">
+          {settings.footnote}
+        </p>
       </SlideEffect>
     </div>
   );
