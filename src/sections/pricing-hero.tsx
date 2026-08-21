@@ -191,7 +191,12 @@ export default function PricingHero() {
 
               {plan.footnote && (
                 <p className="mt-auto pt-2 text-xs text-muted-foreground">
-                  {plan.footnote}
+                  <Link
+                    href="https://cal.com/gikagraph/30-mins"
+                    className="hover:text-foreground hover:underline"
+                  >
+                    {plan.footnote}
+                  </Link>
                 </p>
               )}
             </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { Check, Minus, Scale } from "lucide-react";
+import Link from "next/link";
 
 import Badge from "@/components/badge";
 import SlideEffect from "@/components/slide-effect";
@@ -115,7 +116,14 @@ export default function PricingComparison() {
               ))}
             </div>
           ))}
-          <p className="text-xs text-muted-foreground">{settings.footnote}</p>
+          <p className="text-xs text-muted-foreground">
+            <Link
+              href="https://cal.com/gikagraph/30-mins"
+              className="hover:text-foreground hover:underline"
+            >
+              {settings.footnote}
+            </Link>
+          </p>
         </div>
       </SlideEffect>
 
@@ -161,7 +169,12 @@ export default function PricingComparison() {
           ))}
         </div>
         <p className="min-w-[720px] max-w-5xl mx-auto pt-3 text-xs text-muted-foreground">
-          {settings.footnote}
+          <Link
+            href="https://cal.com/gikagraph/30-mins"
+            className="hover:text-foreground hover:underline"
+          >
+            {settings.footnote}
+          </Link>
         </p>
       </SlideEffect>
     </div>
