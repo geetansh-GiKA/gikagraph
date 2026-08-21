@@ -69,7 +69,7 @@ export default function Hero() {
 
         {/* Dashboard Showcase */}
         <SlideEffect
-          className="w-full max-w-6xl"
+          className="hidden lg:block w-full max-w-6xl"
           isSpring={true}
           duration={1.3}
         >
