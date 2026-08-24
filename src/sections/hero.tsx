@@ -14,7 +14,7 @@ const settings = {
   headlineHighlight2: "Understands",
   headlineSuffix: " Your Data",
   subheadline:
-    "An intelligent decision-making platform that delivers better responses, reduces analytical burden, and drives measurable business outcomes.",
+    "Making AI reliable for complex, high-stakes enterprise decisions - powered by deep document intelligence and reasoning. From RFP discovery to bid/no-bid, pricing, win-probability, and margin intelligence.",
   mainCTA: {
     content: "Explore Platform",
     href: "https://cal.com/gikagraph/30-mins",
