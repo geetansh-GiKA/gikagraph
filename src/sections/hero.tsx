@@ -13,8 +13,7 @@ const settings = {
   headlineMiddle: " ",
   headlineHighlight2: "Understands",
   headlineSuffix: " Your Data",
-  subheadline:
-    "Making AI reliable for complex, high-stakes enterprise decisions - powered by deep document intelligence and reasoning. From RFP discovery to bid/no-bid, pricing, win-probability, and margin intelligence.",
+  subheadline: "From RFP discovery to complete, submission-ready RFP responses—and from bid/no-bid analysis to pricing intelligence, win probability analysis, and margin intelligence",
   mainCTA: {
     content: "Explore Platform",
     href: "https://cal.com/gikagraph/30-mins",
