@@ -16,21 +16,21 @@ const settings = {
     "Engineered for enterprise-scale performance, our platform transforms fragmented data into grounded, actionable insights that business can trust using our specialized AI platform.",
   cards: [
     {
-      title: "Off-The-Shelf AI Models Aren't Enough",
+      title: "Off-The-Shelf LLMs Aren't Enough",
       description:
-        "GiKA fine-tunes domain-specific small language models on your business context, delivering 99.2% accuracy with minimal hallucination at a fraction of the cost.",
+        "Off-the-shelf LLMs lack the depth, precision, and adaptability required for real business impact. Missing Business Context, High Hallucination Risk, Generic Cookie-cutter output, High Operational Costs.",
       icon: BrainCircuit,
     },
     {
-      title: "Your Data Is Fragmented and Scattered",
+      title: "Own Your Data",
       description:
-        "GiKA unifies every data source into a single knowledge graph with entity resolution, giving your business one connected source of truth.",
+        "Businesses suffer due to: Fragmented Data & Inconsistent Reasoning, No unified Intelligence, Knowledge is Scattered, No clear Ownership.",
       icon: Network,
     },
     {
-      title: "Generic AI Can't Handle Enterprise Complexity",
+      title: "All Data, One Brain",
       description:
-        "GiKA is purpose-built for RFP-grade precision and enterprise-scale document volume, driving 15-50x ROI on real business outcomes.",
+        "Enterprises struggle because the quality of strategic decisions suffers due to missing internal or external context, competitor moves and market shifts. GiKA is purpose-built for RFP-grade precision and enterprise-scale document volume, driving 15-50x ROI on real business outcomes.",
       icon: Building2,
     },
   ],

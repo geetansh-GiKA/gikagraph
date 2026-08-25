@@ -1,7 +1,23 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ScanSearch, BrainCog } from "lucide-react";
 import SlideEffect from "@/components/slide-effect";
+
+const highlights = [
+  {
+    title: "High-Precision Entity & Data Enrichment",
+    description:
+      "Accurately identifies key business-specific entities; GiKA creates a powerful data layer enriching your data for smarter decisions.",
+    icon: ScanSearch,
+  },
+  {
+    title: "Knowledge-Centric Intelligence",
+    description:
+      "Tailored to your business context, delivering fast, accurate, and grounded insights for even the most complex tasks.",
+    icon: BrainCog,
+  },
+];
 
 const logos = [
   { name: "AWS", src: "/Connectors/aws.svg" },
@@ -54,6 +70,11 @@ export default function IntegrationsMarquee() {
         <h2 className="text-xl md:text-2xl font-semibold tracking-tight max-w-2xl mx-auto">
           We turn scattered data into a knowledge graph
         </h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto mt-3">
+          The Entity Intelligence Engine of GiKA unifies internal & external
+          data, and enable real-time market intelligence and 360° business
+          view
+        </p>
       </SlideEffect>
 
       <SlideEffect delay={0.15}>
@@ -83,6 +104,39 @@ export default function IntegrationsMarquee() {
           </div>
         </div>
       </SlideEffect>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto w-full text-left">
+        {highlights.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <SlideEffect
+              key={item.title}
+              direction="top"
+              delay={0.2 + 0.08 * index}
+              isSpring={false}
+              className="h-full"
+            >
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-border/60 bg-card p-6 md:p-8 transition-shadow hover:shadow-[0px_0px_20px_rgba(0,0,0,0.08)]">
+                <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-foreground/[0.03] transition-transform duration-300 group-hover:scale-110" />
+
+                <div className="relative flex flex-col gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-foreground text-background">
+                      <Icon className="h-5 w-5" strokeWidth={1.75} />
+                    </div>
+                    <h3 className="text-base md:text-lg font-semibold tracking-tight leading-snug">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </SlideEffect>
+          );
+        })}
+      </div>
     </div>
   );
 }
