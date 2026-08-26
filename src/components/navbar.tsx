@@ -8,6 +8,7 @@ import {
   AlignJustify,
   ScrollText,
   BarChart,
+  Building2,
   DollarSign,
   FileText,
   LayersIcon,
@@ -67,6 +68,12 @@ const rfpLinks: NavItemType[] = [
 ];
 
 const companyLinks: NavItemType[] = [
+  {
+    title: "Overview",
+    href: "/overview",
+    description: "Get a quick snapshot of who we are and what we do",
+    icon: Building2,
+  },
   {
     title: "About Us",
     href: "/about",

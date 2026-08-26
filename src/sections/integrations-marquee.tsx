@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ScanSearch, BrainCog } from "lucide-react";
 import SlideEffect from "@/components/slide-effect";
+import { connectors as logos } from "@/lib/connectors";
 
 const highlights = [
   {
@@ -17,15 +18,6 @@ const highlights = [
       "Tailored to your business context, delivering fast, accurate, and grounded insights for even the most complex tasks.",
     icon: BrainCog,
   },
-];
-
-const logos = [
-  { name: "AWS", src: "/Connectors/aws.svg" },
-  { name: "Dropbox", src: "/Connectors/dropbox.svg" },
-  { name: "Google Drive", src: "/Connectors/google-drive.svg" },
-  { name: "MongoDB", src: "/Connectors/mongodb.svg" },
-  { name: "MySQL", src: "/Connectors/mysql.png" },
-  { name: "OneDrive", src: "/Connectors/onedrive.svg" },
 ];
 
 function LogoTile({ name, src }: { name: string; src: string }) {
