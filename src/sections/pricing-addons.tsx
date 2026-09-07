@@ -12,15 +12,9 @@ const settings = {
 };
 
 const generalAddons = [
-  { name: "GiKA credits", amount: "1,000 credits", price: "$99" },
-  { name: "GiKA credits", amount: "5,000 credits", price: "$449" },
-  { name: "GiKA credits", amount: "10,000 credits", price: "$849" },
-];
-
-const enterpriseAddons = [
-  { name: "RFP credits", amount: "10 credits", price: "$99" },
-  { name: "RFP credits", amount: "50 credits", price: "$449" },
-  { name: "RFP credits", amount: "100 credits", price: "$849" },
+  { name: "GiKA AI credits", amount: "1,000 credits", price: "$99" },
+  { name: "GiKA AI credits", amount: "5,000 credits", price: "$449" },
+  { name: "GiKA AI credits", amount: "10,000 credits", price: "$849" },
 ];
 
 function AddonCard({
@@ -33,12 +27,12 @@ function AddonCard({
   items: { name: string; amount: string; price: string }[];
 }) {
   return (
-    <div className="rounded-2xl border border-border/60 bg-card p-6 md:p-8 space-y-5 flex flex-col h-full">
+    <div className="rounded-2xl border border-border/60 bg-card p-6 md:p-8 flex flex-col h-full justify-between gap-5">
       <div className="space-y-1">
         <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="text-sm leading-relaxed text-muted-foreground">{note}</p>
+        <p className="text-sm leading-relaxed text-muted-foreground text-justify">{note}</p>
       </div>
-      <ul className="space-y-3 mt-auto">
+      <ul className="space-y-3">
         {items.map((item, i) => (
           <li
             key={`${item.name}-${i}`}
@@ -83,17 +77,12 @@ export default function PricingAddons() {
 
       <SlideEffect
         delay={0.15}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto w-full items-stretch"
+        className="max-w-xl mx-auto w-full"
       >
         <AddonCard
-          title="GiKA credits"
-          note="Your team receives generous credits for collaboration, review, and iteration based on inputs/outputs through 1-to-1 Chat or group chat (called Threads) with the GiKA agent. This is the everyday work of shaping a response. 1,000 GiKA credits are sufficient to cover several hundred deep conversations, each grounded in your own enterprise context."
+          title="GiKA AI credits"
+          note="GiKA AI Credits are the unified currency for all AI-powered work on GiKA — from everyday collaboration and iterative refinement to deep, end-to-end RFP intelligence. An end-to-end RFP response typically uses 500-1,000 GiKA AI credits; if you stop early, you only consume credits up to that point."
           items={generalAddons}
-        />
-        <AddonCard
-          title="RFP credits"
-          note="GiKA GRAPH provides a pool of dedicated credits for the AI-powered drafting, retrieval, and analysis that replaces hours of analyst time for preparing an RFP. 9 RFP credits are used to produce an end-to-end RFP response. If you stop early (e.g., due to a No-Go recommendation or a missing knockout requirement identified by GiKA), you save the remaining credits for the next RFP!"
-          items={enterpriseAddons}
         />
       </SlideEffect>
     </div>

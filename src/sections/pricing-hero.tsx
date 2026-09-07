@@ -36,32 +36,33 @@ const plans: Plan[] = [
     cta: "Get Started",
     href: "https://playground.GIKA.AI.ai",
     features: [
-      "30 RFP credits",
-      "Standard knowledge repository*",
-      "Standard structured data",
+      "1,500 GiKA AI credits",
+      "Up to 10k pages of unstructured documents",
+      "Up to 500k records of structured data",
       "AI agents",
+      "Up to 4 users",
       "Standard connectors",
       "Standard support",
     ],
-    footnote: "*Set up a meeting to know more.",
   },
   {
     name: "Foundation",
-    description: "The fastest way to run RFPs end to end every month.",
-    price: "$599",
-    period: "/month",
-    altPrice: "or $5,999/year",
+    description: "The fastest way to run RFPs end to end every quarter.",
+    price: "$2,099",
+    period: "/quarter",
+    altPrice: "or $7,499/year (10%+ savings)",
     cta: "Get Started",
     href: "https://playground.GIKA.AI.ai",
     features: [
-      "40 RFP credits/month",
-      "Standard knowledge repository*",
-      "Standard structured data",
+      "15,000 GiKA AI credits/quarter",
+      "Up to 100k pages of unstructured documents*",
+      "Up to 2M records of structured data*",
       "AI agents",
-      "Standard connectors",
+      "Up to 8 users",
+      "Advanced connectors",
       "Standard support",
     ],
-    footnote: "*Set up a meeting to know more.",
+    footnote: "*Data beyond this limit is processed using GiKA AI credits. Minimum two quarters commitment.",
   },
   {
     name: "Professional",
@@ -72,14 +73,15 @@ const plans: Plan[] = [
     href: "https://playground.GIKA.AI.ai",
     highlighted: true,
     features: [
-      "1,000 RFP credits/year",
-      "Enterprise knowledge repository*",
-      "Unlimited structured data",
+      "150,000 GiKA AI credits/year",
+      "Up to 500k pages of unstructured documents*",
+      "Up to 10M records of structured data*",
       "AI agents",
+      "Up to 20 users",
       "Advanced connectors",
       "Dedicated support",
     ],
-    footnote: "*Set up a meeting to know more.",
+    footnote: "*Data beyond this limit is processed using GiKA AI credits.",
   },
   {
     name: "Enterprise",
@@ -88,10 +90,11 @@ const plans: Plan[] = [
     cta: "Talk to Sales",
     href: "https://cal.com/gikagraph/30-mins",
     features: [
-      "Custom RFP credits",
+      "Custom GiKA AI credits",
       "Custom knowledge repository",
-      "Unlimited structured data",
+      "Custom structured data",
       "AI agents",
+      "Users to be quoted",
       "Custom connectors",
       "Dedicated support",
     ],
@@ -191,12 +194,7 @@ export default function PricingHero() {
 
               {plan.footnote && (
                 <p className="mt-auto pt-2 text-xs text-muted-foreground">
-                  <Link
-                    href="https://cal.com/gikagraph/30-mins"
-                    className="hover:text-foreground hover:underline"
-                  >
-                    {plan.footnote}
-                  </Link>
+                  {plan.footnote}
                 </p>
               )}
             </div>

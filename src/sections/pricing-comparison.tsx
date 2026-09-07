@@ -1,7 +1,6 @@
 "use client";
 
 import { Check, Minus, Scale } from "lucide-react";
-import Link from "next/link";
 
 import Badge from "@/components/badge";
 import SlideEffect from "@/components/slide-effect";
@@ -10,7 +9,8 @@ const settings = {
   badge: { text: "Compare Plans" },
   headline: "Features and capabilities",
   description: "A closer look at what's included in every plan.",
-  footnote: "*Set up a meeting to know more.",
+  footnote:
+    "¹ Minimum two quarters commitment. * Data beyond this limit is processed using GiKA AI credits.",
 };
 
 const plans = [
@@ -24,31 +24,44 @@ type Cell = boolean | string;
 
 const rows: { feature: string; values: [Cell, Cell, Cell, Cell] }[] = [
   {
-    feature: "Price",
+    feature: "Investment",
     values: [
       "Free (30 days)",
-      "$599/month or $5,999/year",
+      "$2,099/quarter¹ or $7,499/year (10%+ savings)",
       "$19,999/year",
       "Custom",
     ],
   },
-  { feature: "GiKA Credits", values: ["-", "1,000", "25,000", "Custom"] },
   {
-    feature: "RFP Credits",
-    values: ["30", "40/month", "1,000/year", "Custom"],
+    feature: "GiKA AI Credits",
+    values: ["1,500", "15,000/quarter", "150,000/year", "Custom"],
   },
   {
-    feature: "Knowledge Repository",
-    values: ["Standard*", "Standard*", "Enterprise*", "Custom"],
+    feature: "Knowledge Repository - Unstructured Documents",
+    values: [
+      "Up to 10k pages",
+      "Up to 100k pages*",
+      "Up to 500k pages*",
+      "Custom",
+    ],
   },
   {
-    feature: "Structured Data",
-    values: ["Standard", "Standard", "Unlimited", "Unlimited"],
+    feature: "Knowledge Repository - Structured Data",
+    values: [
+      "Up to 500k records",
+      "Up to 2M records*",
+      "Up to 10M records*",
+      "Custom",
+    ],
   },
   { feature: "AI Agents", values: [true, true, true, true] },
   {
+    feature: "# of Users",
+    values: ["Up to 4", "Up to 8", "Up to 20", "To be quoted"],
+  },
+  {
     feature: "Connectors",
-    values: ["Standard", "Standard", "Advanced", "Custom"],
+    values: ["Standard", "Advanced", "Advanced", "Custom"],
   },
   {
     feature: "Support",
@@ -116,14 +129,7 @@ export default function PricingComparison() {
               ))}
             </div>
           ))}
-          <p className="text-xs text-muted-foreground">
-            <Link
-              href="https://cal.com/gikagraph/30-mins"
-              className="hover:text-foreground hover:underline"
-            >
-              {settings.footnote}
-            </Link>
-          </p>
+          <p className="text-xs text-muted-foreground">{settings.footnote}</p>
         </div>
       </SlideEffect>
 
@@ -169,12 +175,7 @@ export default function PricingComparison() {
           ))}
         </div>
         <p className="min-w-[720px] max-w-5xl mx-auto pt-3 text-xs text-muted-foreground">
-          <Link
-            href="https://cal.com/gikagraph/30-mins"
-            className="hover:text-foreground hover:underline"
-          >
-            {settings.footnote}
-          </Link>
+          {settings.footnote}
         </p>
       </SlideEffect>
     </div>
