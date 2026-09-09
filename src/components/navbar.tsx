@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import {
   AlignJustify,
   ScrollText,
-  BarChart,
   Building2,
   DollarSign,
   FileText,
@@ -52,21 +51,6 @@ const rfpOverviewLink: NavItemType = {
   icon: ScrollText,
 };
 
-const rfpLinks: NavItemType[] = [
-  {
-    title: "Pricing",
-    href: "/pricing",
-    description: "RFP plans that scale with your business",
-    icon: DollarSign,
-  },
-  {
-    title: "ROI",
-    href: "/roi-calculator",
-    description: "Estimate your return on investment",
-    icon: BarChart,
-  },
-];
-
 const companyLinks: NavItemType[] = [
   {
     title: "Overview",
@@ -90,7 +74,15 @@ const companyLinks: NavItemType[] = [
   },
 ];
 
+const pricingLink: NavItemType = {
+  title: "Pricing",
+  href: "/pricing",
+  description: "Plans and ROI for your business",
+  icon: DollarSign,
+};
+
 const directLinks: NavItemType[] = [
+  pricingLink,
   {
     title: "Contact",
     href: "https://cal.com/gikagraph/30-mins",
@@ -109,11 +101,9 @@ export function Navbar() {
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
-  const isRfpActive =
-    isActive(rfpOverviewLink.href) ||
-    rfpLinks.some((link) => isActive(link.href));
   const isProductsActive =
-    productLinks.some((link) => isActive(link.href)) || isRfpActive;
+    productLinks.some((link) => isActive(link.href)) ||
+    isActive(rfpOverviewLink.href);
   const isCompanyActive = companyLinks.some((link) => isActive(link.href));
 
   return (
@@ -157,7 +147,6 @@ export function Navbar() {
                   <li key={rfpOverviewLink.href}>
                     <NavGridCard
                       link={rfpOverviewLink}
-                      subLinks={rfpLinks}
                       className="min-h-36"
                     />
                   </li>
@@ -168,6 +157,18 @@ export function Navbar() {
                   ))}
                 </ul>
               </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <Link
+                href={pricingLink.href}
+                className={cn(
+                  "inline-flex w-max items-center justify-center rounded-md px-4 py-1 text-sm font-medium border border-transparent transition-[color,box-shadow,border-color] hover:border-foreground hover:bg-accent hover:text-accent-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 outline-none",
+                  isActive(pricingLink.href) && "text-primary",
+                )}
+              >
+                {pricingLink.title}
+              </Link>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
@@ -187,25 +188,29 @@ export function Navbar() {
               </NavigationMenuContent>
             </NavigationMenuItem>
 
-            {directLinks.map((link) => (
-              <NavigationMenuItem key={link.href}>
-                <Link
-                  href={link.href}
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    link.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  className={cn(
-                    "inline-flex w-max items-center justify-center rounded-md px-4 py-1 text-sm font-medium border border-transparent transition-[color,box-shadow,border-color] hover:border-foreground hover:bg-accent hover:text-accent-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 outline-none",
-                    isActive(link.href) && "text-primary",
-                  )}
-                >
-                  {link.title}
-                </Link>
-              </NavigationMenuItem>
-            ))}
+            {directLinks
+              .filter((link) => link.href !== pricingLink.href)
+              .map((link) => (
+                <NavigationMenuItem key={link.href}>
+                  <Link
+                    href={link.href}
+                    target={
+                      link.href.startsWith("http") ? "_blank" : undefined
+                    }
+                    rel={
+                      link.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    className={cn(
+                      "inline-flex w-max items-center justify-center rounded-md px-4 py-1 text-sm font-medium border border-transparent transition-[color,box-shadow,border-color] hover:border-foreground hover:bg-accent hover:text-accent-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 outline-none",
+                      isActive(link.href) && "text-primary",
+                    )}
+                  >
+                    {link.title}
+                  </Link>
+                </NavigationMenuItem>
+              ))}
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -258,13 +263,17 @@ export function Navbar() {
                       />
                     </SheetClose>
                   </li>
-                  {rfpLinks.map((link) => (
-                    <li key={link.href}>
-                      <SheetClose asChild>
-                        <NavItemMobile item={link} href={link.href} />
-                      </SheetClose>
-                    </li>
-                  ))}
+                </ul>
+
+                <ul className="grid gap-1 mb-4">
+                  <li key={pricingLink.href}>
+                    <SheetClose asChild>
+                      <NavItemMobile
+                        item={pricingLink}
+                        href={pricingLink.href}
+                      />
+                    </SheetClose>
+                  </li>
                 </ul>
 
                 <span className="px-2 text-xs font-medium text-muted-foreground uppercase">
@@ -281,24 +290,28 @@ export function Navbar() {
                 </ul>
 
                 <ul className="grid gap-1">
-                  {directLinks.map((link) => (
-                    <li key={link.href}>
-                      <SheetClose asChild>
-                        <NavItemMobile
-                          item={link}
-                          href={link.href}
-                          target={
-                            link.href.startsWith("http") ? "_blank" : undefined
-                          }
-                          rel={
-                            link.href.startsWith("http")
-                              ? "noopener noreferrer"
-                              : undefined
-                          }
-                        />
-                      </SheetClose>
-                    </li>
-                  ))}
+                  {directLinks
+                    .filter((link) => link.href !== pricingLink.href)
+                    .map((link) => (
+                      <li key={link.href}>
+                        <SheetClose asChild>
+                          <NavItemMobile
+                            item={link}
+                            href={link.href}
+                            target={
+                              link.href.startsWith("http")
+                                ? "_blank"
+                                : undefined
+                            }
+                            rel={
+                              link.href.startsWith("http")
+                                ? "noopener noreferrer"
+                                : undefined
+                            }
+                          />
+                        </SheetClose>
+                      </li>
+                    ))}
                 </ul>
               </div>
             </SheetContent>
