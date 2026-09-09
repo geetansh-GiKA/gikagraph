@@ -40,10 +40,12 @@ export const changelogEntries: ChangelogEntry[] = [
   {
     version: "Version 1.4.0",
     date: "14 April 2026",
-    title: "End-to-End RFP Automation",
+    title: "Context-Aware RFP Intelligence",
     description:
-      "A complete, RFP workflow that takes a document from intake to a final, submission-ready package — with human review built in at every step.",
+      "GiKA understands every opportunity in the context of your company's knowledge, capabilities, and history — helping revenue teams discover the opportunity, assess fit, and build a winning response.",
     items: [
+      "RFP discovery completely grounded in your enterprise context",
+      "Analyze recent and relevant past RFP submissions, wins, losses, to surface patterns, precedents, and proven antecedents",
       "Intake and automated requirements extraction from uploaded RFP documents",
       "Bidder selection and go/no-go decisioning",
       "Evidence gathering, context mapping, and specialist analysis stages",

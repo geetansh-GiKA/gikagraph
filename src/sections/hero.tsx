@@ -8,13 +8,13 @@ import Link from "next/link";
 import DashboardPreview from "@/components/dashboard-preview";
 
 const settings = {
-  headlinePrefix: "AI That ",
-  headlineHighlight: "Truly",
-  headlineMiddle: " ",
-  headlineHighlight2: "Understands",
-  headlineSuffix: " Your Data",
+  headlinePrefix: "",
+  headlineHighlight: "Decision Intelligence",
+  headlineMiddle: " Platform for your ",
+  headlineHighlight2: "CRO",
+  headlineSuffix: "",
   subheadline:
-    "Making AI reliable for complex, high-stakes enterprise decisions - powered by deep document intelligence and reasoning. From RFP discovery to complete, submission-ready RFP responses—and from bid/no-bid analysis to pricing intelligence, win probability analysis, and margin intelligence",
+    "GiKA — AI that truly understands your data. GiKA brings together deep enterprise context, numerical reasoning, and multi-hop intelligence to help CROs understand their pipeline, forecast revenue, analyze customers and deals, optimize pricing and margins, and accelerate deal velocity across pre-sales and discovery, sales and RFP response generation, and post-sales — with intelligent forecasting and analytics grounded in your enterprise context.",
   mainCTA: {
     content: "Explore Platform",
     href: "https://cal.com/gikagraph/30-mins",
@@ -31,7 +31,7 @@ export default function Hero() {
       <section className="flex flex-col gap-4 lg:gap-12 items-center relative">
         {/* Hero Content */}
         <div className="flex flex-col text-center items-center gap-4">
-          <h2 className="text-4xl sm:text-6xl md:text-8xl lg:text-[120px] pt-12 font-bold uppercase leading-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-[90px] pt-12 font-bold uppercase leading-tight">
             {settings.headlinePrefix}
             <span className="bg-gradient-to-br from-black via-[#9868a8] to-[#c9a8d4] bg-clip-text text-transparent ">
               {" "}
