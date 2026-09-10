@@ -13,8 +13,16 @@ const settings = {
   headlineMiddle: " Platform for your ",
   headlineHighlight2: "CRO",
   headlineSuffix: "",
-  subheadline:
-    "GiKA — AI that truly understands your data. GiKA brings together deep enterprise context, numerical reasoning, and multi-hop intelligence to help CROs understand their pipeline, forecast revenue, analyze customers and deals, optimize pricing and margins, and accelerate deal velocity across pre-sales and discovery, sales and RFP response generation, and post-sales — with intelligent forecasting and analytics grounded in your enterprise context.",
+  subheadlineParagraphs: [
+    {
+      bold: "GiKA is the reasoning architecture that makes AI reliable for high-stakes decisions.",
+      rest: " Our framework enables accurate reasoning across enterprise-scale context, time, and evidence—delivering explainable, numerically consistent, decision-grade AI for the CRO office.",
+    },
+    {
+      bold: "GiKA helps revenue leaders make better decisions, faster",
+      rest: "—and accelerate deal velocity across the revenue lifecycle—from discovering and qualifying opportunities, to winning deals and generating RFP responses, to retaining and growing customers.",
+    },
+  ],
   mainCTA: {
     content: "Explore Platform",
     href: "https://cal.com/gikagraph/30-mins",
@@ -46,9 +54,16 @@ export default function Hero() {
 
           <SlideEffect
             delay={0}
-            className="text-base py-4 text-muted-foreground max-w-xl mx-auto"
+            className="text-base py-4 text-muted-foreground max-w-xl mx-auto space-y-3"
           >
-            {settings.subheadline}
+            {settings.subheadlineParagraphs.map((paragraph, index) => (
+              <p key={index}>
+                <span className="font-semibold text-foreground">
+                  {paragraph.bold}
+                </span>
+                {paragraph.rest}
+              </p>
+            ))}
           </SlideEffect>
 
           <SlideEffect className="flex flex-col gap-5 items-center w-full">
