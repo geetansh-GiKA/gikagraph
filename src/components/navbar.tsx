@@ -12,6 +12,7 @@ import {
   FileText,
   LayersIcon,
   Mail,
+  Search,
   Users,
   X,
 } from "lucide-react";
@@ -41,6 +42,13 @@ const productLinks: NavItemType[] = [
     description:
       "The unified enterprise intelligence platform that extracts, structures, and connects insights across all your documents.",
     icon: LayersIcon,
+  },
+  {
+    title: "RFP Discovery",
+    href: "/rfp-discovery",
+    description:
+      "Continuously find and surface relevant RFP opportunities that match your business.",
+    icon: Search,
   },
 ];
 

@@ -19,6 +19,30 @@ export function HeroVideoPlayer({
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = React.useState(false);
+  const [currentTime, setCurrentTime] = React.useState(0);
+  const [duration, setDuration] = React.useState(0);
+
+  const formatTime = (seconds: number) => {
+    if (!Number.isFinite(seconds)) return "0:00";
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, "0")}`;
+  };
+
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const video = videoRef.current;
+    if (!video) return;
+    const time = Number(e.target.value);
+    video.currentTime = time;
+    setCurrentTime(time);
+  };
+
+  React.useEffect(() => {
+    const video = videoRef.current;
+    if (video && video.readyState >= 1 && !Number.isNaN(video.duration)) {
+      setDuration(video.duration);
+    }
+  }, []);
 
   const scrollUntilSettled = () => {
     const container = containerRef.current;
@@ -57,6 +81,9 @@ export function HeroVideoPlayer({
         onClick={togglePlayback}
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
+        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+        onDurationChange={(e) => setDuration(e.currentTarget.duration)}
+        onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
       >
         <source src={src} type="video/mp4" />
       </video>
@@ -80,6 +107,31 @@ export function HeroVideoPlayer({
           )}
         </span>
       </button>
+
+      <div
+        className={cn(
+          "absolute inset-x-0 bottom-0 z-30 flex items-center gap-3 bg-gradient-to-t from-black/70 to-transparent px-4 py-3 opacity-0 transition-opacity group-hover:opacity-100",
+        )}
+        onClick={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
+      >
+        <span className="min-w-10 text-xs tabular-nums text-white">
+          {formatTime(currentTime)}
+        </span>
+        <input
+          type="range"
+          min={0}
+          max={duration || 0}
+          step={0.01}
+          value={currentTime}
+          onChange={handleSeek}
+          className="h-1 flex-1 cursor-pointer appearance-none rounded-full bg-white/30 accent-white [&::-webkit-slider-thumb]:size-3 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white"
+          aria-label="Seek video"
+        />
+        <span className="min-w-10 text-xs tabular-nums text-white">
+          {formatTime(duration)}
+        </span>
+      </div>
     </div>
   );
 }
