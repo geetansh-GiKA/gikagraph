@@ -16,7 +16,7 @@ import { HeroVideoPlayer } from "@/components/blocks/hero-video-player";
 import FAQ from "@/sections/faq";
 
 const platformStats = [
-  { value: "99.2%", label: "Response accuracy" },
+  { value: "97%+", label: "Response accuracy" },
   { value: "5+", label: "Data source connectors" },
   { value: "15-50x", label: "ROI on real outcomes" },
 ];

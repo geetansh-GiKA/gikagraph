@@ -132,7 +132,7 @@ export const stages: Stage[] = [
     ],
     activeInputs: ["databases", "files", "erp", "email", "websearch"],
     activeOutputs: [],
-    metric: { value: "99.2%", label: "entity resolution accuracy" },
+    metric: { value: "97%+", label: "entity resolution accuracy" },
     bentoCard: {
       title: "Knowledge Graph",
       description:
