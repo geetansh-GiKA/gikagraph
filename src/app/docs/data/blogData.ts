@@ -468,6 +468,77 @@ Let's start a conversation. Block your slot on the website, or simply drop a mes
 Reference: [What Is Intelligence? Beyond the Loop — Nisheeth Vishnoi](https://nisheethvishnoi.substack.com/p/what-is-intelligence-beyond-the-loop)
         `,
   },
+  {
+    id: 6,
+    slug: "decision-intelligence-platform-for-cros",
+    title: "GiKA AI - Decision Intelligence Platform for CROs",
+    excerpt:
+      "GiKA is not anti-hallucination tooling or a better RAG. It is the auditable reasoning substrate underneath enterprise revenue decisions — explainable, numerically consistent, and grounded in your full business context.",
+    category: "Platform Insights",
+    categorySlug: "platform-insights",
+    author: {
+      name: "GiKA AI Team",
+      avatar: "/Company/Company.png",
+      role: "GiKA AI",
+      bio: "The GiKA AI team is building the next generation of reasoning-first AI for enterprise decision-making, transforming how businesses think through structured knowledge graphs and entity-aware reasoning.",
+    },
+    publishedAt: "2026-09-14",
+    readTime: 8,
+    coverImage:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+    cta: { label: "Explore GiKA", href: "https://gikagraph.ai" },
+    featured: true,
+    content: `
+Built for high-stakes decisions, GiKA is designed for decisions where being approximately right isn't enough. GiKA is not anti-hallucination tooling or a better RAG. GiKA is the auditable reasoning substrate underneath an enterprise process where being wrong is expensive.
+
+GiKA is the world's leading Context Graph model, rooted in enterprise internal context, thus enabling accurate and reliable AI across enterprise-scale context for all timescales — delivering explainable, numerically consistent, decision-grade AI.
+
+## The Reasoning Architecture Behind Reliable AI
+
+Designed as the reasoning architecture that makes AI reliable for high-stakes decisions, GiKA connects the full context of your business — structured data, documents, historical information, and internal knowledge — where each entity, each document, and each number is a first-class citizen. This enables an explainable, numerically consistent, grounded, traceable, and verifiable reasoning layer.
+
+GiKA is focused on one problem: helping revenue leaders accelerate deal velocity across the revenue lifecycle — from discovering and qualifying opportunities, to winning deals and generating grounded RFP responses, to retaining and growing customers, and forecasting.
+
+The GiKA intelligence substrate enables revenue leaders to understand:
+
+- **What** is happening across their business
+- **Why** it is happening
+- **What is likely** to happen next
+- **What they can potentially do** about it
+
+All grounded in your enterprise context.
+
+## Why Dashboards, Search, and Generic AI Fall Short
+
+Traditional dashboards tell you what happened. Search and RAG fetch direct information. Generic AI can generate a cookie-cutter answer. But they often do not reliably understand the full business context, maintain numerical consistency, or reason across multiple disconnected pieces of evidence.
+
+## GiKA: Making AI Reliable for Your Revenue Team
+
+Revenue decisions rarely live in one system. Whether it is a simple question or generating a response to a complex RFP, it requires connecting information across CRM, ERP, past RFP proposals, contracts, customer records, pricing, financial data, historical deals, product information, and internal knowledge.
+
+Revenue teams need more than dashboards and copilots. They need AI that can understand the full business context and reason over it.
+
+From helping revenue teams understand the economics, health, and growth potential of their deal pipeline, to customer LTV analysis, to identifying churn risks or renewal opportunities — GiKA is the decision intelligence platform for your revenue team that you can trust.
+
+## What GiKA Is Focused On
+
+GiKA is specifically focused on:
+
+- Discovering and identifying highly qualified bid opportunities
+- Making a reasoned bid/no-bid call
+- Enabling deep competitor analytics and initial solutioning
+- Generating a contextually well-grounded RFP response automatically
+- Reliable, grounded, and consistent analytics and forecasting
+
+The response to every requirement embedded in the dense text of RFP documents — or any analytics question from your revenue team — is fully grounded in your enterprise context: products, capabilities, legal and financial information, past projects, pricing, margins, customers, and deal pipeline. GiKA gathers the right evidence for every answer — answers that you can defend.
+
+## GiKA AI — That Truly Understands Your Data
+
+Discover the power of decision intelligence built for revenue teams. Explore [gikagraph.ai](https://gikagraph.ai) today.
+
+Let's start a conversation. Block your slot on the website, or simply drop a message at [contact@gikagraph.ai](mailto:contact@gikagraph.ai).
+        `,
+  },
 ];
 
 // Helper function to get a blog post by slug
