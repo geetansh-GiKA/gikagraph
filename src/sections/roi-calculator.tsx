@@ -19,12 +19,14 @@ const settings = {
 const MULTIPLIERS = {
   gikaWinRateUplift: 10, // percentage points added on top of legacy win rate
   laborAutomationRate: 0.8,
+  analystTimeSavingsRate: 0.6,
   fixedBaseSavings: 4812,
 };
 
 type Inputs = {
   rfpsPerYear: number;
   hoursPerRfp: number;
+  analystHoursPerWeek: number;
   hourlyRate: number;
   toolingSpend: number;
   legacyWinRate: number;
@@ -38,6 +40,7 @@ const MAX_BASE = 5;
 const defaultInputs: Inputs = {
   rfpsPerYear: BASE_RFPS_PER_YEAR,
   hoursPerRfp: 40,
+  analystHoursPerWeek: 10,
   hourlyRate: 75,
   toolingSpend: 2000,
   legacyWinRate: 20,
@@ -52,6 +55,7 @@ const fields: {
 }[] = [
   { key: "rfpsPerYear", label: "RFPs submitted per year" },
   { key: "hoursPerRfp", label: "Human hours per RFP " },
+  { key: "analystHoursPerWeek", label: "Analyst time per week", suffix: "hrs" },
   {
     key: "hourlyRate",
     label: "Cost of human labor",
@@ -74,6 +78,11 @@ const formatUSD = (value: number) =>
     currency: "USD",
     maximumFractionDigits: 0,
   }).format(value);
+
+const formatHours = (value: number) =>
+  `${new Intl.NumberFormat("en-US", {
+    maximumFractionDigits: 0,
+  }).format(value)} hrs/yr`;
 
 function NumberField({
   label,
@@ -175,11 +184,15 @@ export default function RoiCalculator() {
 
   const revenueLift = gikaRevenue - legacyRevenue;
 
-  const laborSavings =
-    MULTIPLIERS.laborAutomationRate *
-    inputs.rfpsPerYear *
-    inputs.hoursPerRfp *
-    inputs.hourlyRate;
+  const rfpHoursSavedPerYear =
+    MULTIPLIERS.laborAutomationRate * inputs.rfpsPerYear * inputs.hoursPerRfp;
+
+  const analystHoursSavedPerYear =
+    MULTIPLIERS.analystTimeSavingsRate * inputs.analystHoursPerWeek * 52;
+
+  const hoursSavedPerYear = rfpHoursSavedPerYear + analystHoursSavedPerYear;
+
+  const laborSavings = hoursSavedPerYear * inputs.hourlyRate;
 
   const toolingSaved = inputs.toolingSpend * 12;
 
@@ -268,6 +281,10 @@ export default function RoiCalculator() {
             <StatCard
               label="Direct cost savings"
               value={formatUSD(costSavings)}
+            />
+            <StatCard
+              label="Analyst human time saved"
+              value={formatHours(hoursSavedPerYear)}
             />
           </div>
         </SlideEffect>
