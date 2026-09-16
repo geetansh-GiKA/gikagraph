@@ -16,13 +16,13 @@ const settings = {
   subheadlineParagraphs: [
     {
       bold: "GiKA is the reasoning architecture that makes AI reliable for high-stakes decisions.",
-      rest: " Our framework enables accurate reasoning across enterprise-scale context, time, and evidence—delivering explainable, numerically consistent, decision-grade AI for the CRO office.",
-    },
-    {
-      bold: "GiKA helps revenue leaders make better decisions, faster",
-      rest: "—and accelerate deal velocity across the revenue lifecycle—from discovering and qualifying opportunities, to winning deals and generating RFP responses, to retaining and growing customers.",
+      rest: "",
     },
   ],
+  belowDashboard: {
+    bold: "GiKA helps revenue leaders make better decisions, faster",
+    rest: " from discovering and qualifying opportunities, to winning deals and generating RFP responses, to retaining and growing customers.",
+  },
   mainCTA: {
     content: "Explore Platform",
     href: "https://cal.com/gikagraph/30-mins",
@@ -91,6 +91,17 @@ export default function Hero() {
           <div className="bg-card/50 dark:bg-card/30 backdrop-blur-md overflow-hidden rounded-2xl">
             <DashboardPreview />
           </div>
+        </SlideEffect>
+
+        <SlideEffect
+          className="text-base py-4 text-center text-muted-foreground max-w-xl mx-auto"
+        >
+          <p>
+            <span className="font-semibold text-foreground">
+              {settings.belowDashboard.bold}
+            </span>
+            {settings.belowDashboard.rest}
+          </p>
         </SlideEffect>
       </section>
     </div>
