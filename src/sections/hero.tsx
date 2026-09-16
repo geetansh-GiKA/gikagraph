@@ -15,13 +15,13 @@ const settings = {
   headlineSuffix: "",
   subheadlineParagraphs: [
     {
-      bold: "GiKA is the reasoning architecture that makes AI reliable for high-stakes decisions.",
+      bold: "GiKA is the reasoning architecture that makes AI reliable for revenue decisions.",
       rest: "",
     },
   ],
   belowDashboard: {
     bold: "GiKA helps revenue leaders make better decisions, faster",
-    rest: " from discovering and qualifying opportunities, to winning deals and generating RFP responses, to retaining and growing customers.",
+    rest: " - from discovering and qualifying opportunities, to winning deals and generating RFP responses, to retaining and growing customers.",
   },
   mainCTA: {
     content: "Explore Platform",
@@ -54,7 +54,7 @@ export default function Hero() {
 
           <SlideEffect
             delay={0}
-            className="text-base py-4 text-muted-foreground max-w-xl mx-auto space-y-3"
+            className="text-lg md:text-xl py-4 text-muted-foreground max-w-xl mx-auto space-y-3"
           >
             {settings.subheadlineParagraphs.map((paragraph, index) => (
               <p key={index}>
