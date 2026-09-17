@@ -44,7 +44,7 @@ const plans: Plan[] = [
       "Advanced connectors",
       "Standard support",
     ],
-    footnote: "*Data beyond this limit is processed using GiKA AI credits.",
+    footnote: "*Data beyond this limit is processed using GiKA AI credits. Minimum two months commitment.",
   },
   {
     name: "Professional",
