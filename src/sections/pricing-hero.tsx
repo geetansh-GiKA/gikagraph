@@ -30,14 +30,13 @@ type Plan = {
 const plans: Plan[] = [
   {
     name: "Foundation",
-    description: "The fastest way to run RFPs end to end every quarter.",
-    price: "$2,099",
-    period: "/quarter",
-    altPrice: "or $7,499/year (10%+ savings)",
+    description: "The fastest way to run RFPs end to end every month.",
+    price: "$699",
+    period: "/month",
     cta: "Get Started",
     href: "https://playground.GIKA.AI.ai",
     features: [
-      "15,000 GiKA AI credits/quarter",
+      "5,000 GiKA AI credits/month",
       "Up to 100k pages of unstructured documents*",
       "Up to 2M records of structured data*",
       "AI agents",
@@ -45,7 +44,7 @@ const plans: Plan[] = [
       "Advanced connectors",
       "Standard support",
     ],
-    footnote: "*Data beyond this limit is processed using GiKA AI credits. Minimum two quarters commitment.",
+    footnote: "*Data beyond this limit is processed using GiKA AI credits.",
   },
   {
     name: "Professional",

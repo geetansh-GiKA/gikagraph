@@ -9,8 +9,7 @@ const settings = {
   badge: { text: "Compare Plans" },
   headline: "Features and capabilities",
   description: "A closer look at what's included in every plan.",
-  footnote:
-    "¹ Minimum two quarters commitment. * Data beyond this limit is processed using GiKA AI credits.",
+  footnote: "* Data beyond this limit is processed using GiKA AI credits.",
 };
 
 const plans = ["Foundation", "Professional", "Enterprise"] as const;
@@ -20,15 +19,11 @@ type Cell = boolean | string;
 const rows: { feature: string; values: [Cell, Cell, Cell] }[] = [
   {
     feature: "Investment",
-    values: [
-      "$2,099/quarter¹ or $7,499/year (10%+ savings)",
-      "$19,999/year",
-      "Custom",
-    ],
+    values: ["$699/month", "$19,999/year", "Custom"],
   },
   {
     feature: "GiKA AI Credits",
-    values: ["15,000/quarter", "150,000/year", "Custom"],
+    values: ["5,000/month", "150,000/year", "Custom"],
   },
   {
     feature: "Knowledge Repository - Unstructured Documents",
