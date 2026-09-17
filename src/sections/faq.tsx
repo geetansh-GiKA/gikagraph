@@ -37,7 +37,7 @@ const settings = {
         "GiKA AI transforms fragmented data into actionable insights, helps detect market and competition shifts, ensures data ownership, and delivers quantifiable business impact with AI-powered decision intelligence.",
     },
     {
-      question: "Is there a free trial available?",
+      question: "Can I try GiKA AI before committing?",
       answer:
         "Yes. We offer a guided pilot program that allows you to experience the power of entity-aware AI in your own environment. Our deployment team sets everything up, connects your data, and lets your users try GiKA in real-world scenarios—so you can see the value in days, not months.",
     },

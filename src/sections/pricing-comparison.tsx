@@ -13,20 +13,14 @@ const settings = {
     "¹ Minimum two quarters commitment. * Data beyond this limit is processed using GiKA AI credits.",
 };
 
-const plans = [
-  "Free Trial",
-  "Foundation",
-  "Professional",
-  "Enterprise",
-] as const;
+const plans = ["Foundation", "Professional", "Enterprise"] as const;
 
 type Cell = boolean | string;
 
-const rows: { feature: string; values: [Cell, Cell, Cell, Cell] }[] = [
+const rows: { feature: string; values: [Cell, Cell, Cell] }[] = [
   {
     feature: "Investment",
     values: [
-      "Free (30 days)",
       "$2,099/quarter¹ or $7,499/year (10%+ savings)",
       "$19,999/year",
       "Custom",
@@ -34,38 +28,28 @@ const rows: { feature: string; values: [Cell, Cell, Cell, Cell] }[] = [
   },
   {
     feature: "GiKA AI Credits",
-    values: ["1,500", "15,000/quarter", "150,000/year", "Custom"],
+    values: ["15,000/quarter", "150,000/year", "Custom"],
   },
   {
     feature: "Knowledge Repository - Unstructured Documents",
-    values: [
-      "Up to 10k pages",
-      "Up to 100k pages*",
-      "Up to 500k pages*",
-      "Custom",
-    ],
+    values: ["Up to 100k pages*", "Up to 500k pages*", "Custom"],
   },
   {
     feature: "Knowledge Repository - Structured Data",
-    values: [
-      "Up to 500k records",
-      "Up to 2M records*",
-      "Up to 10M records*",
-      "Custom",
-    ],
+    values: ["Up to 2M records*", "Up to 10M records*", "Custom"],
   },
-  { feature: "AI Agents", values: [true, true, true, true] },
+  { feature: "AI Agents", values: [true, true, true] },
   {
     feature: "# of Users",
-    values: ["Up to 4", "Up to 8", "Up to 20", "To be quoted"],
+    values: ["Up to 8", "Up to 20", "To be quoted"],
   },
   {
     feature: "Connectors",
-    values: ["Standard", "Advanced", "Advanced", "Custom"],
+    values: ["Advanced", "Advanced", "Custom"],
   },
   {
     feature: "Support",
-    values: ["Standard", "Standard", "Dedicated", "Dedicated"],
+    values: ["Standard", "Dedicated", "Dedicated"],
   },
 ];
 
@@ -140,7 +124,7 @@ export default function PricingComparison() {
       >
         <div className="min-w-[720px] max-w-5xl mx-auto rounded-2xl border border-border bg-card">
           {/* Header row */}
-          <div className="grid grid-cols-5 border-b border-border">
+          <div className="grid grid-cols-4 border-b border-border">
             <div className="p-4 md:p-5" />
             {plans.map((plan) => (
               <div
@@ -156,7 +140,7 @@ export default function PricingComparison() {
           {rows.map((row, i) => (
             <div
               key={row.feature}
-              className={`grid grid-cols-5 items-center ${
+              className={`grid grid-cols-4 items-center ${
                 i !== rows.length - 1 ? "border-b border-border" : ""
               }`}
             >

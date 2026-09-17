@@ -11,7 +11,7 @@ const settings = {
   badge: { text: "Pricing" },
   headline: "Simple, Predictable Pricing",
   description:
-    "Start on a Free Trial and see real results in days. Move up when you're ready to connect your own knowledge bases.",
+    "Choose the plan that fits your team and see real results in days.",
 };
 
 type Plan = {
@@ -28,23 +28,6 @@ type Plan = {
 };
 
 const plans: Plan[] = [
-  {
-    name: "Free Trial",
-    description: "Try the full product on your own RFPs, no strings attached.",
-    price: "Free",
-    period: "30 days",
-    cta: "Get Started",
-    href: "https://playground.GIKA.AI.ai",
-    features: [
-      "1,500 GiKA AI credits",
-      "Up to 10k pages of unstructured documents",
-      "Up to 500k records of structured data",
-      "AI agents",
-      "Up to 4 users",
-      "Standard connectors",
-      "Standard support",
-    ],
-  },
   {
     name: "Foundation",
     description: "The fastest way to run RFPs end to end every quarter.",
@@ -126,7 +109,7 @@ export default function PricingHero() {
       </div>
 
       {/* Plans */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch max-w-7xl mx-auto">
         {plans.map((plan, index) => (
           <SlideEffect
             key={plan.name}
