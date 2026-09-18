@@ -9,7 +9,7 @@ const settings = {
     {
       icon: MapPin,
       title: "Find us",
-      text: "6854 Windsor way San Jose Ca 95129",
+      text: "7567 Amador Valley Blvd, STE 104, Dublin, CA 94568",
     },
     {
       icon: Mail,
