@@ -10,7 +10,7 @@ const settings = {
   headline: "Features and capabilities",
   description: "A closer look at what's included in every plan.",
   footnote:
-    "Minimum two months commitment. Data beyond this limit is processed using GiKA AI credits.",
+    "Minimum six months commitment. Data beyond this limit is processed using GiKA AI credits.",
 };
 
 const plans = ["Foundation", "Professional", "Enterprise"] as const;
