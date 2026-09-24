@@ -37,7 +37,7 @@ import { cn } from "@/lib/utils";
 
 const productLinks: NavItemType[] = [
   {
-    title: "Document Intelligence for CRO",
+    title: "Document Intelligence for Revenue Operations",
     href: "/platform",
     description:
       "The unified enterprise intelligence platform that extracts, structures, and connects insights across all your documents.",
@@ -153,10 +153,7 @@ export function Navbar() {
               <NavigationMenuContent className="left-auto right-0">
                 <ul className="grid w-[min(36rem,calc(100vw-2rem))] grid-cols-2 gap-4 p-4">
                   <li key={rfpOverviewLink.href}>
-                    <NavGridCard
-                      link={rfpOverviewLink}
-                      className="min-h-36"
-                    />
+                    <NavGridCard link={rfpOverviewLink} className="min-h-36" />
                   </li>
                   {productLinks.map((link) => (
                     <li key={link.href}>
@@ -202,9 +199,7 @@ export function Navbar() {
                 <NavigationMenuItem key={link.href}>
                   <Link
                     href={link.href}
-                    target={
-                      link.href.startsWith("http") ? "_blank" : undefined
-                    }
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
                     rel={
                       link.href.startsWith("http")
                         ? "noopener noreferrer"
