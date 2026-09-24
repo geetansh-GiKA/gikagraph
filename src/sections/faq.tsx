@@ -71,17 +71,6 @@ export default function FAQ() {
         >
           {settings.description}
         </SlideEffect>
-
-        <SlideEffect delay={0.15}>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link href={settings.secondaryCTA.href}>
-              <Button size="lg" variant="outline">
-                {settings.secondaryCTA.content}
-                <ArrowRight />
-              </Button>
-            </Link>
-          </div>
-        </SlideEffect>
       </div>
 
       {/* Questions */}
