@@ -11,7 +11,7 @@ const settings = {
   headlinePrefix: "",
   headlineHighlight: "Decision Intelligence",
   headlineMiddle: " Platform for your ",
-  headlineHighlight2: "Revenue Operations",
+  headlineHighlight2: "Revenue Office",
   headlineSuffix: "",
   subheadlineParagraphs: [
     {
@@ -93,9 +93,7 @@ export default function Hero() {
           </div>
         </SlideEffect>
 
-        <SlideEffect
-          className="text-base py-4 text-center text-muted-foreground max-w-xl mx-auto"
-        >
+        <SlideEffect className="text-base py-4 text-center text-muted-foreground max-w-xl mx-auto">
           <p>
             <span className="font-semibold text-foreground">
               {settings.belowDashboard.bold}
