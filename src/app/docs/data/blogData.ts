@@ -493,7 +493,7 @@ Built for high-stakes decisions, GiKA is designed for decisions where being appr
 
 GiKA is the world's leading Context Graph model, rooted in enterprise internal context, thus enabling accurate and reliable AI across enterprise-scale context for all timescales — delivering explainable, numerically consistent, decision-grade AI.
 
-Our framework enables accurate reasoning across enterprise-scale context, time, and evidence—delivering explainable, numerically consistent, decision-grade AI for the CRO office.
+Our framework enables accurate reasoning across enterprise-scale context, time, and evidence—delivering explainable, numerically consistent, decision-grade AI for the Revenue office.
 
 ## The Reasoning Architecture Behind Reliable AI
 
@@ -547,7 +547,6 @@ Let's start a conversation. Block your slot on the website, or simply drop a mes
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return blogPosts.find((post) => post.slug === slug);
 }
-
 
 export const categories = [
   { name: "All Posts", slug: "all" },
