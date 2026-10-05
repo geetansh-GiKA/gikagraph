@@ -34,7 +34,7 @@ const plans: Plan[] = [
     price: "$699",
     period: "/month",
     cta: "Get Started",
-    href: "https://playground.GIKA.AI.ai",
+    href: "https://playground.GIKA.ai",
     features: [
       "5,000 GiKA AI credits/month",
       "Up to 100k pages of unstructured documents*",
@@ -52,7 +52,7 @@ const plans: Plan[] = [
     price: "$19,999",
     period: "/year",
     cta: "Get Started",
-    href: "https://playground.GIKA.AI.ai",
+    href: "https://playground.GIKA.ai",
     highlighted: true,
     features: [
       "150,000 GiKA AI credits/year",
