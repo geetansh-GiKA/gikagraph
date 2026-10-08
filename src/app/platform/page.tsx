@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { PartyPopper } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import SlideEffect from "@/components/slide-effect";
