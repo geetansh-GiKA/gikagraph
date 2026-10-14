@@ -44,7 +44,7 @@ const productLinks: NavItemType[] = [
     icon: LayersIcon,
   },
   {
-    title: "RFP Discovery",
+    title: "Intelligent Proposal Discovery",
     href: "/rfp-discovery",
     description:
       "Continuously find and surface relevant RFP opportunities that match your business.",
@@ -53,7 +53,7 @@ const productLinks: NavItemType[] = [
 ];
 
 const rfpOverviewLink: NavItemType = {
-  title: "Request for Proposal",
+  title: "Intelligent Proposal Drafting",
   href: "/request-for-proposal",
   description: "End-to-end RFP automation, from intake to submission.",
   icon: ScrollText,
