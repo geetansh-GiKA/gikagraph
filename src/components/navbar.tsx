@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   AlignJustify,
+  Calculator,
   ScrollText,
   Building2,
   DollarSign,
@@ -82,6 +83,21 @@ const companyLinks: NavItemType[] = [
   },
 ];
 
+const pricingLinks: NavItemType[] = [
+  {
+    title: "Product Pricing",
+    href: "/pricing#product-pricing",
+    description: "Simple, predictable plans for your team",
+    icon: DollarSign,
+  },
+  {
+    title: "ROI Calculator",
+    href: "/pricing#roi-calculator",
+    description: "Estimate the savings GiKA brings to your business",
+    icon: Calculator,
+  },
+];
+
 const pricingLink: NavItemType = {
   title: "Pricing",
   href: "/pricing",
@@ -112,6 +128,7 @@ export function Navbar() {
   const isProductsActive =
     productLinks.some((link) => isActive(link.href)) ||
     isActive(rfpOverviewLink.href);
+  const isPricingActive = isActive(pricingLink.href);
   const isCompanyActive = companyLinks.some((link) => isActive(link.href));
 
   return (
@@ -165,15 +182,20 @@ export function Navbar() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link
-                href={pricingLink.href}
-                className={cn(
-                  "inline-flex w-max items-center justify-center rounded-md px-4 py-1 text-sm font-medium border border-transparent transition-[color,box-shadow,border-color] hover:border-foreground hover:bg-accent hover:text-accent-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 outline-none",
-                  isActive(pricingLink.href) && "text-primary",
-                )}
+              <NavigationMenuTrigger
+                className={cn(isPricingActive && "text-primary")}
               >
-                {pricingLink.title}
-              </Link>
+                Pricing
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className="left-auto right-0">
+                <ul className="grid w-[min(36rem,calc(100vw-2rem))] grid-cols-2 gap-4 p-4">
+                  {pricingLinks.map((link) => (
+                    <li key={link.href}>
+                      <NavGridCard link={link} className="min-h-36" />
+                    </li>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
@@ -268,15 +290,17 @@ export function Navbar() {
                   </li>
                 </ul>
 
+                <span className="px-2 text-xs font-medium text-muted-foreground uppercase">
+                  Pricing
+                </span>
                 <ul className="grid gap-1 mb-4">
-                  <li key={pricingLink.href}>
-                    <SheetClose asChild>
-                      <NavItemMobile
-                        item={pricingLink}
-                        href={pricingLink.href}
-                      />
-                    </SheetClose>
-                  </li>
+                  {pricingLinks.map((link) => (
+                    <li key={link.href}>
+                      <SheetClose asChild>
+                        <NavItemMobile item={link} href={link.href} />
+                      </SheetClose>
+                    </li>
+                  ))}
                 </ul>
 
                 <span className="px-2 text-xs font-medium text-muted-foreground uppercase">
