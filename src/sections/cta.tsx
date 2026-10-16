@@ -27,10 +27,6 @@ export default function CTA() {
         <div className="absolute inset-0 bg-grid -z-10 pointer-events-none" />
 
         <div className="relative flex flex-col items-center gap-5">
-          <SlideEffect>
-            <Badge text={settings.badge.text} Icon={PlayIcon}/>
-          </SlideEffect>
-
           <SlideEffect
             direction="top"
             className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter max-w-2xl mx-auto"
