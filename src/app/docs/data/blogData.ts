@@ -231,7 +231,7 @@ All grounded in how businesses think.
     readTime: 5,
     coverImage:
       "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
-    cta: { label: "See a Demo", href: "https://playground.GIKA.AI.ai" },
+    cta: { label: "See a Demo", href: "https://cal.com/gikagraph/30-mins" },
     featured: false,
     content: `
 ## What is GiKA GRAPH?

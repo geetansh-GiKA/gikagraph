@@ -34,7 +34,7 @@ const plans: Plan[] = [
     price: "$699",
     period: "/month",
     cta: "Get Started",
-    href: "https://playground.GIKA.ai",
+    href: "https://cal.com/gikagraph/30-mins",
     features: [
       "5,000 GiKA AI credits/month",
       "Up to 100k pages of unstructured documents*",
@@ -44,7 +44,8 @@ const plans: Plan[] = [
       "Advanced connectors",
       "Standard support",
     ],
-    footnote: "*Data beyond this limit is processed using GiKA AI credits. Minimum six months commitment.",
+    footnote:
+      "*Data beyond this limit is processed using GiKA AI credits. Minimum six months commitment.",
   },
   {
     name: "Professional",
@@ -52,7 +53,7 @@ const plans: Plan[] = [
     price: "$19,999",
     period: "/year",
     cta: "Get Started",
-    href: "https://playground.GIKA.ai",
+    href: "https://cal.com/gikagraph/30-mins",
     highlighted: true,
     features: [
       "150,000 GiKA AI credits/year",
