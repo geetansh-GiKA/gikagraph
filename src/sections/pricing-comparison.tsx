@@ -13,14 +13,14 @@ const settings = {
     "Minimum six months commitment. Data beyond this limit is processed using GiKA AI credits.",
 };
 
-const plans = ["Foundation", "Professional", "Enterprise"] as const;
+const plans = ["Starting", "Professional", "Enterprise"] as const;
 
 type Cell = boolean | string;
 
 const rows: { feature: string; values: [Cell, Cell, Cell] }[] = [
   {
     feature: "Investment",
-    values: ["$699/month¹", "$19,999/year", "Custom"],
+    values: ["$799/month¹", "$19,999/year", "Custom"],
   },
   {
     feature: "GiKA AI Credits",

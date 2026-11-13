@@ -29,9 +29,9 @@ type Plan = {
 
 const plans: Plan[] = [
   {
-    name: "Foundation",
+    name: "Starting",
     description: "The fastest way to run RFPs end to end every month.",
-    price: "$699",
+    price: "$799",
     period: "/month",
     cta: "Get Started",
     href: "https://cal.com/gikagraph/30-mins",
