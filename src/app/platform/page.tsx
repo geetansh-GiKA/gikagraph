@@ -94,9 +94,11 @@ export default function PlatformPage() {
             delay={0.1}
             className="px-2 sm:px-10 md:px-0 w-full md:max-w-2xl mx-auto text-sm lg:text-base text-muted-foreground"
           >
-            From connecting your data to automating your most complex workflows,
-            explore the features that make GiKA a complete platform for Decision
-            intelligence.
+            Analytically support critical revenue decisions by answering complex
+            business questions that require deep enterprise context - from
+            customer analysis to revenue analysis, from margin and pricing
+            insights to sales forecasting - get evidence-backed answers through
+            deep reasoning across your enterprise data.
           </SlideEffect>
         </div>
       </div>
