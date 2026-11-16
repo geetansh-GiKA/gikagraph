@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { domAnimation, LazyMotion } from "framer-motion";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "GiKA GRAPH - Entity Intelligence Platform",
@@ -45,6 +46,7 @@ export default function RootLayout({
         <LazyMotion features={domAnimation}>
           <div className="overflow-x-clip">{children}</div>
         </LazyMotion>
+        <Analytics />
       </body>
     </html>
   );
