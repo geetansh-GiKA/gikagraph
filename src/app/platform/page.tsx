@@ -36,7 +36,7 @@ export default function PlatformPage() {
                 <h1 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase leading-tight max-w-4xl">
                   Built for{" "}
                   <span className="bg-gradient-to-br from-black via-[#9868a8] to-[#c9a8d4] bg-clip-text text-transparent">
-                    Enterprise
+                    Decision
                   </span>{" "}
                   <span className="bg-gradient-to-br from-[#c9a8d4] via-[#c9a8d4] to-black bg-clip-text text-transparent">
                     Intelligence
@@ -95,8 +95,8 @@ export default function PlatformPage() {
             className="px-2 sm:px-10 md:px-0 w-full md:max-w-2xl mx-auto text-sm lg:text-base text-muted-foreground"
           >
             From connecting your data to automating your most complex workflows,
-            explore the features that make GiKA a complete platform for
-            enterprise intelligence.
+            explore the features that make GiKA a complete platform for Decision
+            intelligence.
           </SlideEffect>
         </div>
       </div>
