@@ -38,7 +38,7 @@ import { cn } from "@/lib/utils";
 
 const productLinks: NavItemType[] = [
   {
-    title: "Document Intelligence for Revenue Office",
+    title: "Decision Intelligence for Revenue Office",
     href: "/platform",
     description:
       "The unified enterprise intelligence platform that extracts, structures, and connects insights across all your documents.",
